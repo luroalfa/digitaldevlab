@@ -7,6 +7,7 @@ import { lightTheme, darkTheme } from './theme';
 import GlobalStyles from './styles/globalStyles';
 import 'antd/dist/reset.css';
 import Footer from './components/Footer';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -23,6 +24,7 @@ function App() {
         <Menu toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer />
       </Router>

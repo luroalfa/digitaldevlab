@@ -7,7 +7,7 @@ const SectionWrapper = styled.section`
   justify-content: space-between;
   align-items: center;
   padding: 50px 220px;
-  background-color: ${(props) => props.theme.colors.background}; 
+  background-color: ${(props) => props.theme.colors.primary}; 
   border-radius: 10px;
 
   @media (max-width: 1200px) {
@@ -90,22 +90,22 @@ const ImageWrapper = styled.div`
 `;
 
 const FreeConsultation = () => {
-    return (
-        <SectionWrapper>
-            <TextContent>
-                <Title>Asesoramiento en Desarrollo Web Gratis</Title>
-                <Description>
-                    ¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte.
-                    Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa.
-                    Optimiza tu presencia en línea y aumenta tu visibilidad con una plataforma moderna y profesional.
-                </Description>
-                <CallToAction href="/contacto">Solicita tu Asesoramiento Gratis</CallToAction>
-            </TextContent>
-            <ImageWrapper>
-                <img src={asesorImage} alt="Asesoramiento en Desarrollo Web" />
-            </ImageWrapper>
-        </SectionWrapper>
-    );
+  return (
+    <SectionWrapper>
+      <TextContent>
+        <Title>Asesoramiento en Desarrollo Web Gratis</Title>
+        <Description>
+          ¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte.
+          Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa.
+          Optimiza tu presencia en línea y aumenta tu visibilidad con una plataforma moderna y profesional.
+        </Description>
+        <CallToAction href="/contacto">Solicita tu Asesoramiento Gratis</CallToAction>
+      </TextContent>
+      <ImageWrapper>
+        <img src={asesorImage} alt="Asesoramiento en Desarrollo Web" />
+      </ImageWrapper>
+    </SectionWrapper>
+  );
 };
 
 export default FreeConsultation;

@@ -9,7 +9,6 @@ import FreeConsultation from '../../components/FreeConsultation';
 import PortfolioSection from '../../components/PortfolioSection';
 import Testimonials from '../../components/Testimonials';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
-import AboutUs from './sections/AboutUs';
 import IdentitySection from './sections/IdentitySection';
 
 const Home = () => {
@@ -17,15 +16,13 @@ const Home = () => {
         <div>
             <AboveTheFold />
             <Services />
-            <PortfolioSection />
             <Workflow />
+            <PortfolioSection />
             <PromotionalBanner />
             <FreeConsultation />
             <IdentitySection />
             <SupportBanner />
             <Testimonials />
-            <CTA />
-            <AboutUs />
             <FloatingButtons />
         </div>
     );

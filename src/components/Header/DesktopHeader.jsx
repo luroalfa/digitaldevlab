@@ -4,6 +4,7 @@ import LogoDark from '../../assets/logo-dark.svg';
 import LogoLight from '../../assets/logo-light.svg';
 import ThemeSwitch from '../ThemeSwitch';
 import TopBar from '../TopBar';
+import { Link } from 'react-router-dom';
 
 // Definir animación fadeInDown
 const fadeInDown = keyframes`
@@ -102,10 +103,10 @@ const DesktopHeader = ({ toggleTheme, isDarkTheme }) => {
           <h2>DIGITAL DEVLAB</h2>
         </LogoContainer>
         <ul>
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#about">Acerca de</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><Link to="/">Inicio</Link></li>
+          <li><Link to="/services">Servicios</Link></li>
+          <li><Link to="/about">Acerca de</Link></li>
+          <li><Link to="/contact">Contacto</Link></li>
         </ul>
         <ThemeSwitch toggleTheme={toggleTheme} />
       </DesktopNav>

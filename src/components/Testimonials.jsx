@@ -116,6 +116,7 @@ const TestimonialText = styled.p`
 const ReviewButtonWrapper = styled.div`
   margin-top: 40px;
   display: flex;
+  gap: 50px;
   justify-content: center;
 `;
 
@@ -197,6 +198,7 @@ const Testimonials = () => {
       {/* Botón para dejar una reseña */}
       <ReviewButtonWrapper>
         <ReviewButton href="/dejar-resena">Dejar una reseña</ReviewButton>
+        <ReviewButton href="/dejar-resena">Ver mas reseñas</ReviewButton>
       </ReviewButtonWrapper>
     </TestimonialsWrapper>
   );

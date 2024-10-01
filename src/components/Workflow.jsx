@@ -7,7 +7,7 @@ import workflowGif from '../assets/Timeline.gif'; // Ruta de tu imagen GIF
 // Contenedor principal de la sección
 const WorkflowSection = styled.section`
   padding: 80px 200px;
-  background-color: ${(props) => props.theme.colors.background}; /* Fondo basado en el tema */
+  background-color: ${(props) => props.theme.colors.primary}; /* Fondo basado en el tema */
   text-align: center;
 
   @media (max-width: 768px) {

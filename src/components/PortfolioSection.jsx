@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import backgroundImage from '../assets/background-digital-marketing.png';
+import backgroundImage from '../assets/background-digital-marketing.gif';
 import illustration from '../assets/rodriguezfallasluis.webp';
 
 // Estilos del contenedor principal con overlay
@@ -12,7 +12,6 @@ const SectionWrapper = styled.section`
   background-position: center;
   color: white;
   padding: 50px 200px;
-  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,8 +31,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1); 
   z-index: -1;
 `;
 
