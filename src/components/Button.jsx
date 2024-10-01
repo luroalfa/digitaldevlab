@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  width: 200px;
-  height: 50px;
-  background-color: ${(props) => props.theme.colors.secondary};  /* Color sólido */
-  color: ${(props) => props.theme.colors.primary};  /* Texto según el tema */
-  border-radius: 50px;
+  width: ${(props) => props.width || '200px'};  
+  height: ${(props) => props.height || '50px'};
+  background-color: ${(props) =>
+    props.theme.colors.backgroundButton};  /* Usar el color de atención según el tema */
+  color: ${(props) => props.theme.colors.textButton};  /* Texto según el tema */
+  border-radius: 5px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -45,10 +46,6 @@ const Button = styled.button`
     top: 50%;
   }
 
-  &:hover {
-    background-color: ${(props) => props.theme.colors.accent};  /* Color de fondo al hacer hover */
-    color: ${(props) => props.theme.colors.primary};  /* Cambia el color del texto en hover */
-  }
 `;
 
 export default Button;

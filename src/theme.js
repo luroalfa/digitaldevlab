@@ -10,6 +10,8 @@ export const lightTheme = {
     textOnAttention: '#000000', // Texto sobre el color de atención (ejemplo amarillo)
     textBackground: '#0A2540', // Texto sobre fondos claros (para mantener contraste)
     textPrimary: '#000000', // Texto sobre fondos claros (para mantener contraste)
+    backgroundButton: '#223243',
+    textButton: '#FFFFFF',
   },
   fonts: {
     heading: 'Bebas Neue, sans-serif',
@@ -27,6 +29,8 @@ export const darkTheme = {
     textOnAttention: '#000000', // Texto sobre el color de atención
     textBackground: '#FFFFFF', // Texto claro para fondos oscuros
     textPrimary: '#FFFFFF', // Texto sobre fondos oscuros (para mantener contraste)
+    backgroundButton: '#F5F5F5',
+    textButton: '#000000',
   },
   fonts: {
     heading: 'Bebas Neue, sans-serif',

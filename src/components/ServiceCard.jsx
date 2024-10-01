@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../components/Button';
 
 // Estilos del contenedor de la tarjeta
 const PlanCard = styled.div`
@@ -12,16 +13,20 @@ const PlanCard = styled.div`
   border-radius: 1rem;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  ${(props) =>
+    props.theme.colors.primary === '#0A2540' && `border: 1px solid rgba(255, 255, 255, 0.1); background-color: #2a3b4c;`
+  }
 `;
 
-// Estilos del título de la tarjeta
+
 const PlanTitle = styled.div`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.textPrimary};
-
+  font-weight: bold;
   .card_paragraph {
+    font-weight: normal;
     margin-top: 0.25rem;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     color: ${(props) => props.theme.colors.textSecondary};
   }
 `;
@@ -45,7 +50,7 @@ const BenefitsList = styled.ul`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: ${(props) => props.theme.colors.textPrimary};
     
     .check {
@@ -62,53 +67,6 @@ const BenefitsList = styled.ul`
         height: 0.75rem;
         fill: ${(props) => props.theme.colors.background};
       }
-    }
-  }
-`;
-
-// Estilos del enlace del botón
-const ButtonGetPlan = styled.a`
-  cursor: pointer;
-  padding: 0.5rem;
-  font-weight: bold;
-  width: 100%;
-  font-size: 1rem;
-  color: ${(props) => props.theme.colors.textPrimary};
-  background-color: #31d9f6;
-  border-radius: 20px;
-  text-align: center;
-  text-shadow: 0px 0px 1px black;
-  box-shadow: inset -1px -1px 3px white;
-  border: none;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-
-  &:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: linear-gradient(
-      120deg,
-      rgba(227, 227, 227, 0) 0%,
-      rgba(227, 227, 227, 0) 40%,
-      rgba(227, 227, 227, 0.5) 50%,
-      rgba(227, 227, 227, 0) 60%,
-      rgba(227, 227, 227, 0) 100%
-    );
-    animation: gradient-animation_2 2s linear infinite;
-  }
-
-  @keyframes gradient-animation_2 {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    100% {
-      transform: translateX(100%);
     }
   }
 `;
@@ -142,10 +100,10 @@ const ServiceCard = ({ title, description, benefits, buttonText, link }) => (
         </li>
       ))}
     </BenefitsList>
-    {/* Aquí pasamos el enlace del botón */}
-    <ButtonGetPlan href={link}>
-      {buttonText}
-    </ButtonGetPlan>
+    <Button width="100%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s" href={link}>
+      <span className="btn-text-one">{buttonText}</span>
+      <span className="btn-text-two">Ver más</span>
+    </Button>
   </PlanCard>
 );
 

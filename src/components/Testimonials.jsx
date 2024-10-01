@@ -93,10 +93,17 @@ const UserOccupation = styled.p`
   color: ${(props) => props.theme.colors.textSecondary};
 `;
 
-// Icono de Google
-const GoogleIcon = styled.img`
-  width: 20px;
-  margin-left: 10px;
+// Enlace del sitio web del usuario
+const UserWebsite = styled.a`
+  font-size: 0.9rem;
+  color: ${(props) => props.theme.colors.secondary};
+  margin-top: 5px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${(props) => props.theme.colors.accent};
+  }
 `;
 
 // Estrellas de calificación
@@ -110,6 +117,13 @@ const TestimonialText = styled.p`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.textPrimary};
   line-height: 1.4;
+`;
+
+// Logo de Google
+const GoogleLogoImage = styled.img`
+  width: 50px;
+  margin-top: 10px;
+  align-self: flex-start; /* Para alinearlo a la izquierda */
 `;
 
 // Estilos del botón para dejar una reseña
@@ -126,7 +140,6 @@ const ReviewButton = styled.a`
   padding: 10px 30px;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: bold;
   font-size: 1.2rem;
   transition: background-color 0.3s;
 
@@ -143,7 +156,7 @@ const Testimonials = () => {
       id: 1,
       name: 'Hilda Carvajal Miranda',
       occupation: 'Gerente de Ventas',
-      date: '5 de septiembre de 2018',
+      website: 'https://hildasales.com',
       rating: 5,
       testimonial: 'Genial sitio y muy responsables',
       userImage: 'https://randomuser.me/api/portraits/women/44.jpg', // Imagen de usuario estática
@@ -152,7 +165,7 @@ const Testimonials = () => {
       id: 2,
       name: 'Jason Ramírez',
       occupation: 'Desarrollador Web',
-      date: '22 de junio de 2021',
+      website: 'https://jasondevweb.com',
       rating: 5,
       testimonial: 'Super servicio, muy amables y profesionales.',
       userImage: 'https://randomuser.me/api/portraits/men/32.jpg', // Imagen de usuario estática
@@ -161,7 +174,7 @@ const Testimonials = () => {
       id: 3,
       name: 'Carolina Cunningham',
       occupation: 'Especialista en Marketing',
-      date: '22 de junio de 2017',
+      website: 'https://carolmarketing.com',
       rating: 5,
       testimonial: 'Proactivos, organizados, profesionales.',
       userImage: 'https://randomuser.me/api/portraits/women/65.jpg', // Imagen de usuario estática
@@ -182,7 +195,9 @@ const Testimonials = () => {
               <UserInfo>
                 <UserName>{testimonial.name}</UserName>
                 <UserOccupation>{testimonial.occupation}</UserOccupation>
-                <GoogleIcon src='https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png' alt="Google" />
+                <UserWebsite href={testimonial.website} target="_blank" rel="noopener noreferrer">
+                  Mi sitio web: {testimonial.website}
+                </UserWebsite>
               </UserInfo>
             </CardHeader>
             <StarRating>
@@ -191,6 +206,7 @@ const Testimonials = () => {
               ))}
             </StarRating>
             <TestimonialText>{testimonial.testimonial}</TestimonialText>
+            <GoogleLogoImage src='https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png' alt="Google Reviews" />
           </TestimonialCard>
         ))}
       </TestimonialsGrid>
@@ -198,7 +214,7 @@ const Testimonials = () => {
       {/* Botón para dejar una reseña */}
       <ReviewButtonWrapper>
         <ReviewButton href="/dejar-resena">Dejar una reseña</ReviewButton>
-        <ReviewButton href="/dejar-resena">Ver mas reseñas</ReviewButton>
+        <ReviewButton href="/ver-resenas">Ver más reseñas</ReviewButton>
       </ReviewButtonWrapper>
     </TestimonialsWrapper>
   );

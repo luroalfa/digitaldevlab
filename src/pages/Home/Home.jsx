@@ -1,7 +1,6 @@
 import React from 'react';
 import AboveTheFold from './sections/AboveTheFold';
-import Services from './sections/Services';  // Suponiendo que crees un componente Services
-import CTA from './sections/CTA';
+import Services from './sections/ServicesSection';
 import SupportBanner from '../../components/SupportBanner';
 import Workflow from '../../components/Workflow';
 import PromotionalBanner from '../../components/PromotionalBanner';

@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Badge } from 'antd';
 import ServiceCard from '../../../components/ServiceCard';
 import { Link } from 'react-router-dom';
+import Button from '../../../components/Button';
 
 // Animaciones keyframes
 const fadeIn = keyframes`
@@ -86,13 +87,8 @@ const ServicesGrid = styled.div`
 
 // Animación de los cards al hacer hover
 const ServiceCardWrapper = styled.div`
-  animation: ${({ $isVisible }) => ($isVisible ? scaleUp : 'none')} 1.3s ease-out; /* Cambia isVisible por $isVisible */
+  animation: ${({ $isVisible }) => ($isVisible ? scaleUp : 'none')} 1.3s ease-out; 
   transition: transform 0.5s ease, box-shadow 0.5s ease;
-  
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
 `;
 
 const BadgeRibbon = styled(Badge.Ribbon)`
@@ -109,7 +105,7 @@ const SeeAllServicesButton = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.4s ease-out; /* Cambia isVisible por $isVisible */
+  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.4s ease-out;
 
   a {
     background-color: #00bfff;
@@ -222,13 +218,24 @@ const Services = () => {
             link="/servicios/portafolio-digital"
           />
         </ServiceCardWrapper>
+
+        <ServiceCardWrapper $isVisible={isVisible}>
+          <ServiceCard
+            title="Menu Digital"
+            description="Especial para restaurantes"
+            benefits={["Diseño profesional", "Fácil de actualizar", "Optimizado para móviles"]}
+            buttonText="Crea tu menu"
+            link="/servicios/portafolio-digital"
+          />
+        </ServiceCardWrapper>
       </ServicesGrid>
 
       <CTAWrapper $isVisible={isVisible}>
         <p>¿No encontraste lo que buscas?</p>
-        <SeeAllServicesButton $isVisible={isVisible}>
-          <Link to="/servicios">Ver todos los servicios</Link>
-        </SeeAllServicesButton>
+        <Button className="animate__animated animate__bounceIn animate__delay-2s">
+          <span className="btn-text-one">Ver todos los servicios</span>
+          <span className="btn-text-two">Ir a servicios</span>
+        </Button>
       </CTAWrapper>
     </SectionWrapper>
   );

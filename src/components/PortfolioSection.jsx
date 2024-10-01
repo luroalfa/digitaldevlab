@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import backgroundImage from '../assets/background-digital-marketing.gif';
 import illustration from '../assets/rodriguezfallasluis.webp';
+import Button from '../components/Button'
 
 // Estilos del contenedor principal con overlay
 const SectionWrapper = styled.section`
@@ -187,14 +188,11 @@ const PortfolioSection = () => {
           <li>Funcionalidades personalizadas</li>
           <li>Mayor visibilidad profesional</li>
         </List>
-        <CallToAction
-          href="/contacto"
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          variants={fadeInVariants}
-        >
-          Solicita tu Asesoramiento Gratis
-        </CallToAction>
+        <Button width="100%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s">
+          <span className="btn-text-one">Solicita tu Asesoría Gratuita</span>
+          <span className="btn-text-two">Ver Planes de Servicios</span>
+        </Button>
+
       </TextContent>
     </SectionWrapper>
   );
