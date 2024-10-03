@@ -5,7 +5,7 @@ import { UserOutlined, SketchOutlined, CodeOutlined, BugOutlined, CloudUploadOut
 import workflowGif from '../../../assets/Timeline.gif'; // Ruta de tu imagen GIF
 
 // Contenedor principal de la sección
-const WorkflowSection = styled.section`
+const WorkflowContainer = styled.section`
   padding: 80px 200px;
   background-color: ${(props) => props.theme.colors.primary}; /* Fondo basado en el tema */
   text-align: center;
@@ -115,7 +115,7 @@ const GifWrapper = styled.div`
 `;
 
 // Componente principal
-const Workflow = () => {
+const WorkflowSection = () => {
   const timelineItems = [
     {
       label: "Reunión Inicial",
@@ -160,7 +160,7 @@ const Workflow = () => {
   ];
 
   return (
-    <WorkflowSection>
+    <WorkflowContainer>
       <Title>Flujo de Trabajo</Title>
       <Underline />
       <ContentWrapper>
@@ -177,8 +177,8 @@ const Workflow = () => {
           />
         </GifWrapper>
       </ContentWrapper>
-    </WorkflowSection>
+    </WorkflowContainer>
   );
 };
 
-export default Workflow;
+export default WorkflowSection;

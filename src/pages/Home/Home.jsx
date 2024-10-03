@@ -1,8 +1,8 @@
 import React from 'react';
 //Sections
 import AboveTheFold from './sections/AboveTheFold';
-import Services from './sections/ServicesSection';
-import Workflow from './sections/Workflow';
+import ServicesSection from './sections/ServicesSection';
+import WorkflowSection from './sections/WorkflowSection';
 import PortfolioSection from './sections/PortfolioSection';
 import PromotionalBanner from './sections/PromotionalBanner';
 import FreeConsultation from './sections/FreeConsultation';
@@ -17,8 +17,8 @@ const Home = () => {
     return (
         <>
             <AboveTheFold />
-            <Services />
-            <Workflow />
+            <ServicesSection />
+            <WorkflowSection />
             <PortfolioSection />
             <PromotionalBanner />
             <FreeConsultation />

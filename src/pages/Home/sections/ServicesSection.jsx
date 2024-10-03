@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Badge } from 'antd';
 import ServiceCard from '../../../components/ServiceCard';
-import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
 import { useTranslation } from 'react-i18next'; // Importa el hook
 
@@ -125,7 +124,7 @@ const CTAWrapper = styled.div`
   }
 `;
 
-const Services = () => {
+const ServicesSection = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
@@ -228,4 +227,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesSection;
