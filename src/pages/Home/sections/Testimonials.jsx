@@ -224,7 +224,6 @@ const Testimonials = () => {
       {/* Botón para dejar una reseña */}
       <ReviewButtonWrapper>
         <ReviewButton href="/dejar-resena">Dejar una reseña</ReviewButton>
-        <ReviewButton href="/ver-resenas">Ver más reseñas</ReviewButton>
       </ReviewButtonWrapper>
     </TestimonialsWrapper>
   );
