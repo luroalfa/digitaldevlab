@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import LogoDark from '../../assets/logo-dark.svg';
-import LogoLight from '../../assets/logo-light.svg';
-import ThemeSwitch from '../ThemeSwitch';
-import TopBar from '../../components/TopBar/TopBar';
+import LogoDark from '../../../assets/logo-dark.svg';
+import LogoLight from '../../../assets/logo-light.svg';
+import ThemeSwitch from '../../ThemeSwitch';
+import TopBar from './TopBar/TopBar';
 import { Link } from 'react-router-dom';
-import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcher from '../../LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
 // Definir animación fadeInDown

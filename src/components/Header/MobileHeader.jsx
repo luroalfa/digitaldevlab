@@ -9,9 +9,11 @@ const MobileNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: ${(props) => props.theme.colors.background};
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
 `;
 
 const HamburgerLabel = styled.label`
@@ -49,9 +51,8 @@ const StyledDrawer = styled(Drawer)`
     background-color: ${(props) => props.theme.colors.background};
   }
   .ant-drawer-body {
-    background-color: ${(props) => props.theme.colors.background} !important; /* Cambia esto al color deseado */
+    background-color: ${(props) => props.theme.colors.background} !important;
   }
-
 
   .ant-drawer-header {
     background-color: ${(props) => props.theme.colors.background};
@@ -83,11 +84,11 @@ const StyledDrawer = styled(Drawer)`
     font-size: 1.2rem;
     text-decoration: none;
     transition: color 0.3s ease;
-    }
-    `;
+  }
+`;
 
 const Title = styled.h2`
-    color: ${(props) => props.theme.colors.accent};
+  color: ${(props) => props.theme.colors.accent};
 `;
 
 const MobileHeader = ({ toggleTheme }) => {
@@ -100,7 +101,7 @@ const MobileHeader = ({ toggleTheme }) => {
   return (
     <>
       <MobileNav>
-        <Title >Digital DevLab</Title>
+        <Title>Digital DevLab</Title>
         <HamburgerLabel onClick={() => setVisible(!visible)}>
           <svg viewBox="0 0 32 32">
             <path
@@ -119,7 +120,14 @@ const MobileHeader = ({ toggleTheme }) => {
         onClose={onClose}
         open={visible}
       >
-        <div style={{ padding: '20px 0', display: 'flex', justifyContent: "space-between" }}> {/* Contenedor para los switches */}
+        <div
+          style={{
+            padding: '20px 0',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
+          {/* Contenedor para los switches */}
           <ThemeSwitch toggleTheme={toggleTheme} />
           <LanguageSwitcher />
         </div>
