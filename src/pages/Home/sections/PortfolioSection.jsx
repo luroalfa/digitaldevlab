@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import backgroundImage from '../assets/background-digital-marketing.gif';
-import illustration from '../assets/rodriguezfallasluis.webp';
-import Button from '../components/Button'
+import backgroundImage from '../../../assets/background-digital-marketing.gif';
+import illustration from '../../../assets/rodriguezfallasluis.webp';
+import Button from '../../../components/Button'
 
 // Estilos del contenedor principal con overlay
 const SectionWrapper = styled.section`

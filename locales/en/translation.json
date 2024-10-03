@@ -1,0 +1,77 @@
+{
+    "menu": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About",
+        "contact": "Contact",
+        "blog": "Blog"
+    },
+    "topBar": {
+        "phone": "Phone",
+        "address": "Address",
+        "email": "Email",
+        "specialOffer": "Take advantage of our special offer on web development services!",
+        "seeServices": "See services",
+        "offerEndsIn": "The offer ends in",
+        "days": "days"
+    },
+    "aboveTheFold": {
+        "welcome": "Welcome to",
+        "companyName": "Digital DevLab",
+        "description": "We develop innovative technological solutions that drive your business into the future.",
+        "quoteNow": "Quote Now",
+        "requestQuote": "Request Quote",
+        "learnMore": "Learn more about our services"
+    },
+    "serviceCard": {
+        "textButton": "See more"
+    },
+    "services": {
+        "title": "Our Services",
+        "description": "We offer a selection of our most requested services, tailored to drive your business towards technological success.",
+        "specialOffer": "Special Offer",
+        "webDevelopment": {
+            "title": "Basic Web Development",
+            "description": "Customized web solutions",
+            "benefits": [
+                "Responsive design across all devices.",
+                "Basic SEO optimization.",
+                "Support during development."
+            ],
+            "buttonText": "View web plans"
+        },
+        "linkPages": {
+            "title": "Link Pages",
+            "description": "Centralize all your links",
+            "benefits": [
+                "Easy management of all your links.",
+                "Style and functionality customization.",
+                "Continuous technical support."
+            ],
+            "buttonText": "Manage your links"
+        },
+        "portfolio": {
+            "title": "Digital Portfolio",
+            "description": "Showcase your work and skills online",
+            "benefits": [
+                "Professional design that highlights your work.",
+                "Easy management and updates.",
+                "Mobile optimized."
+            ],
+            "buttonText": "Create your portfolio"
+        },
+        "digitalMenu": {
+            "title": "Digital Menu",
+            "description": "Designed for restaurants",
+            "benefits": [
+                "Professional and attractive design.",
+                "Easily update your dishes and prices.",
+                "Mobile optimized."
+            ],
+            "buttonText": "Create your menu"
+        },
+        "ctaText": "Didn't find what you're looking for?",
+        "ctaButton": "View all services",
+        "ctaLink": "Go to services"
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import asesorImage from '../assets/img-webs.jpg'; // Cambia por la ruta de tu imagen
+import asesorImage from '../../../assets/img-webs.jpg';
 
 const SectionWrapper = styled.section`
   display: flex;

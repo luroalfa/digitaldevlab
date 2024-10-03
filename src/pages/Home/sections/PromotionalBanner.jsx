@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import promoImage from '../assets/Promotional.png';
+import promoImage from '../../../assets/Promotional.png';
 
 const BannerWrapper = styled.section`
   position: relative;
@@ -89,7 +89,6 @@ const PromotionalBanner = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log("Intersection Observer Entry:", entry); // Para depurar si está entrando al viewport
           if (entry.isIntersecting) {
             setIsVisible(true);
             observer.disconnect(); // Detener la observación una vez que se muestra

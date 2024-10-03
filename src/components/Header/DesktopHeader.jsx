@@ -3,8 +3,10 @@ import styled, { keyframes } from 'styled-components';
 import LogoDark from '../../assets/logo-dark.svg';
 import LogoLight from '../../assets/logo-light.svg';
 import ThemeSwitch from '../ThemeSwitch';
-import TopBar from '../TopBar';
+import TopBar from '../../components/TopBar/TopBar';
 import { Link } from 'react-router-dom';
+import LanguageSwitcher from '../LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 // Definir animación fadeInDown
 const fadeInDown = keyframes`
@@ -76,6 +78,7 @@ const LogoContainer = styled.div`
 `;
 
 const DesktopHeader = ({ toggleTheme, isDarkTheme }) => {
+  const { t } = useTranslation(); // Obtener la función de traducción
   const [isTopBarVisible, setIsTopBarVisible] = useState(true);
 
   useEffect(() => {
@@ -103,12 +106,16 @@ const DesktopHeader = ({ toggleTheme, isDarkTheme }) => {
           <h2>DIGITAL DEVLAB</h2>
         </LogoContainer>
         <ul>
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/services">Servicios</Link></li>
-          <li><Link to="/about">Acerca de</Link></li>
-          <li><Link to="/contact">Contacto</Link></li>
+          <li><Link to="/">{t('menu.home')}</Link></li>
+          <li><Link to="/services">{t('menu.services')}</Link></li>
+          <li><Link to="/about">{t('menu.about')}</Link></li>
+          <li><Link to="/contact">{t('menu.contact')}</Link></li>
+          <li><Link to="/blog">{t('menu.blog')}</Link></li>
         </ul>
-        <ThemeSwitch toggleTheme={toggleTheme} />
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '5px' }}>
+          <ThemeSwitch toggleTheme={toggleTheme} />
+          <LanguageSwitcher />
+        </div>
       </DesktopNav>
     </>
   );

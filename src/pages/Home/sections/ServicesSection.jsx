@@ -4,6 +4,7 @@ import { Badge } from 'antd';
 import ServiceCard from '../../../components/ServiceCard';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
+import { useTranslation } from 'react-i18next'; // Importa el hook
 
 // Animaciones keyframes
 const fadeIn = keyframes`
@@ -33,7 +34,7 @@ const SectionWrapper = styled.div`
   text-align: center;
   padding: 80px 20px;
   background-color: ${(props) => props.theme.colors.background};
-  opacity: ${({ $isVisible }) => ($isVisible ? '1' : '0')}; /* Cambia isVisible por $isVisible */
+  opacity: ${({ $isVisible }) => ($isVisible ? '1' : '0')};
   transition: opacity 0.5s ease-in-out;
 
   @media (max-width: 768px) {
@@ -41,20 +42,18 @@ const SectionWrapper = styled.div`
   }
 `;
 
-// Estilos para el título de la sección
 const Title = styled.h2`
-  color: ${(props) => props.theme.colors.accent}; 
+  color: ${(props) => props.theme.colors.accent};
   font-family: ${(props) => props.theme.fonts.heading};
   margin-bottom: 10px;
   font-size: 2.5rem;
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1s ease-out; /* Cambia isVisible por $isVisible */
+  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1s ease-out;
 
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
-// Estilos para la descripción de la sección
 const Description = styled.p`
   color: ${(props) => props.theme.colors.accent};
   font-family: ${(props) => props.theme.fonts.body};
@@ -62,7 +61,7 @@ const Description = styled.p`
   max-width: 800px;
   margin: 0 auto 40px auto;
   line-height: 1.6;
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.2s ease-out; /* Cambia isVisible por $isVisible */
+  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.2s ease-out;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -71,7 +70,6 @@ const Description = styled.p`
   }
 `;
 
-// Estilos para el contenedor de los servicios
 const ServicesGrid = styled.div`
   display: flex;
   gap: 30px;
@@ -85,7 +83,6 @@ const ServicesGrid = styled.div`
   }
 `;
 
-// Animación de los cards al hacer hover
 const ServiceCardWrapper = styled.div`
   animation: ${({ $isVisible }) => ($isVisible ? scaleUp : 'none')} 1.3s ease-out; 
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -100,34 +97,10 @@ const BadgeRibbon = styled(Badge.Ribbon)`
   `}
 `;
 
-// Estilos para el botón de ver todos los servicios
-const SeeAllServicesButton = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.4s ease-out;
-
-  a {
-    background-color: #00bfff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: white;
-    font-size: 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.5s ease;
-
-    &:hover {
-      background-color: #008fbf;
-      transform: translateY(-3px);
-    }
-  }
-`;
-
 const CTAWrapper = styled.div`
   margin-top: 30px;
   text-align: center;
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.5s ease-out; /* Cambia isVisible por $isVisible */
+  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1.5s ease-out;
 
   p {
     font-size: 1rem;
@@ -152,10 +125,10 @@ const CTAWrapper = styled.div`
   }
 `;
 
-// Componente Services con animaciones al estar en pantalla
 const Services = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -163,7 +136,7 @@ const Services = () => {
         const [entry] = entries;
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Se activa cuando el 10% del componente es visible
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -179,21 +152,23 @@ const Services = () => {
 
   return (
     <SectionWrapper ref={sectionRef} $isVisible={isVisible}>
-      <Title $isVisible={isVisible}>Nuestros Servicios</Title>
+      <Title $isVisible={isVisible}>{t('services.title')}</Title>
       <Description $isVisible={isVisible}>
-        Ofrecemos una selección de nuestros servicios más solicitados, diseñados a medida para impulsar tu negocio hacia el éxito tecnológico.
-        Ya sea que necesites un sitio web personalizado, una app móvil eficiente o una consultoría tecnológica, estamos aquí para ayudarte a alcanzar
-        nuevos niveles de eficiencia y crecimiento. Tu éxito es nuestra misión.
+        {t('services.description')}
       </Description>
 
       <ServicesGrid>
         <ServiceCardWrapper $isVisible={isVisible}>
-          <BadgeRibbon text="Oferta Especial" color="red">
+          <BadgeRibbon text={t('services.specialOffer')} color="red">
             <ServiceCard
-              title="Desarrollo Web Básico"
-              description="Soluciones web personalizadas"
-              benefits={["Diseño adaptable", "SEO básico", "Soporte limitado"]}
-              buttonText="Ver planes web"
+              title={t('services.webDevelopment.title')}
+              description={t('services.webDevelopment.description')}
+              benefits={[
+                t('services.webDevelopment.benefits.0'),
+                t('services.webDevelopment.benefits.1'),
+                t('services.webDevelopment.benefits.2'),
+              ]}
+              buttonText={t('services.webDevelopment.buttonText')}
               link="/servicios/desarrollo-web-basico"
             />
           </BadgeRibbon>
@@ -201,40 +176,52 @@ const Services = () => {
 
         <ServiceCardWrapper $isVisible={isVisible}>
           <ServiceCard
-            title="Páginas de enlaces"
-            description="Centraliza todos tus enlaces"
-            benefits={["Fácil gestión de enlaces", "Personalización", "Soporte técnico"]}
-            buttonText="Gestiona tus enlaces"
+            title={t('services.linkPages.title')}
+            description={t('services.linkPages.description')}
+            benefits={[
+              t('services.linkPages.benefits.0'),
+              t('services.linkPages.benefits.1'),
+              t('services.linkPages.benefits.2'),
+            ]}
+            buttonText={t('services.linkPages.buttonText')}
             link="/servicios/paginas-de-enlaces"
           />
         </ServiceCardWrapper>
 
         <ServiceCardWrapper $isVisible={isVisible}>
           <ServiceCard
-            title="Portafolio Digital"
-            description="Muestra tu trabajo y habilidades en línea"
-            benefits={["Diseño profesional", "Fácil de actualizar", "Optimizado para móviles"]}
-            buttonText="Crea tu portafolio"
+            title={t('services.portfolio.title')}
+            description={t('services.portfolio.description')}
+            benefits={[
+              t('services.portfolio.benefits.0'),
+              t('services.portfolio.benefits.1'),
+              t('services.portfolio.benefits.2'),
+            ]}
+            buttonText={t('services.portfolio.buttonText')}
             link="/servicios/portafolio-digital"
           />
         </ServiceCardWrapper>
 
         <ServiceCardWrapper $isVisible={isVisible}>
           <ServiceCard
-            title="Menu Digital"
-            description="Especial para restaurantes"
-            benefits={["Diseño profesional", "Fácil de actualizar", "Optimizado para móviles"]}
-            buttonText="Crea tu menu"
-            link="/servicios/portafolio-digital"
+            title={t('services.digitalMenu.title')}
+            description={t('services.digitalMenu.description')}
+            benefits={[
+              t('services.digitalMenu.benefits.0'),
+              t('services.digitalMenu.benefits.1'),
+              t('services.digitalMenu.benefits.2'),
+            ]}
+            buttonText={t('services.digitalMenu.buttonText')}
+            link="/servicios/menu-digital"
           />
         </ServiceCardWrapper>
       </ServicesGrid>
 
       <CTAWrapper $isVisible={isVisible}>
-        <p>¿No encontraste lo que buscas?</p>
+        <p>{t('services.ctaText')}</p>
         <Button className="animate__animated animate__bounceIn animate__delay-2s">
-          <span className="btn-text-one">Ver todos los servicios</span>
-          <span className="btn-text-two">Ir a servicios</span>
+          <span className="btn-text-one">{t('services.ctaButton')}</span>
+          <span className="btn-text-two">{t('services.ctaLink')}</span>
         </Button>
       </CTAWrapper>
     </SectionWrapper>

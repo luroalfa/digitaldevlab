@@ -1,18 +1,21 @@
 import React from 'react';
+//Sections
 import AboveTheFold from './sections/AboveTheFold';
 import Services from './sections/ServicesSection';
-import SupportBanner from '../../components/SupportBanner';
-import Workflow from '../../components/Workflow';
-import PromotionalBanner from '../../components/PromotionalBanner';
-import FreeConsultation from '../../components/FreeConsultation';
-import PortfolioSection from '../../components/PortfolioSection';
-import Testimonials from '../../components/Testimonials';
-import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
+import Workflow from './sections/Workflow';
+import PortfolioSection from './sections/PortfolioSection';
+import PromotionalBanner from './sections/PromotionalBanner';
+import FreeConsultation from './sections/FreeConsultation';
 import IdentitySection from './sections/IdentitySection';
+import SupportBanner from './sections/SupportBanner';
+import Testimonials from './sections/Testimonials';
+import BlogSection from './sections/BlogSection';
+//Components
+import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 
 const Home = () => {
     return (
-        <div>
+        <>
             <AboveTheFold />
             <Services />
             <Workflow />
@@ -22,8 +25,9 @@ const Home = () => {
             <IdentitySection />
             <SupportBanner />
             <Testimonials />
+            <BlogSection />
             <FloatingButtons />
-        </div>
+        </>
     );
 };
 

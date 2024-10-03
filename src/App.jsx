@@ -6,8 +6,10 @@ import Menu from './components/Header/Menu';
 import { lightTheme, darkTheme } from './theme';
 import GlobalStyles from './styles/globalStyles';
 import 'antd/dist/reset.css';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import AboutUs from './pages/AboutUs/AboutUs';
+import BlogPage from './pages/Blog/BlogPage';
+import './i18n';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -25,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
         <Footer />
       </Router>

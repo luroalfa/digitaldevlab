@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Timeline, Image } from 'antd';
 import { UserOutlined, SketchOutlined, CodeOutlined, BugOutlined, CloudUploadOutlined, SyncOutlined } from '@ant-design/icons';
-import workflowGif from '../assets/Timeline.gif'; // Ruta de tu imagen GIF
+import workflowGif from '../../../assets/Timeline.gif'; // Ruta de tu imagen GIF
 
 // Contenedor principal de la sección
 const WorkflowSection = styled.section`

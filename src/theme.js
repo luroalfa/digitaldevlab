@@ -12,6 +12,7 @@ export const lightTheme = {
     textPrimary: '#000000', // Texto sobre fondos claros (para mantener contraste)
     backgroundButton: '#223243',
     textButton: '#FFFFFF',
+    line: '#F5F5F5',
   },
   fonts: {
     heading: 'Bebas Neue, sans-serif',
@@ -31,6 +32,7 @@ export const darkTheme = {
     textPrimary: '#FFFFFF', // Texto sobre fondos oscuros (para mantener contraste)
     backgroundButton: '#F5F5F5',
     textButton: '#000000',
+    line: 'rgba(255, 255, 255, 0.1)',
   },
   fonts: {
     heading: 'Bebas Neue, sans-serif',

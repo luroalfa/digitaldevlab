@@ -4,6 +4,7 @@ import Button from '../../../components/Button';
 import { FaCode, FaLaptopCode, FaLightbulb } from 'react-icons/fa';
 import IllustrationScene05 from '../../../assets/Scenes05.svg';
 import 'animate.css';
+import { useTranslation } from 'react-i18next';
 
 // Keyframes para la animación de pulsación (zoom in y zoom out continuo)
 const pulse = keyframes`
@@ -163,20 +164,23 @@ const LearnMoreLink = styled.a`
 `;
 
 const AboveTheFold = () => {
+  const { t } = useTranslation();
   return (
     <AboveTheFoldSection>
       <Content className="animate__animated animate__fadeInDown">
-        <h1>Bienvenido a<br></br> <span>Digital DevLab</span></h1>
+        <h1>
+          {t('aboveTheFold.welcome')}<br /> <span>{t('aboveTheFold.companyName')}</span>
+        </h1>
         <p className="animate__animated animate__fadeInUp animate__delay-1s">
-          Desarrollamos soluciones tecnológicas innovadoras que impulsan tu negocio hacia el futuro.
+          {t('aboveTheFold.description')}
         </p>
         <Button className="animate__animated animate__bounceIn animate__delay-2s">
-          <span className="btn-text-one">Cotizar Ahora</span>
-          <span className="btn-text-two">Solicitar Cotización</span>
+          <span className="btn-text-one">{t('aboveTheFold.quoteNow')}</span>
+          <span className="btn-text-two">{t('aboveTheFold.requestQuote')}</span>
         </Button>
         <br />
         <LearnMoreLink href="#services" className="animate__animated animate__fadeInUp animate__delay-2s">
-          Aprende más sobre nuestros servicios
+          {t('aboveTheFold.learnMore')}
         </LearnMoreLink>
       </Content>
 

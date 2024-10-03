@@ -1,0 +1,77 @@
+{
+    "menu": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "blog": "Blog"
+    },
+    "topBar": {
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "email": "Email",
+        "specialOffer": "¡Aprovecha nuestra oferta especial en servicios de desarrollo web!",
+        "seeServices": "Ver servicios",
+        "offerEndsIn": "La oferta termina en",
+        "days": "días"
+    },
+    "aboveTheFold": {
+        "welcome": "Bienvenido a",
+        "companyName": "Digital DevLab",
+        "description": "Desarrollamos soluciones tecnológicas innovadoras que impulsan tu negocio hacia el futuro.",
+        "quoteNow": "Cotizar Ahora",
+        "requestQuote": "Solicitar Cotización",
+        "learnMore": "Aprende más sobre nuestros servicios"
+    },
+    "serviceCard": {
+        "textButton": "Ver más"
+    },
+    "services": {
+        "title": "Nuestros Servicios",
+        "description": "Ofrecemos una selección de nuestros servicios más solicitados, diseñados a medida para impulsar tu negocio hacia el éxito tecnológico.",
+        "specialOffer": "Oferta Especial",
+        "webDevelopment": {
+            "title": "Desarrollo Web Básico",
+            "description": "Soluciones web personalizadas",
+            "benefits": [
+                "Diseño responsive en todos los dispositivos.",
+                "Optimización SEO básica.",
+                "Soporte durante el desarrollo."
+            ],
+            "buttonText": "Ver planes web"
+        },
+        "linkPages": {
+            "title": "Páginas de enlaces",
+            "description": "Centraliza todos tus enlaces",
+            "benefits": [
+                "Gestión sencilla de todos tus enlaces.",
+                "Personalización de estilo y funcionalidades.",
+                "Soporte técnico continuo."
+            ],
+            "buttonText": "Gestiona tus enlaces"
+        },
+        "portfolio": {
+            "title": "Portafolio Digital",
+            "description": "Muestra tu trabajo y habilidades en línea",
+            "benefits": [
+                "Diseño profesional que resalta tu trabajo.",
+                "Gestión y actualizaciones sencillas.",
+                "Optimizado para móviles."
+            ],
+            "buttonText": "Crea tu portafolio"
+        },
+        "digitalMenu": {
+            "title": "Menú Digital",
+            "description": "Especial para restaurantes",
+            "benefits": [
+                "Diseño profesional y atractivo.",
+                "Actualiza fácilmente tus platos y precios.",
+                "Optimizado para dispositivos móviles."
+            ],
+            "buttonText": "Crea tu menú"
+        },
+        "ctaText": "¿No encontraste lo que buscas?",
+        "ctaButton": "Ver todos los servicios",
+        "ctaLink": "Ir a servicios"
+    }
+}

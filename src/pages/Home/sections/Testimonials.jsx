@@ -16,6 +16,7 @@ const Title = styled.h2`
   color: ${(props) => props.theme.colors.accent};
   margin-bottom: 40px;
   font-family: ${(props) => props.theme.fonts.heading};
+  font-weight: bold;
 `;
 
 // Descripción o introducción sobre los testimonios
@@ -26,6 +27,7 @@ const Description = styled.p`
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  font-style: italic; /* Añadimos cursiva para hacerlo más sutil */
 `;
 
 // Contenedor de los testimonios
@@ -81,9 +83,10 @@ const UserInfo = styled.div`
 
 // Nombre del usuario
 const UserName = styled.h4`
-  font-size: 1.2rem;
+  font-size: 1.5rem;  /* Aumentamos el tamaño del nombre */
   margin: 0;
   color: ${(props) => props.theme.colors.textPrimary};
+  font-weight: bold; /* Negrita para destacar el nombre */
 `;
 
 // Ocupación del usuario
@@ -91,6 +94,7 @@ const UserOccupation = styled.p`
   font-size: 1rem;
   margin: 5px 0;
   color: ${(props) => props.theme.colors.textSecondary};
+  font-style: italic; /* Cursiva para dar una jerarquía menor */
 `;
 
 // Enlace del sitio web del usuario
@@ -99,6 +103,7 @@ const UserWebsite = styled.a`
   color: ${(props) => props.theme.colors.secondary};
   margin-top: 5px;
   text-decoration: none;
+  font-weight: bold; /* Negrita para destacar el enlace al sitio web */
 
   &:hover {
     text-decoration: underline;
@@ -114,16 +119,17 @@ const StarRating = styled.div`
 
 // Texto del testimonio
 const TestimonialText = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: ${(props) => props.theme.colors.textPrimary};
   line-height: 1.4;
+  margin-top: 10px;
 `;
 
 // Logo de Google
 const GoogleLogoImage = styled.img`
   width: 50px;
-  margin-top: 10px;
-  align-self: flex-start; /* Para alinearlo a la izquierda */
+  margin-top: 20px;
+  align-self: center; /* Centramos el logo de Google */
 `;
 
 // Estilos del botón para dejar una reseña
@@ -155,15 +161,17 @@ const Testimonials = () => {
     {
       id: 1,
       name: 'Hilda Carvajal Miranda',
+      service: 'Portafolio',
       occupation: 'Gerente de Ventas',
       website: 'https://hildasales.com',
       rating: 5,
-      testimonial: 'Genial sitio y muy responsables',
+      testimonial: 'Genial sitio y muy responsables.',
       userImage: 'https://randomuser.me/api/portraits/women/44.jpg', // Imagen de usuario estática
     },
     {
       id: 2,
       name: 'Jason Ramírez',
+      service: 'Sitio Web',
       occupation: 'Desarrollador Web',
       website: 'https://jasondevweb.com',
       rating: 5,
@@ -173,7 +181,8 @@ const Testimonials = () => {
     {
       id: 3,
       name: 'Carolina Cunningham',
-      occupation: 'Especialista en Marketing',
+      service: 'Menu Digital',
+      occupation: 'Encargado de Restaurante',
       website: 'https://carolmarketing.com',
       rating: 5,
       testimonial: 'Proactivos, organizados, profesionales.',
@@ -195,8 +204,9 @@ const Testimonials = () => {
               <UserInfo>
                 <UserName>{testimonial.name}</UserName>
                 <UserOccupation>{testimonial.occupation}</UserOccupation>
+                <strong>Servicio:</strong> {testimonial.service}
                 <UserWebsite href={testimonial.website} target="_blank" rel="noopener noreferrer">
-                  Mi sitio web: {testimonial.website}
+                  {testimonial.website}
                 </UserWebsite>
               </UserInfo>
             </CardHeader>

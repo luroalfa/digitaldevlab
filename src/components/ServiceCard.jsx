@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import Button from '../components/Button';
+import Button from './Button';
+import { useTranslation } from 'react-i18next';
 
 // Estilos del contenedor de la tarjeta
 const PlanCard = styled.div`
@@ -8,7 +9,7 @@ const PlanCard = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  width: 19rem;
+  width: 22rem;
   background-color: ${(props) => props.theme.colors.background};
   border-radius: 1rem;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
@@ -18,9 +19,8 @@ const PlanCard = styled.div`
   }
 `;
 
-
 const PlanTitle = styled.div`
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: ${(props) => props.theme.colors.textPrimary};
   font-weight: bold;
   .card_paragraph {
@@ -31,15 +31,13 @@ const PlanTitle = styled.div`
   }
 `;
 
-// Línea separadora
 const Line = styled.hr`
   width: 100%;
-  height: 0.1rem;
+  height: 0.05rem;
   background-color: ${(props) => props.theme.colors.line};
   border: none;
 `;
 
-// Lista de beneficios
 const BenefitsList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -72,39 +70,43 @@ const BenefitsList = styled.ul`
 `;
 
 // Componente ServiceCard
-const ServiceCard = ({ title, description, benefits, buttonText, link }) => (
-  <PlanCard>
-    <PlanTitle>
-      {title}
-      <p className="card_paragraph">{description}</p>
-    </PlanTitle>
-    <Line />
-    <BenefitsList>
-      {benefits.map((benefit, index) => (
-        <li key={index}>
-          <span className="check">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="check_svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </span>
-          <span>{benefit}</span>
-        </li>
-      ))}
-    </BenefitsList>
-    <Button width="100%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s" href={link}>
-      <span className="btn-text-one">{buttonText}</span>
-      <span className="btn-text-two">Ver más</span>
-    </Button>
-  </PlanCard>
-);
+const ServiceCard = ({ title, description, benefits, buttonText, link }) => {
+  const { t } = useTranslation();
+
+  return (
+    <PlanCard>
+      <PlanTitle>
+        {title}
+        <p className="card_paragraph">{description}</p>
+      </PlanTitle>
+      <Line />
+      <BenefitsList>
+        {benefits.map((benefit, index) => (
+          <li key={index}>
+            <span className="check">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="check_svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </span>
+            <span>{benefit}</span>
+          </li>
+        ))}
+      </BenefitsList>
+      <Button width="100%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s" href={link}>
+        <span className="btn-text-one">{buttonText}</span>
+        <span className="btn-text-two">{t('serviceCard.textButton')}</span>
+      </Button>
+    </PlanCard>
+  )
+};
 
 export default ServiceCard;

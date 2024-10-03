@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import BannerBackground from '../assets/Banner.png'; // Ruta de la imagen
+import BannerBackground from '../../../assets/Banner.png';
 
 // Estilos del contenedor del banner
 const BannerWrapper = styled.section`
