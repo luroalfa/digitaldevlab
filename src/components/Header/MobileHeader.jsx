@@ -92,7 +92,7 @@ const Title = styled.h2`
 `;
 
 const MobileHeader = ({ toggleTheme }) => {
-  const [visible, setVisible] = useState(true); // Estado para controlar la visibilidad del drawer
+  const [visible, setVisible] = useState(false); // Estado para controlar la visibilidad del drawer
 
   const onClose = () => {
     setVisible(false); // Cerrar el drawer

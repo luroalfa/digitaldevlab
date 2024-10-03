@@ -12,19 +12,21 @@ import Testimonials from './sections/Testimonials';
 import BlogSection from './sections/BlogSection';
 //Components
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
+import FAQSection from './sections/FAQSection';
 
 const Home = () => {
     return (
         <>
             <AboveTheFold />
             <ServicesSection />
+            <PromotionalBanner />
             <WorkflowSection />
             <PortfolioSection />
-            <PromotionalBanner />
             <FreeConsultation />
             <IdentitySection />
             <SupportBanner />
             <Testimonials />
+            <FAQSection />
             <BlogSection />
             <FloatingButtons />
         </>

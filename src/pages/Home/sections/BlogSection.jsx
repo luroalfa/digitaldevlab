@@ -5,7 +5,7 @@ import blogImage from '../../../assets/highterorderfunction.png';// Imagen gené
 // Estilos del contenedor de la sección del blog
 const BlogSectionWrapper = styled.section`
   padding: 100px 15%;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.textPrimary};
 
   @media (max-width: 768px) {
@@ -86,24 +86,24 @@ const BlogButton = styled.a`
 `;
 
 const BlogSection = () => {
-    return (
-        <BlogSectionWrapper>
-            <h2>Explora Nuestro Blog</h2>
-            <p>Visita nuestro blog para descubrir artículos inspiradores, consejos de productividad y recursos valiosos para mejorar tu día a día.</p>
+  return (
+    <BlogSectionWrapper>
+      <h2>Explora Nuestro Blog</h2>
+      <p>Visita nuestro blog para descubrir artículos inspiradores, consejos de productividad y recursos valiosos para mejorar tu día a día.</p>
 
-            <BlogPreview>
-                <BlogImage src={blogImage} alt="Vista previa del blog" />
-                <BlogContent>
-                    <h3>Descubre Historias y Consejos Inspiradores</h3>
-                    <p>
-                        Explora nuestras guías sobre desarrollo personal, productividad, y relatos de personas que han superado grandes desafíos.
-                        Encuentra inspiración y recursos que te ayudarán a mejorar en diferentes aspectos de tu vida.
-                    </p>
-                    <BlogButton href="/blog">Visitar el Blog</BlogButton>
-                </BlogContent>
-            </BlogPreview>
-        </BlogSectionWrapper>
-    );
+      <BlogPreview>
+        <BlogImage src={blogImage} alt="Vista previa del blog" />
+        <BlogContent>
+          <h3>Descubre Historias y Consejos Inspiradores</h3>
+          <p>
+            Explora nuestras guías sobre desarrollo personal, productividad, y relatos de personas que han superado grandes desafíos.
+            Encuentra inspiración y recursos que te ayudarán a mejorar en diferentes aspectos de tu vida.
+          </p>
+          <BlogButton href="/blog">Visitar el Blog</BlogButton>
+        </BlogContent>
+      </BlogPreview>
+    </BlogSectionWrapper>
+  );
 };
 
 export default BlogSection;
