@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Carousel, List } from 'antd';
 import TitleSection from '../../../components/TitleSection';
 import Button from '../../../components/Button';
@@ -18,7 +17,7 @@ const SectionWrapper = styled.section`
 `;
 
 // Contenedor de la sección de contenido
-const ContentWrapper = styled(motion.div)`
+const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -32,7 +31,7 @@ const ContentWrapper = styled(motion.div)`
 `;
 
 // Contenedor de texto
-const TextContent = styled(motion.div)`
+const TextContent = styled.div`
   flex: 1;
   padding: 0 20px;
 
@@ -44,7 +43,7 @@ const TextContent = styled(motion.div)`
 `;
 
 // Párrafo de descripción
-const Description = styled(motion.p)`
+const Description = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
   color: ${(props) => props.theme.colors.textPrimary};
@@ -57,7 +56,7 @@ const Description = styled(motion.p)`
 `;
 
 // Imagen ilustrativa
-const ImageWrapper = styled(motion.div)`
+const ImageWrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
@@ -70,7 +69,7 @@ const ImageWrapper = styled(motion.div)`
 `;
 
 // Botón de llamada a la acción
-const CallToAction = styled(motion.a)`
+const CallToAction = styled.a`
   display: inline-block;
   padding: 15px 30px;
   background-color: ${(props) => props.theme.colors.secondary};
@@ -104,40 +103,8 @@ const ListItem = styled(List.Item)`
   align-items: center;
 `;
 
-// Componente de Identidad Corporativa con animaciones y responsive
+// Componente de Identidad Corporativa sin animaciones ni observer
 const IdentitySection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const fadeInVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] } },
-  };
-
   const benefits = [
     'Diseño de logos personalizados',
     'Manual de marca completo',
@@ -146,34 +113,23 @@ const IdentitySection = () => {
   ];
 
   return (
-    <SectionWrapper ref={sectionRef}>
-      <TitleSection titleText="Identidad Corporativa" isVisible={true} initial="hidden" animate={isVisible ? "visible" : "hidden"} variants={fadeInVariants} />
+    <SectionWrapper>
+      <TitleSection titleText="Identidad Corporativa" isVisible={true} />
 
-      <ContentWrapper
-        initial="hidden"
-        animate={isVisible ? "visible" : "hidden"}
-        variants={fadeInVariants}
-      >
+      <ContentWrapper>
         {/* Imagen ilustrativa (carrusel) */}
         <ImageWrapper>
           <Carousel arrows dotPosition="left" vertical={true} autoplay style={{ width: '100%' }}>
             <div>
               <img
-                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Branding1.png"
+                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio1.webp"
                 alt="Ilustración de identidad corporativa"
                 style={{ width: '100%', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)' }}
               />
             </div>
             <div>
               <img
-                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Branding2.png"
-                alt="Ilustración de identidad corporativa"
-                style={{ width: '100%', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)' }}
-              />
-            </div>
-            <div>
-              <img
-                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Branding3.png"
+                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio2.webp"
                 alt="Ilustración de identidad corporativa"
                 style={{ width: '100%', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)' }}
               />
@@ -194,15 +150,13 @@ const IdentitySection = () => {
           <List
             header={<ListHeader>Beneficios de trabajar con nosotros:</ListHeader>}
             dataSource={benefits}
-            renderItem={item => (
-              <ListItem>
-                {item}
-              </ListItem>
+            renderItem={(item) => (
+              <ListItem>{item}</ListItem>
             )}
           />
           <Button width="50%" height="35px">
             <span className="btn-text-one">Solicita tu consulta gratuita</span>
-            <span className="btn-text-two">Ver mas</span>
+            <span className="btn-text-two">Ver más</span>
           </Button>
         </TextContent>
       </ContentWrapper>

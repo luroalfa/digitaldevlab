@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { List, Typography, Carousel } from 'antd'; // Importamos List, Typography y Carousel de Ant Design
-import { motion } from 'framer-motion';
+import { List, Typography, Carousel } from 'antd';
 import { useTranslation } from 'react-i18next';
 import backgroundImage from '../../../assets/background-digital-marketing.gif';
 import Button from '../../../components/Button';
@@ -39,7 +38,7 @@ const Overlay = styled.div`
 `;
 
 // Estilos del contenedor de texto
-const TextContent = styled(motion.div)`
+const TextContent = styled.div`
   max-width: 50%;
   @media (max-width: 768px) {
     max-width: 100%;
@@ -51,10 +50,11 @@ const TextContent = styled(motion.div)`
 const CarouselWrapper = styled.div`
   max-width: 50%;
   z-index: 2;
+  opacity: ${({ $isLoaded }) => ($isLoaded ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
+  
   .ant-carousel .slick-slide {
     text-align: center;
-    // height: 400px;
-    // line-height: 400px;
     background: #364d79;
     overflow: hidden; 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
@@ -65,11 +65,11 @@ const CarouselWrapper = styled.div`
       height: auto;
       object-fit: cover;
     }
+
     @media (max-width: 768px) {
       height: auto;
       line-height: normal; 
     }
-  
   }
 
   @media (max-width: 768px) {
@@ -84,41 +84,13 @@ const CallToActionWrapper = styled.div`
 `;
 
 const PortfolioSection = () => {
-  const { t } = useTranslation();  // Hook para acceder a las traducciones
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const { t } = useTranslation();
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          } else {
-            setIsVisible(false);
-          }
-        });
-      },
-      { threshold: 0.1 } // Ajusta el umbral de visibilidad
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const fadeInVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] } },
+  const handleImageLoad = () => {
+    setIsLoaded(true);
   };
 
-  // Obtén la lista de características
   const features = [
     t('portfolioSection.listItems.item1'),
     t('portfolioSection.listItems.item2'),
@@ -128,54 +100,32 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <SectionWrapper ref={sectionRef}>
+    <SectionWrapper>
       <Overlay />
-      {/* Reemplazamos la imagen estática por el carrusel */}
-      <CarouselWrapper>
+      <CarouselWrapper $isLoaded={isLoaded}>
         <Carousel autoplay>
           <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio1.png" alt="Imagen 1" />
+            <img
+              src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio1.webp"
+              alt="Imagen 1"
+              onLoad={handleImageLoad}
+            />
           </div>
           <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio2.png" alt="Imagen 2" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio3.png" alt="Imagen 3" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio4.png" alt="Imagen 4" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio5.png" alt="Imagen 5" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio6.png" alt="Imagen 6" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio7.png" alt="Imagen 7" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio8.png" alt="Imagen 8" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio9.png" alt="Imagen 9" />
-          </div>
-          <div>
-            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio10.png" alt="Imagen 10" />
+            <img
+              src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio2.webp"
+              alt="Imagen 2"
+              onLoad={handleImageLoad}
+            />
           </div>
         </Carousel>
       </CarouselWrapper>
-      <TextContent
-        initial="hidden"
-        animate={isVisible ? "visible" : "hidden"}
-        variants={fadeInVariants}
-      >
+      {!isLoaded && <p>Cargando imágenes...</p>}
+      <TextContent>
         <TitleSection titleText={t('portfolioSection.title')} isVisible={true} customColor="#ffffff" />
         <Typography.Title level={2} style={{ color: '#fff' }}>
           {t('portfolioSection.subTitle')}
         </Typography.Title>
-
-        {/* Usamos Ant Design List component */}
         <List
           bordered
           dataSource={features}
@@ -186,7 +136,6 @@ const PortfolioSection = () => {
           )}
           style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', borderColor: 'rgba(255, 255, 255, 0.3)' }}
         />
-
         <CallToActionWrapper>
           <Button $customColor="#ffffff" $customTextColor="#000000" width="100%" height="35px">
             <span className="btn-text-one">{t('portfolioSection.ctaPrimary')}</span>
