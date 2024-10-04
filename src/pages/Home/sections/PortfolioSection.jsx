@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { List, Typography } from 'antd'; // Importamos List y Typography de Ant Design
+import { List, Typography, Carousel } from 'antd'; // Importamos List, Typography y Carousel de Ant Design
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import backgroundImage from '../../../assets/background-digital-marketing.gif';
-import illustration from '../../../assets/rodriguezfallasluis.webp';
 import Button from '../../../components/Button';
 import TitleSection from '../../../components/TitleSection';
+import Img1 from '../../../assets/portfolio1.png'
+import Img2 from '../../../assets/portfolio2.png'
+import Img3 from '../../../assets/portfolio3.png'
+import Img4 from '../../../assets/portfolio4.png'
 
 // Estilos del contenedor principal con overlay
 const SectionWrapper = styled.section`
@@ -48,15 +51,26 @@ const TextContent = styled(motion.div)`
   }
 `;
 
-// Estilos para la imagen
-const ImageWrapper = styled(motion.div)`
+// Estilos para el carrusel de imágenes
+const CarouselWrapper = styled.div`
   max-width: 50%;
-  img {
-    max-width: 80%;
-    height: auto;
+  z-index: 2;
+  .ant-carousel .slick-slide {
+    text-align: center;
+    height: 400px;
+    line-height: 400px;
+    background: #364d79;
+    overflow: hidden;
     border-radius: 15px; 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 15px;
+    }
 
     &:hover {
       transform: scale(1.05);
@@ -91,7 +105,7 @@ const PortfolioSection = () => {
           }
         });
       },
-      { threshold: 0.2 } // Ajusta el umbral de visibilidad
+      { threshold: 0.1 } // Ajusta el umbral de visibilidad
     );
 
     if (sectionRef.current) {
@@ -122,13 +136,23 @@ const PortfolioSection = () => {
   return (
     <SectionWrapper ref={sectionRef}>
       <Overlay />
-      <ImageWrapper
-        initial="hidden"
-        animate={isVisible ? "visible" : "hidden"}
-        variants={fadeInVariants}
-      >
-        <img src={illustration} alt={t('portfolioSection.title')} />
-      </ImageWrapper>
+      {/* Reemplazamos la imagen estática por el carrusel */}
+      <CarouselWrapper>
+        <Carousel autoplay>
+          <div>
+            <img src={Img1} alt="Imagen 1" />
+          </div>
+          <div>
+            <img src={Img2} alt="Imagen 2" />
+          </div>
+          <div>
+            <img src={Img3} alt="Imagen 3" />
+          </div>
+          <div>
+            <img src={Img4} alt="Imagen 4" />
+          </div>
+        </Carousel>
+      </CarouselWrapper>
       <TextContent
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
