@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import promoImage from '../../../assets/Promotional.png';
+import { useTranslation } from 'react-i18next';
 
 const BannerWrapper = styled.section`
   position: relative;
@@ -84,6 +85,7 @@ const BannerButton = styled(motion.a)`
 const PromotionalBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -130,9 +132,9 @@ const PromotionalBanner = () => {
           animate={isVisible ? "visible" : "hidden"}
           variants={fadeInVariants}
         >
-          Aumenta tu visibilidad y atrae nuevos clientes con un <em>Sitio Web</em> disponible las 24 horas.
+          {t('promotionalBanner.bannerText')}
           <br />
-          <span> ¡Empieza hoy mismo desde 50,000 CRC!</span>
+          <span>{t('promotionalBanner.highlightText')}</span>
         </BannerText>
         <BannerButton
           href="/contacto"
@@ -140,7 +142,7 @@ const PromotionalBanner = () => {
           animate={isVisible ? "visible" : "hidden"}
           variants={fadeInVariants}
         >
-          Empezar Ahora
+          {t("promotionalBanner.buttonText")}
         </BannerButton>
       </BannerContent>
     </BannerWrapper>

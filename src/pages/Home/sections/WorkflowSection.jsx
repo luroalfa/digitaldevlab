@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Timeline, Image } from 'antd';
 import { UserOutlined, SketchOutlined, CodeOutlined, BugOutlined, CloudUploadOutlined, SyncOutlined } from '@ant-design/icons';
-import workflowGif from '../../../assets/Timeline.gif'; // Ruta de tu imagen GIF
+import workflowGif from '../../../assets/Timeline.gif';
 import TitleSection from '../../../components/TitleSection';
+import { useTranslation } from 'react-i18next';
 
 // Contenedor principal de la sección
 const WorkflowContainer = styled.section`
@@ -41,6 +42,7 @@ const Underline = styled.div`
 const WorkflowTimeline = styled(Timeline)`
   flex: 2; /* Aumentamos el espacio del timeline */
   max-width: 800px;
+  min-width: 300px;
   margin: 0 auto;
   text-align: left;
 
@@ -105,69 +107,69 @@ const GifWrapper = styled.div`
 
 // Componente principal
 const WorkflowSection = () => {
+  const { t } = useTranslation(); // Usamos el hook de traducción
+
   const timelineItems = [
     {
-      label: "Reunión Inicial",
+      label: t('workflow.initialMeeting'), // Texto traducido
       dot: <UserOutlined />,
-      children: "Comprender las necesidades del cliente.",
+      children: t('workflow.understandClientNeeds'), // Texto traducido
     },
     {
-      label: "Planeación",
+      label: t('workflow.planning'),
       dot: <SketchOutlined />,
-      children: "Definir objetivos y plazos del proyecto.",
+      children: t('workflow.defineGoalsAndDeadlines'),
     },
     {
-      label: "Diseño",
+      label: t('workflow.design'),
       dot: <SketchOutlined />,
-      children: "Crear maquetas y definir la experiencia de usuario (UX/UI).",
+      children: t('workflow.createWireframes'),
     },
     {
-      label: "Desarrollo",
+      label: t('workflow.development'),
       dot: <CodeOutlined />,
-      children: "Implementar la solución técnica.",
+      children: t('workflow.implementSolution'),
     },
     {
-      label: "Pruebas",
+      label: t('workflow.testing'),
       dot: <BugOutlined />,
-      children: "Verificar la calidad y corregir errores.",
+      children: t('workflow.verifyAndFixBugs'),
     },
     {
-      label: "Revisión",
+      label: t('workflow.review'),
       dot: <SyncOutlined />,
-      children: "Presentar y recibir feedback del cliente.",
+      children: t('workflow.presentAndFeedback'),
     },
     {
-      label: "Despliegue",
+      label: t('workflow.deployment'),
       dot: <CloudUploadOutlined />,
-      children: "Publicar el proyecto en el entorno de producción.",
+      children: t('workflow.publishProject'),
     },
     {
-      label: "Soporte y Mantenimiento",
+      label: t('workflow.support'),
       dot: <SyncOutlined />,
-      children: "Mantener y mejorar la solución.",
+      children: t('workflow.maintenance'),
     },
   ];
 
   return (
     <WorkflowContainer>
-      <TitleSection titleText="Flujo de Trabajo" isVisible={true} />
+      <TitleSection titleText={t('workflow.workflowTitle')} isVisible={true} />
       <Underline />
       <ContentWrapper>
-        {/* Componente Timeline */}
         <WorkflowTimeline mode="alternate" items={timelineItems} />
-
-        {/* Imagen GIF con opción de vista previa al hacer clic */}
         <GifWrapper>
           <Image
-            width={600} /* Ajustamos el tamaño de la imagen para que sea más grande */
+            width={600}
             src={workflowGif}
-            alt="Proceso de trabajo"
-            preview={true} /* Habilita la vista previa al hacer clic */
+            alt={t('workflow.processImageAlt')}
+            preview={true}
           />
         </GifWrapper>
       </ContentWrapper>
     </WorkflowContainer>
   );
 };
+
 
 export default WorkflowSection;

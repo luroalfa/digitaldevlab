@@ -4,8 +4,9 @@ const Button = styled.button`
   width: ${(props) => props.width || '200px'};  
   height: ${(props) => props.height || '50px'};
   background-color: ${(props) =>
-    props.theme.colors.backgroundButton};  /* Usar el color de atención según el tema */
-  color: ${(props) => props.theme.colors.textButton};  /* Texto según el tema */
+    props.$customColor ? props.$customColor : props.theme.colors.backgroundButton};  /* Usar el color de atención según el tema o el customColor */
+  color: ${(props) =>
+    props.$customTextColor ? props.$customTextColor : props.theme.colors.textButton};  /* Texto según el tema */
   border-radius: 5px;
   border: none;
   outline: none;
@@ -45,7 +46,6 @@ const Button = styled.button`
   &:hover .btn-text-two {
     top: 50%;
   }
-
 `;
 
 export default Button;

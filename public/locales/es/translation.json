@@ -73,5 +73,43 @@
         "ctaText": "¿No encontraste lo que buscas?",
         "ctaButton": "Ver todos los servicios",
         "ctaLink": "Ir a servicios"
+    },
+    "promotionalBanner": {
+        "bannerText": "Aumenta tu visibilidad y atrae nuevos clientes con un Sitio Web disponible las 24 horas.",
+        "highlightText": "¡Empieza hoy mismo desde 50,000 CRC!",
+        "buttonText": "Empezar Ahora"
+    },
+    "workflow": {
+        "workflowTitle": "Flujo de Trabajo",
+        "initialMeeting": "Reunión Inicial",
+        "understandClientNeeds": "Comprender las necesidades del cliente.",
+        "planning": "Planeación",
+        "defineGoalsAndDeadlines": "Definir objetivos y plazos del proyecto.",
+        "design": "Diseño",
+        "createWireframes": "Crear maquetas y definir la experiencia de usuario (UX/UI).",
+        "development": "Desarrollo",
+        "implementSolution": "Implementar la solución técnica.",
+        "testing": "Pruebas",
+        "verifyAndFixBugs": "Verificar la calidad y corregir errores.",
+        "review": "Revisión",
+        "presentAndFeedback": "Presentar y recibir feedback del cliente.",
+        "deployment": "Despliegue",
+        "publishProject": "Publicar el proyecto en el entorno de producción.",
+        "support": "Soporte y Mantenimiento",
+        "maintenance": "Mantener y mejorar la solución.",
+        "processImageAlt": "Proceso de trabajo"
+    },
+    "portfolioSection": {
+        "title": "PORTAFOLIO DIGITAL",
+        "subTitle": "¡Crea tu portafolio profesional en línea!",
+        "listItems": {
+            "item1": "Diseño a medida",
+            "item2": "Fácil de actualizar",
+            "item3": "Optimizado para dispositivos móviles",
+            "item4": "Funcionalidades personalizadas",
+            "item5": "Mayor visibilidad profesional"
+        },
+        "ctaPrimary": "Solicita tu Asesoría Gratuita",
+        "ctaSecondary": "Ver Planes de Servicios"
     }
 }

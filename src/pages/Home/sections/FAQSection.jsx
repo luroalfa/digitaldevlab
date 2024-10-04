@@ -1,10 +1,8 @@
 import React from 'react';
 import { Collapse } from 'antd';
 import styled, { useTheme } from 'styled-components';
-import faqImage from '../../../assets/faq.jpg'; // Asegúrate de reemplazar esto con la ruta de tu imagen
+import faqImage from '../../../assets/faq.jpg';
 import TitleSection from '../../../components/TitleSection';
-
-const { Panel } = Collapse;
 
 const FAQSectionWrapper = styled.section`
   display: flex;
@@ -27,17 +25,6 @@ const FAQTitleWrapper = styled.div`
   @media (max-width: 768px) {
     margin-right: 0;
     margin-bottom: 30px;
-  }
-`;
-
-const FAQTitle = styled.h2`
-  font-size: 2rem;
-  font-family: ${({ theme }) => theme.fonts.heading};
-  color: ${({ theme }) => theme.colors.accent};
-  margin-bottom: 20px;
-
-  @media (max-width: 480px) {
-    font-size: 1.75rem;
   }
 `;
 
@@ -114,7 +101,7 @@ const items = [
 ];
 
 const FAQSection = () => {
-  const theme = useTheme(); // Accedemos al tema activo
+  const theme = useTheme();
 
   return (
     <FAQSectionWrapper>
@@ -124,13 +111,7 @@ const FAQSection = () => {
       </FAQTitleWrapper>
 
       <CollapseWrapper>
-        <Collapse accordion>
-          {items.map((item) => (
-            <Panel header={item.label} key={item.key}>
-              {item.children}
-            </Panel>
-          ))}
-        </Collapse>
+        <Collapse accordion items={items} />
       </CollapseWrapper>
     </FAQSectionWrapper>
   );

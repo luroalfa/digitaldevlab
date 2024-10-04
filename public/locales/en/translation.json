@@ -73,5 +73,43 @@
         "ctaText": "Didn't find what you're looking for?",
         "ctaButton": "View all services",
         "ctaLink": "Go to services"
+    },
+    "promotionalBanner": {
+        "bannerText": "Increase your visibility and attract new customers with a Website available 24/7.",
+        "highlightText": "Get started today for only $25!",
+        "buttonText": "Get Started Now"
+    },
+    "workflow": {
+        "workflowTitle": "Workflow",
+        "initialMeeting": "Initial Meeting",
+        "understandClientNeeds": "Understand the client's needs.",
+        "planning": "Planning",
+        "defineGoalsAndDeadlines": "Define project goals and deadlines.",
+        "design": "Design",
+        "createWireframes": "Create wireframes and define user experience (UX/UI).",
+        "development": "Development",
+        "implementSolution": "Implement the technical solution.",
+        "testing": "Testing",
+        "verifyAndFixBugs": "Verify quality and fix bugs.",
+        "review": "Review",
+        "presentAndFeedback": "Present and receive client feedback.",
+        "deployment": "Deployment",
+        "publishProject": "Publish the project in the production environment.",
+        "support": "Support and Maintenance",
+        "maintenance": "Maintain and improve the solution.",
+        "processImageAlt": "Workflow process"
+    },
+    "portfolioSection": {
+        "title": "DIGITAL PORTFOLIO",
+        "subTitle": "Create your professional online portfolio!",
+        "listItems": {
+            "item1": "Custom design",
+            "item2": "Easy to update",
+            "item3": "Optimized for mobile devices",
+            "item4": "Personalized functionalities",
+            "item5": "Increased professional visibility"
+        },
+        "ctaPrimary": "Request Your Free Consultation",
+        "ctaSecondary": "See Service Plans"
     }
 }

@@ -13,7 +13,7 @@ const fadeIn = keyframes`
 
 // Estilizamos el título
 const Title = styled.h2`
-  color: ${(props) => props.customColor || props.theme.colors.accent};  // Si se pasa un color, lo usamos, si no, usamos el color del tema
+  color: ${(props) => props.$customColor || props.theme.colors.accent};
   font-family: ${(props) => props.theme.fonts.heading};
   margin-bottom: 10px;
   font-size: 2.5rem;
@@ -27,7 +27,7 @@ const Title = styled.h2`
 // Componente TitleSection que acepta props
 const TitleSection = ({ titleText, isVisible = true, customColor }) => {
   return (
-    <Title $isVisible={isVisible} customColor={customColor}>
+    <Title $isVisible={isVisible} $customColor={customColor}>
       {titleText}
     </Title>
   );
