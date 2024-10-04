@@ -140,7 +140,7 @@ const PortfolioSection = () => {
       <CarouselWrapper>
         <Carousel autoplay>
           <div>
-            <img src={Img1} alt="Imagen 1" />
+            <img src="https://segredosdomundo.r7.com/wp-content/uploads/2020/11/como-ser-feliz-35-dicas-imperdiveis-para-nao-deixar-a-felicidade-passar-11.jpg" alt="Imagen 1" />
           </div>
           <div>
             <img src={Img2} alt="Imagen 2" />
