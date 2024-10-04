@@ -111,5 +111,11 @@
         },
         "ctaPrimary": "Request Your Free Consultation",
         "ctaSecondary": "See Service Plans"
+    },
+    "freeConsultation": {
+        "title": "Free Web Development Consultation",
+        "description": "Do you want to take your business to the next level? Our team of web development experts is here to help you. We offer free consultation to create a custom and functional website that fits your company's needs. Optimize your online presence and increase your visibility with a modern and professional platform.",
+        "buttonText": "Request Your Free Consultation",
+        "buttonAltText": "View service plans"
     }
 }

@@ -111,5 +111,11 @@
         },
         "ctaPrimary": "Solicita tu Asesoría Gratuita",
         "ctaSecondary": "Ver Planes de Servicios"
+    },
+    "freeConsultation": {
+        "title": "Asesoramiento en Desarrollo Web Gratis",
+        "description": "¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte. Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa. Optimiza tu presencia en línea y aumenta tu visibilidad con una plataforma moderna y profesional.",
+        "buttonText": "Solicita tu Asesoramiento Gratis",
+        "buttonAltText": "Ver planes de servicios"
     }
 }

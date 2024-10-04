@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion'; // Importamos motion para las animaciones
-import identityIllustration from '../../../assets/Metakrivia.png'; // Ajusta la ruta de tu ilustración
+import { motion } from 'framer-motion';
+import { Carousel, List } from 'antd';
 import TitleSection from '../../../components/TitleSection';
+import Button from '../../../components/Button';
 
 // Contenedor principal de la sección
 const SectionWrapper = styled.section`
@@ -20,7 +21,7 @@ const SectionWrapper = styled.section`
 const ContentWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 50px;
 
   @media (max-width: 768px) {
@@ -38,6 +39,7 @@ const TextContent = styled(motion.div)`
   @media (max-width: 768px) {
     text-align: center;
     padding: 0;
+    flex: none;
   }
 `;
 
@@ -50,28 +52,7 @@ const Description = styled(motion.p)`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-  }
-`;
-
-// Lista de beneficios
-const BenefitsList = styled(motion.ul)`
-  list-style-type: disc;
-  margin: 20px 0;
-  padding-left: 20px;
-  text-align: left;
-
-  @media (max-width: 768px) {
-    padding-left: 10px;
-    text-align: center;
-  }
-
-  li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-
-    @media (max-width: 768px) {
-      font-size: 1rem;
-    }
+    margin-bottom: 15px;
   }
 `;
 
@@ -80,23 +61,11 @@ const ImageWrapper = styled(motion.div)`
   flex: 1;
   display: flex;
   justify-content: center;
-
-  img {
-    max-width: 80%;
-    height: auto;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Sombra más profunda */
-    }
-  }
+  max-width: 100%; // Para asegurarse de que no se desborde
 
   @media (max-width: 768px) {
-    max-width: 100%;
-    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
   }
 `;
 
@@ -120,19 +89,33 @@ const CallToAction = styled(motion.a)`
   }
 `;
 
+const ListHeader = styled.div`
+  color: ${(props) => props.theme.colors.textPrimary};
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+const ListItem = styled(List.Item)`
+  color: ${(props) => props.theme.colors.accent} !important; // Color del texto basado en el tema
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 // Componente de Identidad Corporativa con animaciones y responsive
 const IdentitySection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // Usamos IntersectionObserver para detectar cuando el componente entra en el viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); // Desconectar después de la primera vez
+            observer.disconnect();
           }
         });
       },
@@ -150,11 +133,17 @@ const IdentitySection = () => {
     };
   }, []);
 
-  // Variantes de animación para framer-motion
   const fadeInVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] } },
   };
+
+  const benefits = [
+    'Diseño de logos personalizados',
+    'Manual de marca completo',
+    'Colores y tipografía consistentes',
+    'Tarjetas de presentación, papelería y más',
+  ];
 
   return (
     <SectionWrapper ref={sectionRef}>
@@ -165,9 +154,31 @@ const IdentitySection = () => {
         animate={isVisible ? "visible" : "hidden"}
         variants={fadeInVariants}
       >
-        {/* Imagen ilustrativa */}
+        {/* Imagen ilustrativa (carrusel) */}
         <ImageWrapper>
-          <img src={identityIllustration} alt="Ilustración de identidad corporativa" />
+          <Carousel arrows dotPosition="left" vertical={true} autoplay style={{ width: '100%' }}>
+            <div>
+              <img
+                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Branding1.png"
+                alt="Ilustración de identidad corporativa"
+                style={{ width: '100%', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)' }}
+              />
+            </div>
+            <div>
+              <img
+                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Branding2.png"
+                alt="Ilustración de identidad corporativa"
+                style={{ width: '100%', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)' }}
+              />
+            </div>
+            <div>
+              <img
+                src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Branding3.png"
+                alt="Ilustración de identidad corporativa"
+                style={{ width: '100%', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)' }}
+              />
+            </div>
+          </Carousel>
         </ImageWrapper>
         {/* Contenido de texto */}
         <TextContent>
@@ -180,13 +191,19 @@ const IdentitySection = () => {
             Nuestro equipo te ayudará a construir una identidad que refleje tus valores y resuene con
             tu audiencia.
           </Description>
-          <BenefitsList>
-            <li>Diseño de logos personalizados</li>
-            <li>Manual de marca completo</li>
-            <li>Colores y tipografía consistentes</li>
-            <li>Tarjetas de presentación, papelería y más</li>
-          </BenefitsList>
-          <CallToAction href="/contacto">Solicita tu consulta gratuita</CallToAction>
+          <List
+            header={<ListHeader>Beneficios de trabajar con nosotros:</ListHeader>}
+            dataSource={benefits}
+            renderItem={item => (
+              <ListItem>
+                {item}
+              </ListItem>
+            )}
+          />
+          <Button width="50%" height="35px">
+            <span className="btn-text-one">Solicita tu consulta gratuita</span>
+            <span className="btn-text-two">Ver mas</span>
+          </Button>
         </TextContent>
       </ContentWrapper>
     </SectionWrapper>

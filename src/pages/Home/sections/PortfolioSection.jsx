@@ -148,6 +148,21 @@ const PortfolioSection = () => {
           <div>
             <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio5.png" alt="Imagen 5" />
           </div>
+          <div>
+            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio6.png" alt="Imagen 6" />
+          </div>
+          <div>
+            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio7.png" alt="Imagen 7" />
+          </div>
+          <div>
+            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio8.png" alt="Imagen 8" />
+          </div>
+          <div>
+            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio9.png" alt="Imagen 9" />
+          </div>
+          <div>
+            <img src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio10.png" alt="Imagen 10" />
+          </div>
         </Carousel>
       </CarouselWrapper>
       <TextContent

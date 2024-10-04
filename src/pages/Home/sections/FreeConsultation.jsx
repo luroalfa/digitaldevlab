@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import asesorImage from '../../../assets/img-webs.jpg';
 import TitleSection from '../../../components/TitleSection';
+import Button from '../../../components/Button';
+import { useTranslation } from 'react-i18next';
 
 const SectionWrapper = styled.section`
   display: flex;
@@ -91,19 +93,22 @@ const ImageWrapper = styled.div`
 `;
 
 const FreeConsultation = () => {
+  const { t } = useTranslation(); // Utiliza useTranslation
+
   return (
     <SectionWrapper>
       <TextContent>
-        <TitleSection titleText="Asesoramiento en Desarrollo Web Gratis" isVisible={true} />
+        <TitleSection titleText={t('freeConsultation.title')} isVisible={true} />
         <Description>
-          ¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte.
-          Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa.
-          Optimiza tu presencia en línea y aumenta tu visibilidad con una plataforma moderna y profesional.
+          {t('freeConsultation.description')}
         </Description>
-        <CallToAction href="/contacto">Solicita tu Asesoramiento Gratis</CallToAction>
+        <Button width="80%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s">
+          <span className="btn-text-one">{t('freeConsultation.buttonText')}</span>
+          <span className="btn-text-two">{t('freeConsultation.buttonAltText')}</span>
+        </Button>
       </TextContent>
       <ImageWrapper>
-        <img src={asesorImage} alt="Asesoramiento en Desarrollo Web" />
+        <img src={asesorImage} alt={t('freeConsultation.buttonAltText')} /> {/* Utiliza traducción para el alt */}
       </ImageWrapper>
     </SectionWrapper>
   );
