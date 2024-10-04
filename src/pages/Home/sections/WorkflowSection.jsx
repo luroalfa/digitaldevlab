@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Timeline, Image } from 'antd';
 import { UserOutlined, SketchOutlined, CodeOutlined, BugOutlined, CloudUploadOutlined, SyncOutlined } from '@ant-design/icons';
 import workflowGif from '../../../assets/Timeline.gif'; // Ruta de tu imagen GIF
+import TitleSection from '../../../components/TitleSection';
 
 // Contenedor principal de la sección
 const WorkflowContainer = styled.section`
@@ -25,18 +26,6 @@ const ContentWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
-  }
-`;
-
-// Título de la sección
-const Title = styled.h2`
-  font-size: 2.5rem;
-  color: ${(props) => props.theme.colors.accent}; /* Color de acento basado en el tema */
-  font-family: ${(props) => props.theme.fonts.heading};
-  margin-bottom: 40px;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
   }
 `;
 
@@ -161,7 +150,7 @@ const WorkflowSection = () => {
 
   return (
     <WorkflowContainer>
-      <Title>Flujo de Trabajo</Title>
+      <TitleSection titleText="Flujo de Trabajo" isVisible={true} />
       <Underline />
       <ContentWrapper>
         {/* Componente Timeline */}

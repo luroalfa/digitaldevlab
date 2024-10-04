@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion'; // Importamos motion para las animaciones
 import identityIllustration from '../../../assets/Metakrivia.png'; // Ajusta la ruta de tu ilustración
+import TitleSection from '../../../components/TitleSection';
 
 // Contenedor principal de la sección
 const SectionWrapper = styled.section`
@@ -12,18 +13,6 @@ const SectionWrapper = styled.section`
 
   @media (max-width: 768px) {
     padding: 50px 10px;
-  }
-`;
-
-// Título de la sección
-const Title = styled(motion.h2)`
-  font-size: 2.5rem;
-  color: ${(props) => props.theme.colors.accent};
-  margin-bottom: 40px;
-  font-family: ${(props) => props.theme.fonts.heading};
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
   }
 `;
 
@@ -133,76 +122,75 @@ const CallToAction = styled(motion.a)`
 
 // Componente de Identidad Corporativa con animaciones y responsive
 const IdentitySection = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-    // Usamos IntersectionObserver para detectar cuando el componente entra en el viewport
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                        observer.disconnect(); // Desconectar después de la primera vez
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
-
-    // Variantes de animación para framer-motion
-    const fadeInVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] } },
-    };
-
-    return (
-        <SectionWrapper ref={sectionRef}>
-            <Title initial="hidden" animate={isVisible ? "visible" : "hidden"} variants={fadeInVariants}>
-                Identidad Corporativa
-            </Title>
-            <ContentWrapper
-                initial="hidden"
-                animate={isVisible ? "visible" : "hidden"}
-                variants={fadeInVariants}
-            >
-                {/* Imagen ilustrativa */}
-                <ImageWrapper>
-                    <img src={identityIllustration} alt="Ilustración de identidad corporativa" />
-                </ImageWrapper>
-                {/* Contenido de texto */}
-                <TextContent>
-                    <Description>
-                        La identidad corporativa es mucho más que solo un logo. Es la forma en la que tu empresa
-                        se presenta al mundo, define quién eres, cómo te comunicas y cómo te perciben tus
-                        clientes.
-                    </Description>
-                    <Description>
-                        Nuestro equipo te ayudará a construir una identidad que refleje tus valores y resuene con
-                        tu audiencia.
-                    </Description>
-                    <BenefitsList>
-                        <li>Diseño de logos personalizados</li>
-                        <li>Manual de marca completo</li>
-                        <li>Colores y tipografía consistentes</li>
-                        <li>Tarjetas de presentación, papelería y más</li>
-                    </BenefitsList>
-                    <CallToAction href="/contacto">Solicita tu consulta gratuita</CallToAction>
-                </TextContent>
-            </ContentWrapper>
-        </SectionWrapper>
+  // Usamos IntersectionObserver para detectar cuando el componente entra en el viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Desconectar después de la primera vez
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Variantes de animación para framer-motion
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] } },
+  };
+
+  return (
+    <SectionWrapper ref={sectionRef}>
+      <TitleSection titleText="Identidad Corporativa" isVisible={true} initial="hidden" animate={isVisible ? "visible" : "hidden"} variants={fadeInVariants} />
+
+      <ContentWrapper
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        variants={fadeInVariants}
+      >
+        {/* Imagen ilustrativa */}
+        <ImageWrapper>
+          <img src={identityIllustration} alt="Ilustración de identidad corporativa" />
+        </ImageWrapper>
+        {/* Contenido de texto */}
+        <TextContent>
+          <Description>
+            La identidad corporativa es mucho más que solo un logo. Es la forma en la que tu empresa
+            se presenta al mundo, define quién eres, cómo te comunicas y cómo te perciben tus
+            clientes.
+          </Description>
+          <Description>
+            Nuestro equipo te ayudará a construir una identidad que refleje tus valores y resuene con
+            tu audiencia.
+          </Description>
+          <BenefitsList>
+            <li>Diseño de logos personalizados</li>
+            <li>Manual de marca completo</li>
+            <li>Colores y tipografía consistentes</li>
+            <li>Tarjetas de presentación, papelería y más</li>
+          </BenefitsList>
+          <CallToAction href="/contacto">Solicita tu consulta gratuita</CallToAction>
+        </TextContent>
+      </ContentWrapper>
+    </SectionWrapper>
+  );
 };
 
 export default IdentitySection;

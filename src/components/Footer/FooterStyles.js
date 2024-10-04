@@ -5,7 +5,7 @@ import { LiaBlogSolid } from "react-icons/lia";
 
 // Estilo principal para el footer
 export const FooterWrapper = styled.footer`
-  background: linear-gradient(to bottom right, #0A2540, #223243); 
+  background: linear-gradient(to top left, #0A2540, #223243); 
   padding: 40px 20px;
   color: white;
   display: flex;

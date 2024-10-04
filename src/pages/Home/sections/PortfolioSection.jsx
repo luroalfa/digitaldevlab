@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import backgroundImage from '../../../assets/background-digital-marketing.gif';
 import illustration from '../../../assets/rodriguezfallasluis.webp';
 import Button from '../../../components/Button'
+import TitleSection from '../../../components/TitleSection';
 
 // Estilos del contenedor principal con overlay
 const SectionWrapper = styled.section`
@@ -39,20 +40,9 @@ const Overlay = styled.div`
 // Estilos del contenedor de texto
 const TextContent = styled(motion.div)`
   max-width: 50%;
-  
   @media (max-width: 768px) {
     max-width: 100%;
-  }
-`;
-
-// Estilos del título
-const Title = styled.h1`
-  font-size: 3rem;
-  font-family: 'Bebas Neue', sans-serif;
-  color: #fff;
-  
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
+    padding: 50px 0;
   }
 `;
 
@@ -179,7 +169,7 @@ const PortfolioSection = () => {
         animate={isVisible ? "visible" : "hidden"}
         variants={fadeInVariants}
       >
-        <Title>PORTAFOLIO DIGITAL</Title>
+        <TitleSection titleText="PORTAFOLIO DIGITAL" isVisible={true} customColor="#ffffff" />
         <SubTitle>¡Crea tu portafolio profesional en línea!</SubTitle>
         <List>
           <li>Diseño a medida</li>

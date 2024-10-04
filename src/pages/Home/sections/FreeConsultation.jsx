@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import asesorImage from '../../../assets/img-webs.jpg';
+import TitleSection from '../../../components/TitleSection';
 
 const SectionWrapper = styled.section`
   display: flex;
@@ -93,7 +94,7 @@ const FreeConsultation = () => {
   return (
     <SectionWrapper>
       <TextContent>
-        <Title>Asesoramiento en Desarrollo Web Gratis</Title>
+        <TitleSection titleText="Asesoramiento en Desarrollo Web Gratis" isVisible={true} />
         <Description>
           ¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte.
           Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa.

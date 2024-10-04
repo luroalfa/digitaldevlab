@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StarFilled } from '@ant-design/icons';
+import TitleSection from '../../../components/TitleSection';
 
 // Estilos para la sección principal de testimonios
 const TestimonialsWrapper = styled.section`
@@ -8,15 +9,6 @@ const TestimonialsWrapper = styled.section`
   padding: 50px;
   text-align: center;
   border-radius: 10px;
-`;
-
-// Título de la sección
-const Title = styled.h2`
-  font-size: 2.5rem;
-  color: ${(props) => props.theme.colors.accent};
-  margin-bottom: 40px;
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-weight: bold;
 `;
 
 // Descripción o introducción sobre los testimonios
@@ -192,7 +184,7 @@ const Testimonials = () => {
 
   return (
     <TestimonialsWrapper>
-      <Title>Lo que dicen nuestros usuarios</Title>
+      <TitleSection titleText='Lo que dicen nuestros usuarios' isVisible={true} />
       <Description>
         Nuestros clientes nos recomiendan por la calidad de nuestros servicios. Aquí tienes algunos de sus testimonios. ¡Tu opinión también es importante!
       </Description>

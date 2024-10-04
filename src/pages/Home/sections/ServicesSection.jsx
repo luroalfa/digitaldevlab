@@ -3,7 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { Badge } from 'antd';
 import ServiceCard from '../../../components/ServiceCard';
 import Button from '../../../components/Button';
-import { useTranslation } from 'react-i18next'; // Importa el hook
+import TitleSection from '../../../components/TitleSection';
+import { useTranslation } from 'react-i18next';
 
 // Animaciones keyframes
 const fadeIn = keyframes`
@@ -38,18 +39,6 @@ const SectionWrapper = styled.div`
 
   @media (max-width: 768px) {
     padding: 60px 10px;
-  }
-`;
-
-const Title = styled.h2`
-  color: ${(props) => props.theme.colors.accent};
-  font-family: ${(props) => props.theme.fonts.heading};
-  margin-bottom: 10px;
-  font-size: 2.5rem;
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : 'none')} 1s ease-out;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
   }
 `;
 
@@ -151,7 +140,7 @@ const ServicesSection = () => {
 
   return (
     <SectionWrapper ref={sectionRef} $isVisible={isVisible}>
-      <Title $isVisible={isVisible}>{t('services.title')}</Title>
+      <TitleSection titleText={t('services.title')} isVisible={true} />
       <Description $isVisible={isVisible}>
         {t('services.description')}
       </Description>

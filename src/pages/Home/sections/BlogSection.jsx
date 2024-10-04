@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import blogImage from '../../../assets/highterorderfunction.png';// Imagen genérica para el blog
+import TitleSection from '../../../components/TitleSection';
 
 // Estilos del contenedor de la sección del blog
 const BlogSectionWrapper = styled.section`
@@ -88,7 +89,7 @@ const BlogButton = styled.a`
 const BlogSection = () => {
   return (
     <BlogSectionWrapper>
-      <h2>Explora Nuestro Blog</h2>
+      <TitleSection titleText='Explora Nuestro Blog' isVisible={true} />
       <p>Visita nuestro blog para descubrir artículos inspiradores, consejos de productividad y recursos valiosos para mejorar tu día a día.</p>
 
       <BlogPreview>
