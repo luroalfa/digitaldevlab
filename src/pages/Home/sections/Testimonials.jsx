@@ -232,7 +232,7 @@ const Testimonials = () => {
         ))}
       </TestimonialsGrid>
       <br />
-      <Button $customColor="#ffffff" $customTextColor="#000000">
+      <Button >
         <span className="btn-text-one">{t('testimonials.buttonText1')}</span>
         <span className="btn-text-two">{t('testimonials.buttonText2')}</span>
       </Button>

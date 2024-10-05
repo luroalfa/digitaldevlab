@@ -9,7 +9,7 @@ const PlanCard = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  width: 22rem;
+  width: 15rem;
   background-color: ${(props) => props.theme.colors.background};
   border-radius: 1rem;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
@@ -43,6 +43,8 @@ const BenefitsList = styled.ul`
   flex-direction: column;
   gap: 0.5rem;
   padding: 0;
+  align-items: flex-start;
+  text-align: left;
 
   li {
     display: flex;
@@ -59,7 +61,7 @@ const BenefitsList = styled.ul`
       height: 1rem;
       background-color: hsl(189, 92%, 58%);
       border-radius: 50%;
-      
+      min-width: 16px;      
       .check_svg {
         width: 0.75rem;
         height: 0.75rem;

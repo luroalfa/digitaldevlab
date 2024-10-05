@@ -10,7 +10,7 @@ import FreeConsultation from './sections/FreeConsultation';
 import IdentitySection from './sections/IdentitySection';
 import SupportBanner from './sections/SupportBanner';
 import Testimonials from './sections/Testimonials';
-import BlogSection from './sections/BlogSection';
+import BlogSection from './sections/BlogSection/BlogSection';
 //Components
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import FAQSection from './sections/FAQSection';
@@ -37,6 +37,42 @@ const Home = () => {
         }
     };
 
+    const jsonLdService = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Desarrollo Web Personalizado",
+        "description": "Soluciones web a medida con diseño responsive, optimización SEO y soporte técnico continuo.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Digital Dev Lab",
+            "url": "https://digitaldevlab.net"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "CRC",  // Ajuste del código de moneda
+            "price": "50000.00",  // Ajuste del formato de precio
+            "url": "https://digitaldevlab.net/servicios",
+            "validFrom": "2024-11-01",  // Fecha correcta para noviembre
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "50000.00",
+                "priceCurrency": "CRC",
+                "eligibleQuantity": {
+                    "@type": "QuantitativeValue",
+                    "value": 1
+                },
+                "eligibleTransactionVolume": {
+                    "@type": "PriceSpecification",
+                    "price": "62500.00",  // Precio original sin descuento
+                    "priceCurrency": "CRC"
+                },
+                "discount": "20",
+                "discountCurrency": "CRC"
+            }
+        }
+    };
+
+
     return (
         <>
             {/* Helmet para SEO */}
@@ -48,7 +84,7 @@ const Home = () => {
                 <meta name="description" content="Bienvenido a Digital Dev Lab, donde encontrarás servicios para desarrollar sitios web, portafolios digitales, menús digitales y páginas de links." />
 
                 {/* Palabras clave */}
-                <meta name="keywords" content="tecnología, programación, desarrollo web, JavaScript, inteligencia artificial, podcasts, crear un portafolio digital, menú digital para restaurantes, páginas de links para empresas, desarrollo de sitios web, diseño web" />
+                <meta name="keywords" content="tecnología, digital dev lab, digital devlab, programación, desarrollo web, JavaScript, inteligencia artificial, podcasts, crear un portafolio digital, menú digital para restaurantes, páginas de links para empresas, desarrollo de sitios web, diseño web" />
 
                 {/* Para móviles */}
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -72,6 +108,10 @@ const Home = () => {
                 {/* JSON-LD Script para datos estructurados */}
                 <script type="application/ld+json">
                     {JSON.stringify(jsonLd)}
+                </script>
+                {/* JSON-LD para el servicio */}
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLdService)}
                 </script>
             </Helmet>
 

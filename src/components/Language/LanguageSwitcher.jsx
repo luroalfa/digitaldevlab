@@ -19,7 +19,7 @@ const LanguageDropdown = () => {
   };
 
   const selectedLanguage = languages.find((lang) => lang.code === selectedLang);
-  const fallbackFlag = 'https://flagsapi.com/US/flat/64.png';
+  const fallbackFlag = 'https://flagsapi.com/ES/flat/64.png';
 
   return (
     <Dropdown>

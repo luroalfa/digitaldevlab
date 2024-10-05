@@ -54,9 +54,11 @@ const Overlay = styled.div`
 // Estilos del contenedor de texto
 const TextContent = styled.div`
   max-width: 50%;
+  padding-left: 50px !important;
   @media (max-width: 768px) {
     max-width: 100%;
-    padding: 50px 0;
+    padding: 0;
+    padding-left: 0px !important;
   }
 `;
 
@@ -109,7 +111,7 @@ const PortfolioSection = () => {
           </Button>
         </CallToActionWrapper>
       </TextContent>
-    </SectionWrapper>
+    </SectionWrapper >
   );
 };
 

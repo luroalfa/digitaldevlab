@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../../../components/Button';
-import { useNavigate } from 'react-router-dom'; // Cambia useHistory por useNavigate
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Importa el hook para traducciones
 
 // Estilos del contenedor
 const PodcastSectionWrapper = styled.section`
@@ -9,7 +10,7 @@ const PodcastSectionWrapper = styled.section`
   padding: 80px 200px;
   text-align: center;
   color: ${(props) => props.theme.colors.textPrimary};
-  
+
   @media (max-width: 768px) {
     padding: 50px 10px;
   }
@@ -18,14 +19,14 @@ const PodcastSectionWrapper = styled.section`
 const PodcastTitle = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: ${(props) => props.theme.colors.textPrimary}; /* Ajuste según el tema */
+  color: ${(props) => props.theme.colors.textPrimary};
 `;
 
 const PodcastDescription = styled.p`
   font-size: 1.2rem;
   margin-bottom: 40px;
   line-height: 1.8;
-  color: ${(props) => props.theme.colors.textPrimary}; /* Ajuste según el tema */
+  color: ${(props) => props.theme.colors.textPrimary};
 `;
 
 const EpisodesList = styled.div`
@@ -41,8 +42,6 @@ const EpisodesList = styled.div`
     width: 300px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    
-    /* Ajustes para el tema */
     color: ${(props) => props.theme.colors.accent};
   }
 
@@ -71,7 +70,8 @@ const CTAWrapper = styled.div`
 `;
 
 const PodcastSection = () => {
-  const navigate = useNavigate(); // Cambia useHistory por useNavigate
+  const navigate = useNavigate();
+  const { t } = useTranslation(); // Hook para acceder a las traducciones
 
   // Función para manejar el clic en el CTA
   const handleCTA = () => {
@@ -80,10 +80,8 @@ const PodcastSection = () => {
 
   return (
     <PodcastSectionWrapper>
-      <PodcastTitle>Podcast sobre Tecnología</PodcastTitle>
-      <PodcastDescription>
-        Únete a nosotros en nuestro podcast donde hablamos sobre las últimas innovaciones tecnológicas, tendencias y mucho más.
-      </PodcastDescription>
+      <PodcastTitle>{t('podcast.title')}</PodcastTitle>
+      <PodcastDescription>{t('podcast.description')}</PodcastDescription>
 
       {/* Episodios recientes */}
       <EpisodesList>
@@ -91,27 +89,27 @@ const PodcastSection = () => {
           <img
             className="episode-image"
             src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Podcast1.webp"
-            alt="Episodio 1: Inteligencia Artificial"
+            alt={t('podcast.episode1.alt')}
           />
-          <h3 className="episode-title">Episodio 1: Inteligencia Artificial</h3>
-          <p className="episode-description">Exploramos el impacto de la IA en la vida diaria.</p>
+          <h3 className="episode-title">{t('podcast.episode1.title')}</h3>
+          <p className="episode-description">{t('podcast.episode1.description')}</p>
         </div>
         <div className="episode">
           <img
             className="episode-image"
             src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Podcast1.webp"
-            alt="Episodio 2: Realidad Aumentada"
+            alt={t('podcast.episode2.alt')}
           />
-          <h3 className="episode-title">Episodio 2: Realidad Aumentada</h3>
-          <p className="episode-description">Descubre cómo la RA está cambiando la forma en que interactuamos con el mundo.</p>
+          <h3 className="episode-title">{t('podcast.episode2.title')}</h3>
+          <p className="episode-description">{t('podcast.episode2.description')}</p>
         </div>
       </EpisodesList>
 
       {/* CTA para ver más episodios */}
       <CTAWrapper>
         <Button onClick={handleCTA}>
-          <span className="btn-text-one">Escucha más episodios</span>
-          <span className="btn-text-two">Ver todos los podcasts</span>
+          <span className="btn-text-one">{t('podcast.cta.text1')}</span>
+          <span className="btn-text-two">{t('podcast.cta.text2')}</span>
         </Button>
       </CTAWrapper>
     </PodcastSectionWrapper>

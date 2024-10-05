@@ -73,10 +73,6 @@ const BannerButton = styled(motion.a)`
   font-weight: bold;
   text-align: center;
 
-  &:hover {
-    background-color: ${(props) => props.theme.colors.accent};
-  }
-
   @media (max-width: 768px) {
     margin-right: 0;
   }
@@ -132,7 +128,9 @@ const PromotionalBanner = () => {
           animate={isVisible ? "visible" : "hidden"}
           variants={fadeInVariants}
         >
-          {t('promotionalBanner.bannerText')}
+          {t('promotionalBanner.bannerText1')}
+          <br />
+          {t('promotionalBanner.bannerText2')}
           <br />
           <span>{t('promotionalBanner.highlightText')}</span>
         </BannerText>

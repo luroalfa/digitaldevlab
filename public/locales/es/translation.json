@@ -18,66 +18,67 @@
     "aboveTheFold": {
         "welcome": "Bienvenido a",
         "companyName": "Digital DevLab",
-        "description": "Desarrollamos soluciones tecnológicas innovadoras que impulsan tu negocio hacia el futuro.",
-        "quoteNow": "Cotizar Ahora",
-        "requestQuote": "Solicitar Cotización",
-        "learnMore": "Aprende más sobre nuestros servicios"
+        "description": "Somos expertos en el desarrollo de sitios web, portafolios digitales, menús digitales para restaurantes y soluciones de identidad corporativa. Impulsa tu negocio con nuestras soluciones tecnológicas innovadoras.",
+        "quoteNow": "Cotizar desarrollo web",
+        "requestQuote": "Solicitar cotización",
+        "learnMore": "Descubre más sobre nuestro desarrollo web y servicios digitales"
     },
     "serviceCard": {
         "textButton": "Ver más"
     },
     "services": {
-        "title": "Nuestros Servicios",
-        "description": "Ofrecemos una selección de nuestros servicios más solicitados, diseñados a medida para impulsar tu negocio hacia el éxito tecnológico.",
+        "title": "Nuestros Servicios de Desarrollo Tecnológico",
+        "description": "Ofrecemos una selección de servicios tecnológicos personalizados, diseñados para potenciar tu negocio en el entorno digital.",
         "specialOffer": "Oferta Especial",
         "webDevelopment": {
-            "title": "Desarrollo Web Básico",
-            "description": "Soluciones web personalizadas",
+            "title": "Desarrollo Web Personalizado",
+            "description": "Soluciones web a medida con SEO optimizado",
             "benefits": [
-                "Diseño responsive en todos los dispositivos.",
-                "Optimización SEO básica.",
-                "Soporte durante el desarrollo."
+                "Diseño responsive adaptable a todos los dispositivos.",
+                "Optimización SEO para mejorar la visibilidad.",
+                "Soporte técnico especializado durante el desarrollo."
             ],
-            "buttonText": "Ver planes web"
+            "buttonText": "Ver planes de desarrollo web"
         },
         "linkPages": {
-            "title": "Páginas de enlaces",
-            "description": "Centraliza todos tus enlaces",
+            "title": "Páginas de Enlaces Personalizadas",
+            "description": "Centraliza y personaliza todos tus enlaces en un solo lugar",
             "benefits": [
-                "Gestión sencilla de todos tus enlaces.",
-                "Personalización de estilo y funcionalidades.",
-                "Soporte técnico continuo."
+                "Gestión eficiente de tus enlaces online.",
+                "Opciones de personalización avanzadas en estilo y funcionalidades.",
+                "Soporte técnico continuo para actualizaciones."
             ],
             "buttonText": "Gestiona tus enlaces"
         },
         "portfolio": {
-            "title": "Portafolio Digital",
-            "description": "Muestra tu trabajo y habilidades en línea",
+            "title": "Portafolio Digital Interactivo",
+            "description": "Muestra tu trabajo con un diseño profesional y dinámico",
             "benefits": [
-                "Diseño profesional que resalta tu trabajo.",
-                "Gestión y actualizaciones sencillas.",
-                "Optimizado para móviles."
+                "Diseño atractivo y optimizado para destacar tu portafolio.",
+                "Fácil de actualizar y administrar desde cualquier dispositivo.",
+                "Optimizado para móviles y motores de búsqueda."
             ],
-            "buttonText": "Crea tu portafolio"
+            "buttonText": "Crea tu portafolio interactivo"
         },
         "digitalMenu": {
-            "title": "Menú Digital",
-            "description": "Especial para restaurantes",
+            "title": "Menú Digital para Restaurantes",
+            "description": "Diseños personalizados y actualizables para tus menús",
             "benefits": [
-                "Diseño profesional y atractivo.",
-                "Actualiza fácilmente tus platos y precios.",
-                "Optimizado para dispositivos móviles."
+                "Diseño profesional y moderno para restaurantes.",
+                "Actualiza tus platos y precios con facilidad.",
+                "Menús optimizados para visualización en móviles y tablets."
             ],
-            "buttonText": "Crea tu menú"
+            "buttonText": "Crea tu menú digital"
         },
         "ctaText": "¿No encontraste lo que buscas?",
         "ctaButton": "Ver todos los servicios",
         "ctaLink": "Ir a servicios"
     },
     "promotionalBanner": {
-        "bannerText": "Aumenta tu visibilidad y atrae nuevos clientes con un Sitio Web disponible las 24 horas.",
-        "highlightText": "¡Empieza hoy mismo desde 50,000 CRC!",
-        "buttonText": "Empezar Ahora"
+        "bannerText1": "Aumenta tu visibilidad online y atrae nuevos clientes con un Sitio Web profesional disponible las 24 horas.",
+        "bannerText2": "Diseño responsive, optimización SEO y soporte técnico garantizado.",
+        "highlightText": "¡Empieza tu sitio web hoy mismo desde solo 50,000 CRC!",
+        "buttonText": "Solicita tu sitio web ahora"
     },
     "workflow": {
         "workflowTitle": "Flujo de Trabajo",
@@ -100,60 +101,90 @@
         "processImageAlt": "Proceso de trabajo"
     },
     "portfolioSection": {
-        "title": "PORTAFOLIO DIGITAL",
-        "subTitle": "¡Crea tu portafolio profesional en línea!",
+        "title": "Crea tu Portafolio Digital Profesional",
+        "subTitle": "¡Destaca tu trabajo con un portafolio en línea diseñado para atraer oportunidades!",
         "listItems": {
-            "item1": "Diseño a medida",
-            "item2": "Fácil de actualizar",
-            "item3": "Optimizado para dispositivos móviles",
-            "item4": "Funcionalidades personalizadas",
-            "item5": "Mayor visibilidad profesional"
+            "item1": "Diseño web personalizado que refleja tu marca personal",
+            "item2": "Fácil de actualizar para mostrar tus últimos proyectos",
+            "item3": "Completamente optimizado para dispositivos móviles y tabletas",
+            "item4": "Funcionalidades personalizadas adaptadas a tus necesidades",
+            "item5": "Aumenta tu visibilidad profesional y atrae nuevos clientes"
         },
-        "ctaPrimary": "Solicita tu Asesoría Gratuita",
-        "ctaSecondary": "Ver Planes de Servicios"
+        "ctaPrimary": "Solicita tu Asesoría Gratuita para Crear tu Portafolio",
+        "ctaSecondary": "Ver Planes de Creación de Portafolio"
     },
     "freeConsultation": {
-        "title": "Asesoramiento en Desarrollo Web Gratis",
-        "description": "¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte. Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa. Optimiza tu presencia en línea y aumenta tu visibilidad con una plataforma moderna y profesional.",
-        "buttonText": "Solicita tu Asesoramiento Gratis",
-        "buttonAltText": "Ver planes de servicios"
+        "title": "Asesoramiento Gratuito en Desarrollo Web Personalizado",
+        "description": "¿Estás listo para hacer crecer tu negocio en línea? Nuestro equipo de expertos en desarrollo web te ofrece asesoramiento gratuito para crear una página web profesional, moderna y completamente optimizada para atraer más clientes. Aprovecha esta oportunidad para mejorar tu presencia online, con soluciones adaptadas a las necesidades específicas de tu empresa y un diseño web a medida que maximice tu visibilidad en los motores de búsqueda.",
+        "buttonText": "Solicita tu Asesoramiento Gratuito Ahora",
+        "buttonAltText": "Explora nuestros Planes de Desarrollo Web"
     },
     "identitySection": {
-        "title": "Identidad Corporativa",
-        "description1": "La identidad corporativa es mucho más que solo un logo. Es la forma en la que tu empresa se presenta al mundo, define quién eres, cómo te comunicas y cómo te perciben tus clientes.",
-        "description2": "Nuestro equipo te ayudará a construir una identidad que refleje tus valores y resuene con tu audiencia.",
-        "ctaPrimary": "Solicita tu consulta gratuita",
-        "ctaSecondary": "Ver más",
+        "title": "Construye tu Identidad Corporativa",
+        "description1": "La identidad corporativa no es solo un logo, es la esencia visual y emocional de tu marca. Es cómo te presentas al mundo y cómo tus clientes te perciben. Desde el diseño de tu logo hasta el tono de tu comunicación, cada detalle cuenta para crear una imagen coherente y memorable.",
+        "description2": "Nuestro equipo experto en branding te ayudará a desarrollar una identidad que no solo refleje los valores de tu empresa, sino que también resuene con tu audiencia objetivo, fortaleciendo tu presencia en el mercado y destacando frente a la competencia.",
+        "ctaPrimary": "Solicita tu Consulta de Branding Gratis",
+        "ctaSecondary": "Explora nuestros Servicios de Branding",
         "images": {
-            "alt1": "Ilustración de identidad corporativa 1",
-            "alt2": "Ilustración de identidad corporativa 2"
+            "alt1": "Diseño de identidad corporativa personalizado",
+            "alt2": "Estrategia de marca y branding visual"
         }
     },
     "supportBanner": {
-        "title": "Soporte 24/7",
-        "subtitle": "Siempre disponibles para ayudarte",
-        "contactInfo": "¿Necesitas asistencia? Nuestro equipo está disponible las 24 horas, todos los días, para resolver tus dudas y ayudarte a tener éxito.",
-        "ctaPrimary": "Contáctanos Ahora",
-        "ctaSecondary": "Ponte en Contacto"
+        "title": "Soporte Técnico 24/7",
+        "subtitle": "Siempre a tu disposición para garantizar tu éxito",
+        "contactInfo": "¿Necesitas ayuda inmediata? Nuestro equipo de expertos está disponible las 24 horas del día, los 7 días de la semana, para resolver tus dudas y asegurar que tu negocio funcione sin problemas. No estás solo, estamos aquí para apoyarte en cada paso del camino.",
+        "ctaPrimary": "¡Contáctanos para Asistencia Inmediata!",
+        "ctaSecondary": "Habla con un Experto Ahora"
     },
     "testimonials": {
-        "title": "Lo que dicen nuestros usuarios",
-        "description": "Nuestros clientes nos recomiendan por la calidad de nuestros servicios. Aquí tienes algunos de sus testimonios. ¡Tu opinión también es importante!",
-        "service": "Servicio:",
-        "testimonial1": "Genial sitio y muy responsables.",
-        "testimonial2": "Super servicio, muy amables y profesionales.",
-        "testimonial3": "Proactivos, organizados, profesionales.",
-        "buttonText1": "Deja tu Reseña",
-        "buttonText2": "Comparte tu experiencia"
+        "title": "Lo que nuestros clientes dicen sobre nosotros",
+        "description": "Nuestros clientes elogian la calidad de nuestros servicios y el impacto positivo en sus negocios. Aquí tienes algunas opiniones sinceras de quienes han trabajado con nosotros. ¡Tu opinión también cuenta y puede ayudar a otros a tomar la mejor decisión!",
+        "service": "Servicio ofrecido:",
+        "testimonial1": "Un sitio web increíble y un equipo muy responsable.",
+        "testimonial2": "Servicio excepcional, amables y extremadamente profesionales.",
+        "testimonial3": "Proactivos, organizados y altamente profesionales. ¡Recomendados al 100%!",
+        "buttonText1": "Deja tu Testimonio",
+        "buttonText2": "Comparte Tu Experiencia Con Nosotros"
     },
     "faq": {
-        "title": "Preguntas Frecuentes",
+        "title": "Preguntas Frecuentes (FAQ)",
         "altImage": "Preguntas Frecuentes",
-        "question1": "¿Cuál es el horario de atención?",
-        "answer1": "Nuestro horario de atención es de lunes a viernes, de 9:00 AM a 6:00 PM.",
-        "question2": "¿Cómo puedo contactar con soporte?",
-        "answer2": "Puedes contactar con nuestro equipo de soporte a través del correo info@digitaldevlab.com o vía WhatsApp.",
+        "question1": "¿Cuál es el horario de atención al cliente?",
+        "answer1": "Nuestro horario de atención es de lunes a viernes, de 9:00 AM a 6:00 PM. Si necesitas asistencia fuera de este horario, puedes enviarnos un correo electrónico y te responderemos a la brevedad.",
+        "question2": "¿Cómo puedo contactar con el soporte técnico?",
+        "answer2": "Puedes contactar con nuestro equipo de soporte a través del correo electrónico info@digitaldevlab.com o vía WhatsApp. Estamos aquí para ayudarte con cualquier duda o problema que tengas.",
         "question3": "¿Qué métodos de pago aceptan?",
-        "answer3": "Aceptamos pagos con tarjeta de crédito, PayPal y transferencias bancarias."
+        "answer3": "Aceptamos pagos con tarjeta de crédito, PayPal y transferencias bancarias. Si necesitas más información sobre los métodos de pago, consulta nuestra página de [Política de Pagos](enlace-a-la-pagina).",
+        "question4": "¿Ofrecen algún tipo de garantía en sus servicios?",
+        "answer4": "Sí, ofrecemos una garantía de satisfacción en nuestros servicios. Si no estás satisfecho con el resultado, haremos todo lo posible para corregirlo."
+    },
+    "blog": {
+        "title": "Explora Nuestro Blog",
+        "introText1": "Sumérgete en un mundo de conocimiento y crecimiento personal.",
+        "introText2": "En nuestro blog encontrarás artículos inspiradores, consejos prácticos y recursos valiosos que transformarán tu día a día.",
+        "imageAlt": "Vista previa del blog",
+        "subTitle": "Consejos y Historias Inspiradoras",
+        "description": "Descubre guías sobre desarrollo personal y relatos de personas que han superado grandes desafíos. Encuentra la inspiración y los recursos que necesitas para mejorar en diferentes aspectos de tu vida.",
+        "buttonText": "Visitar el Blog",
+        "buttonTextAlt": "Descubre más temas"
+    },
+    "podcast": {
+        "title": "Podcast sobre Tecnología",
+        "description": "Únete a nosotros en nuestro podcast donde hablamos sobre las últimas innovaciones tecnológicas, tendencias y mucho más.",
+        "episode1": {
+            "title": "Episodio 1: Inteligencia Artificial",
+            "description": "Exploramos el impacto de la IA en la vida diaria.",
+            "alt": "Episodio 1: Inteligencia Artificial"
+        },
+        "episode2": {
+            "title": "Episodio 2: Realidad Aumentada",
+            "description": "Descubre cómo la RA está cambiando la forma en que interactuamos con el mundo.",
+            "alt": "Episodio 2: Realidad Aumentada"
+        },
+        "cta": {
+            "text1": "Escucha más episodios",
+            "text2": "Ver todos los podcasts"
+        }
     }
 }

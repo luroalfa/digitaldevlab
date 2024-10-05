@@ -75,7 +75,8 @@
         "ctaLink": "Go to services"
     },
     "promotionalBanner": {
-        "bannerText": "Increase your visibility and attract new customers with a Website available 24/7.",
+        "bannerText1": "Increase your visibility and attract new customers with a Website available 24/7.",
+        "bannerText2": "Responsive design, SEO optimization and guaranteed technical support.",
         "highlightText": "Get started today for only $25!",
         "buttonText": "Get Started Now"
     },
@@ -155,5 +156,33 @@
         "answer2": "You can contact our support team via email at info@digitaldevlab.com or via WhatsApp.",
         "question3": "What payment methods do you accept?",
         "answer3": "We accept credit cards, PayPal, and bank transfers."
+    },
+    "blog": {
+        "title": "Explore Our Blog",
+        "introText1": "Dive into a world of knowledge and personal growth.",
+        "introText2": "In our blog, you will find inspiring articles, practical tips, and valuable resources that will transform your daily life.",
+        "imageAlt": "Blog preview",
+        "subTitle": "Tips and Inspiring Stories",
+        "description": "Discover guides on personal development and stories of people who have overcome great challenges. Find the inspiration and resources you need to improve in various aspects of your life.",
+        "buttonText": "Visit the Blog",
+        "buttonTextAlt": "Discover more topics"
+    },
+    "podcast": {
+        "title": "Technology Podcast",
+        "description": "Join us on our podcast where we discuss the latest technological innovations, trends, and much more.",
+        "episode1": {
+            "title": "Episode 1: Artificial Intelligence",
+            "description": "Explore the impact of AI on everyday life.",
+            "alt": "Episode 1: Artificial Intelligence"
+        },
+        "episode2": {
+            "title": "Episode 2: Augmented Reality",
+            "description": "Discover how AR is changing the way we interact with the world.",
+            "alt": "Episode 2: Augmented Reality"
+        },
+        "cta": {
+            "text1": "Listen to more episodes",
+            "text2": "See all podcasts"
+        }
     }
 }

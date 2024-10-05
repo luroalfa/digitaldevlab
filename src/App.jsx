@@ -9,10 +9,10 @@ import 'antd/dist/reset.css';
 import Footer from './components/Footer/Footer';
 import AboutUs from './pages/AboutUs/AboutUs';
 import BlogPage from './pages/Blog/BlogPage';
-import './i18n';
+import './config/i18n';
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   // Función para alternar el tema
   const toggleTheme = () => {
