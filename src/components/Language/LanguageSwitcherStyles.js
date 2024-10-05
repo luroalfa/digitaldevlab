@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
-// Contenedor del dropdown
 export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
 `;
 
-// Estilos para el botón que muestra el idioma seleccionado
 export const SelectedLanguage = styled.div`
   padding: 5px;
   border: 1px solid ${(props) => props.theme.colors.line};
@@ -27,7 +25,6 @@ export const SelectedLanguage = styled.div`
   }
 `;
 
-// Lista desplegable de opciones
 export const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
@@ -40,7 +37,6 @@ export const DropdownMenu = styled.div`
   width: 30px;
 `;
 
-// Opción de idioma
 export const DropdownItem = styled.div`
   padding: 5px;
   display: flex;

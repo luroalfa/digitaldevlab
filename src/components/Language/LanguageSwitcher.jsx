@@ -7,32 +7,26 @@ const LanguageDropdown = () => {
   const [selectedLang, setSelectedLang] = useState(i18n.language);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Lista de idiomas con banderas
   const languages = [
-    { code: 'en', flag: 'https://flagsapi.com/US/flat/64.png' },
-    { code: 'es', flag: 'https://flagsapi.com/ES/flat/64.png' },
+    { code: 'en', flag: 'https://flagsapi.com/US/flat/64.png', alt: 'Idioma Ingles' },
+    { code: 'es', flag: 'https://flagsapi.com/ES/flat/64.png', alt: 'Idioma Español' },
   ];
 
   const handleLanguageChange = (code) => {
     i18n.changeLanguage(code);
     setSelectedLang(code);
-    setIsOpen(false); // Cierra el dropdown después de seleccionar el idioma
+    setIsOpen(false);
   };
 
-  // Verificamos que el idioma seleccionado exista
   const selectedLanguage = languages.find((lang) => lang.code === selectedLang);
-
-  // Si no encuentra el idioma, mostramos una bandera por defecto o de fallback
-  const fallbackFlag = 'https://flagsapi.com/US/flat/64.png'; // Puedes cambiarla según tu necesidad
+  const fallbackFlag = 'https://flagsapi.com/US/flat/64.png';
 
   return (
     <Dropdown>
-      {/* Idioma seleccionado */}
       <SelectedLanguage onClick={() => setIsOpen(!isOpen)}>
-        <img src={selectedLanguage ? selectedLanguage.flag : fallbackFlag} alt={selectedLanguage ? selectedLanguage.code : 'default'} />
+        <img src={selectedLanguage ? selectedLanguage.flag : fallbackFlag} alt={selectedLanguage ? selectedLanguage.alt : 'Bandera'} />
       </SelectedLanguage>
 
-      {/* Opciones de idiomas */}
       {isOpen && (
         <DropdownMenu>
           {languages.map((lang) => (
