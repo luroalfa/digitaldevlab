@@ -117,5 +117,43 @@
         "description": "¿Quieres llevar tu negocio al siguiente nivel? Nuestro equipo de expertos en desarrollo web está aquí para ayudarte. Te ofrecemos asesoramiento gratuito para crear una página web personalizada y funcional que se adapte a las necesidades de tu empresa. Optimiza tu presencia en línea y aumenta tu visibilidad con una plataforma moderna y profesional.",
         "buttonText": "Solicita tu Asesoramiento Gratis",
         "buttonAltText": "Ver planes de servicios"
+    },
+    "identitySection": {
+        "title": "Identidad Corporativa",
+        "description1": "La identidad corporativa es mucho más que solo un logo. Es la forma en la que tu empresa se presenta al mundo, define quién eres, cómo te comunicas y cómo te perciben tus clientes.",
+        "description2": "Nuestro equipo te ayudará a construir una identidad que refleje tus valores y resuene con tu audiencia.",
+        "ctaPrimary": "Solicita tu consulta gratuita",
+        "ctaSecondary": "Ver más",
+        "images": {
+            "alt1": "Ilustración de identidad corporativa 1",
+            "alt2": "Ilustración de identidad corporativa 2"
+        }
+    },
+    "supportBanner": {
+        "title": "Soporte 24/7",
+        "subtitle": "Siempre disponibles para ayudarte",
+        "contactInfo": "¿Necesitas asistencia? Nuestro equipo está disponible las 24 horas, todos los días, para resolver tus dudas y ayudarte a tener éxito.",
+        "ctaPrimary": "Contáctanos Ahora",
+        "ctaSecondary": "Ponte en Contacto"
+    },
+    "testimonials": {
+        "title": "Lo que dicen nuestros usuarios",
+        "description": "Nuestros clientes nos recomiendan por la calidad de nuestros servicios. Aquí tienes algunos de sus testimonios. ¡Tu opinión también es importante!",
+        "service": "Servicio:",
+        "testimonial1": "Genial sitio y muy responsables.",
+        "testimonial2": "Super servicio, muy amables y profesionales.",
+        "testimonial3": "Proactivos, organizados, profesionales.",
+        "buttonText1": "Deja tu Reseña",
+        "buttonText2": "Comparte tu experiencia"
+    },
+    "faq": {
+        "title": "Preguntas Frecuentes",
+        "altImage": "Preguntas Frecuentes",
+        "question1": "¿Cuál es el horario de atención?",
+        "answer1": "Nuestro horario de atención es de lunes a viernes, de 9:00 AM a 6:00 PM.",
+        "question2": "¿Cómo puedo contactar con soporte?",
+        "answer2": "Puedes contactar con nuestro equipo de soporte a través del correo info@digitaldevlab.com o vía WhatsApp.",
+        "question3": "¿Qué métodos de pago aceptan?",
+        "answer3": "Aceptamos pagos con tarjeta de crédito, PayPal y transferencias bancarias."
     }
 }

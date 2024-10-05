@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import backgroundImage from '../../../assets/background-digital-marketing.gif';
 import Button from '../../../components/Button';
 import TitleSection from '../../../components/TitleSection';
+import ImageCarousel from '../../../components/ImageCarousel';
 
 // Estilos del contenedor principal con overlay
 const SectionWrapper = styled.section`
@@ -23,6 +24,19 @@ const SectionWrapper = styled.section`
     flex-direction: column;
     text-align: center;
     padding: 20px;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 50%; // Para asegurarse de que no se desborde
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%; // Para asegurarse de que no se desborde
+    margin-bottom: 20px;
   }
 `;
 
@@ -46,38 +60,6 @@ const TextContent = styled.div`
   }
 `;
 
-// Estilos para el carrusel de imágenes
-const CarouselWrapper = styled.div`
-  max-width: 50%;
-  z-index: 2;
-  opacity: ${({ $isLoaded }) => ($isLoaded ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out;
-  
-  .ant-carousel .slick-slide {
-    text-align: center;
-    background: #364d79;
-    overflow: hidden; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      height: auto;
-      line-height: normal; 
-    }
-  }
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-    margin-top: 20px;
-  }
-`;
-
 // Estilos para la llamada a la acción (CTA)
 const CallToActionWrapper = styled.div`
   margin-top: 20px;
@@ -85,11 +67,6 @@ const CallToActionWrapper = styled.div`
 
 const PortfolioSection = () => {
   const { t } = useTranslation();
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const handleImageLoad = () => {
-    setIsLoaded(true);
-  };
 
   const features = [
     t('portfolioSection.listItems.item1'),
@@ -99,28 +76,17 @@ const PortfolioSection = () => {
     t('portfolioSection.listItems.item5'),
   ];
 
+  const images = [
+    { src: "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio1.webp", alt: "Imagen 1" },
+    { src: "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio2.webp", alt: "Imagen 2" },
+  ];
+
   return (
     <SectionWrapper>
       <Overlay />
-      <CarouselWrapper $isLoaded={isLoaded}>
-        <Carousel autoplay>
-          <div>
-            <img
-              src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio1.webp"
-              alt="Imagen 1"
-              onLoad={handleImageLoad}
-            />
-          </div>
-          <div>
-            <img
-              src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Portfolio2.webp"
-              alt="Imagen 2"
-              onLoad={handleImageLoad}
-            />
-          </div>
-        </Carousel>
-      </CarouselWrapper>
-      {!isLoaded && <p>Cargando imágenes...</p>}
+      <ImageWrapper >
+        <ImageCarousel images={images} direction="horizontal" />
+      </ImageWrapper>
       <TextContent>
         <TitleSection titleText={t('portfolioSection.title')} isVisible={true} customColor="#ffffff" />
         <Typography.Title level={2} style={{ color: '#fff' }}>

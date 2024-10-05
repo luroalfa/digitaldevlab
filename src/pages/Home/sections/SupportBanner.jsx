@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import BannerBackground from '../../../assets/Banner.png';
+import Button from '../../../components/Button';
+import { useTranslation } from 'react-i18next'; // Importa el hook de traducción
+import { Rate } from 'antd'; // Importa el componente Rate
 
 // Estilos del contenedor del banner
 const BannerWrapper = styled.section`
@@ -47,24 +50,8 @@ const InfoContainer = styled(motion.div)`
   }
 `;
 
-// Estilo del botón
-const Button = styled(motion.button)`
-  padding: 10px 20px;
-  background-color: #00bfff;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #007fff;
-  }
-`;
-
 const SupportBanner = () => {
+  const { t } = useTranslation(); // Inicializa el hook de traducción
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -106,17 +93,16 @@ const SupportBanner = () => {
         animate={isVisible ? "visible" : "hidden"}
         variants={fadeInVariants}
       >
-        <h2>Soporte 24/7</h2>
-        <h3>Siempre disponibles para ayudarte</h3>
+        <Rate defaultValue={5} disabled style={{ color: 'yellow' }} />
+        <h2>{t('supportBanner.title')}</h2>
+        <h3>{t('supportBanner.subtitle')}</h3>
         <p className="contact-info">
-          ¿Necesitas asistencia? Nuestro equipo está disponible las 24 horas, todos los días, para resolver tus dudas y ayudarte a tener éxito.
+          {t('supportBanner.contactInfo')}
         </p>
-        <Button
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          variants={fadeInVariants}
-        >
-          Contáctanos Ahora
+        {/* Componente de Rate con las 5 estrellas llenas */}
+        <Button>
+          <span className="btn-text-one">{t('supportBanner.ctaPrimary')}</span>
+          <span className="btn-text-two">{t('supportBanner.ctaSecondary')}</span>
         </Button>
       </InfoContainer>
     </BannerWrapper>

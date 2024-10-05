@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { StarFilled } from '@ant-design/icons';
 import TitleSection from '../../../components/TitleSection';
+import Button from '../../../components/Button';
+import { useTranslation } from 'react-i18next';
+import FacebookIcon from '../../../assets/facebookicon.png'
 
 // Estilos para la sección principal de testimonios
 const TestimonialsWrapper = styled.section`
@@ -146,8 +149,9 @@ const ReviewButton = styled.a`
   }
 `;
 
-// Componente principal
 const Testimonials = () => {
+  const { t } = useTranslation(); // Hook de traducción
+
   // Datos estáticos para los testimonios
   const testimonials = [
     {
@@ -157,8 +161,9 @@ const Testimonials = () => {
       occupation: 'Gerente de Ventas',
       website: 'https://hildasales.com',
       rating: 5,
-      testimonial: 'Genial sitio y muy responsables.',
+      testimonial: t('testimonials.testimonial1'),
       userImage: 'https://randomuser.me/api/portraits/women/44.jpg', // Imagen de usuario estática
+      pathSource: 'https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png'
     },
     {
       id: 2,
@@ -167,8 +172,9 @@ const Testimonials = () => {
       occupation: 'Desarrollador Web',
       website: 'https://jasondevweb.com',
       rating: 5,
-      testimonial: 'Super servicio, muy amables y profesionales.',
+      testimonial: t('testimonials.testimonial2'),
       userImage: 'https://randomuser.me/api/portraits/men/32.jpg', // Imagen de usuario estática
+      pathSource: 'https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png'
     },
     {
       id: 3,
@@ -177,16 +183,29 @@ const Testimonials = () => {
       occupation: 'Encargado de Restaurante',
       website: 'https://carolmarketing.com',
       rating: 5,
-      testimonial: 'Proactivos, organizados, profesionales.',
+      testimonial: t('testimonials.testimonial3'),
       userImage: 'https://randomuser.me/api/portraits/women/65.jpg', // Imagen de usuario estática
+      pathSource: 'https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png'
     },
+    {
+      id: 4,
+      name: 'Marcela Gómez',
+      service: 'Facebook Ads',
+      occupation: 'Digital Marketer',
+      website: 'https://marcelagomez.com',
+      rating: 5,
+      testimonial: t('testimonials.testimonial4'),
+      userImage: 'https://randomuser.me/api/portraits/women/50.jpg', // Imagen de usuario estática
+      pathSource: FacebookIcon
+    }
+
   ];
 
   return (
     <TestimonialsWrapper>
-      <TitleSection titleText='Lo que dicen nuestros usuarios' isVisible={true} />
+      <TitleSection titleText={t('testimonials.title')} isVisible={true} />
       <Description>
-        Nuestros clientes nos recomiendan por la calidad de nuestros servicios. Aquí tienes algunos de sus testimonios. ¡Tu opinión también es importante!
+        {t('testimonials.description')}
       </Description>
       <TestimonialsGrid>
         {testimonials.map((testimonial) => (
@@ -196,7 +215,7 @@ const Testimonials = () => {
               <UserInfo>
                 <UserName>{testimonial.name}</UserName>
                 <UserOccupation>{testimonial.occupation}</UserOccupation>
-                <strong>Servicio:</strong> {testimonial.service}
+                <strong>{t('testimonials.service')}</strong> {testimonial.service}
                 <UserWebsite href={testimonial.website} target="_blank" rel="noopener noreferrer">
                   {testimonial.website}
                 </UserWebsite>
@@ -208,17 +227,16 @@ const Testimonials = () => {
               ))}
             </StarRating>
             <TestimonialText>{testimonial.testimonial}</TestimonialText>
-            <GoogleLogoImage src='https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png' alt="Google Reviews" />
+            <GoogleLogoImage src={testimonial.pathSource} alt="Google Reviews" />
           </TestimonialCard>
         ))}
       </TestimonialsGrid>
-
-      {/* Botón para dejar una reseña */}
-      <ReviewButtonWrapper>
-        <ReviewButton href="/dejar-resena">Dejar una reseña</ReviewButton>
-      </ReviewButtonWrapper>
+      <br />
+      <Button $customColor="#ffffff" $customTextColor="#000000">
+        <span className="btn-text-one">{t('testimonials.buttonText1')}</span>
+        <span className="btn-text-two">{t('testimonials.buttonText2')}</span>
+      </Button>
     </TestimonialsWrapper>
   );
 };
-
 export default Testimonials;

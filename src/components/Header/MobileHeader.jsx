@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Drawer } from 'antd';
 import { Link } from 'react-router-dom';
-import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcher from '../Language/LanguageSwitcher';
 import ThemeSwitch from '../ThemeSwitch';
 
 const MobileNav = styled.nav`

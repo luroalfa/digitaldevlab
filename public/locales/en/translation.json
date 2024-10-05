@@ -117,5 +117,43 @@
         "description": "Do you want to take your business to the next level? Our team of web development experts is here to help you. We offer free consultation to create a custom and functional website that fits your company's needs. Optimize your online presence and increase your visibility with a modern and professional platform.",
         "buttonText": "Request Your Free Consultation",
         "buttonAltText": "View service plans"
+    },
+    "identitySection": {
+        "title": "Corporate Identity",
+        "description1": "Corporate identity is much more than just a logo. It is how your company presents itself to the world, defining who you are, how you communicate, and how your customers perceive you.",
+        "description2": "Our team will help you build an identity that reflects your values and resonates with your audience.",
+        "ctaPrimary": "Request your free consultation",
+        "ctaSecondary": "See more",
+        "images": {
+            "alt1": "Illustration of corporate identity 1",
+            "alt2": "Illustration of corporate identity 2"
+        }
+    },
+    "supportBanner": {
+        "title": "24/7 Support",
+        "subtitle": "Always available to help you",
+        "contactInfo": "Need assistance? Our team is available 24 hours a day to answer your questions and help you succeed.",
+        "ctaPrimary": "Contact Us Now",
+        "ctaSecondary": "Get in Touch"
+    },
+    "testimonials": {
+        "title": "What our users say",
+        "description": "Our clients recommend us for the quality of our services. Here are some of their testimonials. Your opinion also matters!",
+        "service": "Service:",
+        "testimonial1": "Great site and very responsible.",
+        "testimonial2": "Excellent service, very kind and professional.",
+        "testimonial3": "Proactive, organized, and professional.",
+        "buttonText1": "Leave your Review",
+        "buttonText2": "Share your experience"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "altImage": "Frequently Asked Questions",
+        "question1": "What are your business hours?",
+        "answer1": "Our business hours are Monday to Friday, from 9:00 AM to 6:00 PM.",
+        "question2": "How can I contact support?",
+        "answer2": "You can contact our support team via email at info@digitaldevlab.com or via WhatsApp.",
+        "question3": "What payment methods do you accept?",
+        "answer3": "We accept credit cards, PayPal, and bank transfers."
     }
 }

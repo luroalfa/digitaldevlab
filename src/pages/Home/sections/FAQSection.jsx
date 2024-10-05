@@ -3,6 +3,7 @@ import { Collapse } from 'antd';
 import styled, { useTheme } from 'styled-components';
 import faqImage from '../../../assets/faq.jpg';
 import TitleSection from '../../../components/TitleSection';
+import { useTranslation } from 'react-i18next';
 
 const FAQSectionWrapper = styled.section`
   display: flex;
@@ -47,13 +48,13 @@ const CollapseWrapper = styled.div`
 
   .ant-collapse-header {
     font-size: 1.2rem;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: transparent; /* Fondo transparente */
     color: ${({ theme }) => theme.colors.textPrimary} !important;
     border-bottom: 1px solid ${({ theme }) => theme.colors.line};
   }
 
   .ant-collapse-content {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: transparent; /* Fondo transparente */
     color: ${({ theme }) => theme.colors.textPrimary};
   }
 
@@ -68,46 +69,33 @@ const CollapseWrapper = styled.div`
   }
 `;
 
-const items = [
-  {
-    key: '1',
-    label: '¿Cuál es el horario de atención?',
-    children: (
-      <p>
-        Nuestro horario de atención es de lunes a viernes, de 9:00 am a 6:00 pm.
-      </p>
-    ),
-  },
-  {
-    key: '2',
-    label: '¿Cómo puedo contactar con soporte?',
-    children: (
-      <p>
-        Puedes contactar con nuestro equipo de soporte a través del correo
-        info@digitaldevlab.com o vía WhatsApp.
-      </p>
-    ),
-  },
-  {
-    key: '3',
-    label: '¿Qué métodos de pago aceptan?',
-    children: (
-      <p>
-        Aceptamos pagos con tarjeta de crédito, PayPal y transferencias
-        bancarias.
-      </p>
-    ),
-  },
-];
-
 const FAQSection = () => {
-  const theme = useTheme();
+  const { t } = useTranslation(); // Hook para traducción
+
+  // Traducciones dinámicas con t
+  const items = [
+    {
+      key: '1',
+      label: t('faq.question1'),
+      children: <p>{t('faq.answer1')}</p>,
+    },
+    {
+      key: '2',
+      label: t('faq.question2'),
+      children: <p>{t('faq.answer2')}</p>,
+    },
+    {
+      key: '3',
+      label: t('faq.question3'),
+      children: <p>{t('faq.answer3')}</p>,
+    },
+  ];
 
   return (
     <FAQSectionWrapper>
       <FAQTitleWrapper>
-        <TitleSection titleText='Preguntas Frecuentes' isVisible={true} />
-        <FAQImage src={faqImage} alt="Preguntas Frecuentes" />
+        <TitleSection titleText={t('faq.title')} isVisible={true} />
+        <FAQImage src={faqImage} alt={t('faq.altImage')} />
       </FAQTitleWrapper>
 
       <CollapseWrapper>

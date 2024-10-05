@@ -13,6 +13,7 @@ import BlogSection from './sections/BlogSection';
 //Components
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import FAQSection from './sections/FAQSection';
+import PodcastSection from './sections/PodcastSection';
 
 const Home = () => {
     return (
@@ -28,6 +29,7 @@ const Home = () => {
             <Testimonials />
             <FAQSection />
             <BlogSection />
+            <PodcastSection />
             <FloatingButtons />
         </>
     );

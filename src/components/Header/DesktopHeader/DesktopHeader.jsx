@@ -5,7 +5,7 @@ import LogoLight from '../../../assets/logo-light.svg';
 import ThemeSwitch from '../../ThemeSwitch';
 import TopBar from './TopBar/TopBar';
 import { Link } from 'react-router-dom';
-import LanguageSwitcher from '../../LanguageSwitcher';
+import LanguageSwitcher from '../../Language/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
 // Definir animación fadeInDown
