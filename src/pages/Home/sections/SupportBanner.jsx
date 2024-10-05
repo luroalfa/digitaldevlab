@@ -30,11 +30,6 @@ const BannerWrapper = styled.section`
 const InfoContainer = styled(motion.div)`
   max-width: 500px;
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-
   h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;

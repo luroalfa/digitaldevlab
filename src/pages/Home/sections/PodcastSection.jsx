@@ -15,7 +15,7 @@ const PodcastSectionWrapper = styled.section`
   }
 `;
 
-const PodcastTitle = styled.h1`
+const PodcastTitle = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: ${(props) => props.theme.colors.textPrimary}; /* Ajuste según el tema */
@@ -71,51 +71,51 @@ const CTAWrapper = styled.div`
 `;
 
 const PodcastSection = () => {
-    const navigate = useNavigate(); // Cambia useHistory por useNavigate
+  const navigate = useNavigate(); // Cambia useHistory por useNavigate
 
-    // Función para manejar el clic en el CTA
-    const handleCTA = () => {
-        navigate('/podcast'); // Navega a la página de todos los podcasts
-    };
+  // Función para manejar el clic en el CTA
+  const handleCTA = () => {
+    navigate('/podcast'); // Navega a la página de todos los podcasts
+  };
 
-    return (
-        <PodcastSectionWrapper>
-            <PodcastTitle>Podcast sobre Tecnología</PodcastTitle>
-            <PodcastDescription>
-                Únete a nosotros en nuestro podcast donde hablamos sobre las últimas innovaciones tecnológicas, tendencias y mucho más.
-            </PodcastDescription>
+  return (
+    <PodcastSectionWrapper>
+      <PodcastTitle>Podcast sobre Tecnología</PodcastTitle>
+      <PodcastDescription>
+        Únete a nosotros en nuestro podcast donde hablamos sobre las últimas innovaciones tecnológicas, tendencias y mucho más.
+      </PodcastDescription>
 
-            {/* Episodios recientes */}
-            <EpisodesList>
-                <div className="episode">
-                    <img
-                        className="episode-image"
-                        src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Podcast1.webp"
-                        alt="Episodio 1: Inteligencia Artificial"
-                    />
-                    <h3 className="episode-title">Episodio 1: Inteligencia Artificial</h3>
-                    <p className="episode-description">Exploramos el impacto de la IA en la vida diaria.</p>
-                </div>
-                <div className="episode">
-                    <img
-                        className="episode-image"
-                        src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Podcast1.webp"
-                        alt="Episodio 2: Realidad Aumentada"
-                    />
-                    <h3 className="episode-title">Episodio 2: Realidad Aumentada</h3>
-                    <p className="episode-description">Descubre cómo la RA está cambiando la forma en que interactuamos con el mundo.</p>
-                </div>
-            </EpisodesList>
+      {/* Episodios recientes */}
+      <EpisodesList>
+        <div className="episode">
+          <img
+            className="episode-image"
+            src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Podcast1.webp"
+            alt="Episodio 1: Inteligencia Artificial"
+          />
+          <h3 className="episode-title">Episodio 1: Inteligencia Artificial</h3>
+          <p className="episode-description">Exploramos el impacto de la IA en la vida diaria.</p>
+        </div>
+        <div className="episode">
+          <img
+            className="episode-image"
+            src="https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/Podcast1.webp"
+            alt="Episodio 2: Realidad Aumentada"
+          />
+          <h3 className="episode-title">Episodio 2: Realidad Aumentada</h3>
+          <p className="episode-description">Descubre cómo la RA está cambiando la forma en que interactuamos con el mundo.</p>
+        </div>
+      </EpisodesList>
 
-            {/* CTA para ver más episodios */}
-            <CTAWrapper>
-                <Button onClick={handleCTA}>
-                    <span className="btn-text-one">Escucha más episodios</span>
-                    <span className="btn-text-two">Ver todos los podcasts</span>
-                </Button>
-            </CTAWrapper>
-        </PodcastSectionWrapper>
-    );
+      {/* CTA para ver más episodios */}
+      <CTAWrapper>
+        <Button onClick={handleCTA}>
+          <span className="btn-text-one">Escucha más episodios</span>
+          <span className="btn-text-two">Ver todos los podcasts</span>
+        </Button>
+      </CTAWrapper>
+    </PodcastSectionWrapper>
+  );
 };
 
 export default PodcastSection;
