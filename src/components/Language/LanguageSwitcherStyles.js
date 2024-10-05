@@ -17,12 +17,9 @@ export const SelectedLanguage = styled.div`
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.textButton};
   transition: background-color 0.3s ease;
-
   &:hover {
-    background-color: ${(props) => props.theme.colors.secondary};
-    color: ${(props) => props.theme.colors.textPrimary};
+    background-color: ${(props) => props.theme.colors.accent};
   }
-
   img {
     width: 20px;
     height: 20px;
@@ -52,11 +49,9 @@ export const DropdownItem = styled.div`
   cursor: pointer;
   background-color: ${(props) => props.theme.colors.background};
   transition: background-color 0.3s ease;
-
   &:hover {
     background-color: ${(props) => props.theme.colors.accent};
   }
-
   img {
     width: 20px;
     height: 20px;
