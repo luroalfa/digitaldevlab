@@ -14,7 +14,7 @@ export const SelectedLanguage = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.backgroundButton};
+  background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.textButton};
   transition: background-color 0.3s ease;
 
@@ -40,7 +40,7 @@ export const DropdownMenu = styled.div`
   border-radius: 5px;
   margin-top: 5px;
   z-index: 100;
-  width: 50px;
+  width: 30px;
 `;
 
 // Opción de idioma
@@ -50,8 +50,7 @@ export const DropdownItem = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.backgroundButton};
-  color: ${(props) => props.theme.colors.textButton};
+  background-color: ${(props) => props.theme.colors.background};
   transition: background-color 0.3s ease;
 
   &:hover {
