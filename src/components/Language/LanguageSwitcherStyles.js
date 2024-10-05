@@ -1,4 +1,3 @@
-// LanguageDropdown.styles.js
 import styled from 'styled-components';
 
 // Contenedor del dropdown
@@ -10,24 +9,24 @@ export const Dropdown = styled.div`
 
 // Estilos para el botón que muestra el idioma seleccionado
 export const SelectedLanguage = styled.div`
-  padding: 4px;
+  padding: 5px;
   border: 1px solid ${(props) => props.theme.colors.line};
   border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: center; // Centramos la bandera
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.backgroundButton};
+  color: ${(props) => props.theme.colors.textButton};
   transition: background-color 0.3s ease;
-  width: 36px; // Ajustamos el tamaño para que solo quepa la bandera
-  height: 36px; // Mantener la relación de aspecto cuadrada
 
   &:hover {
     background-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.textPrimary};
   }
 
   img {
-    width: 24px; // Ajustamos el tamaño de la bandera
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
   }
 `;
 
@@ -41,17 +40,18 @@ export const DropdownMenu = styled.div`
   border-radius: 5px;
   margin-top: 5px;
   z-index: 100;
-  width: 36px; // El ancho suficiente para las banderas
+  width: 50px;
 `;
 
 // Opción de idioma
 export const DropdownItem = styled.div`
-  padding: 4px;
+  padding: 5px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center; // Centramos la bandera
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.backgroundButton};
+  color: ${(props) => props.theme.colors.textButton};
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -59,7 +59,8 @@ export const DropdownItem = styled.div`
   }
 
   img {
-    width: 24px; // Ajustamos el tamaño de la bandera en el menú
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
   }
 `;

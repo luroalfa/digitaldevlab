@@ -23,8 +23,6 @@ i18n
     }, (err, t) => {
         if (err) {
             console.error('Error initializing i18next:', err);
-        } else {
-            console.log('i18next initialized successfully with language:', i18n.language);
         }
     });
 
