@@ -186,5 +186,24 @@
             "text1": "Escucha más episodios",
             "text2": "Ver todos los podcasts"
         }
+    },
+    "servicesPage": {
+        "title": "Nuestros Servicios",
+        "subtitle": "Descubre las soluciones que ofrecemos para elevar tu negocio.",
+        "service1": {
+            "title": "Desarrollo Web",
+            "description": "Construye aplicaciones web robustas y escalables adaptadas a tus necesidades.",
+            "cta": "Saber Más"
+        },
+        "service2": {
+            "title": "Portafolios Digitales",
+            "description": "Muestra tu trabajo con impresionantes portafolios digitales que atraen clientes.",
+            "cta": "Descubre Más"
+        },
+        "service3": {
+            "title": "Soluciones de Identidad Corporativa",
+            "description": "Crea una identidad de marca sólida con nuestras soluciones personalizadas.",
+            "cta": "Empezar"
+        }
     }
 }

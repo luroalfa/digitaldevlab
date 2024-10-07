@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StarFilled } from '@ant-design/icons';
-import TitleSection from '../../../components/TitleSection';
-import Button from '../../../components/Button';
+import TitleSection from './TitleSection';
+import Button from './Button';
 import { useTranslation } from 'react-i18next';
-import FacebookIcon from '../../../assets/facebookicon.png'
+import FacebookIcon from '../assets/facebookicon.png'
 
 // Estilos para la sección principal de testimonios
 const TestimonialsWrapper = styled.section`

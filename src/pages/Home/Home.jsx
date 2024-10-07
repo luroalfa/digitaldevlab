@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 //Sections
-import AboveTheFold from './sections/AboveTheFold';
+import AboveTheFold from './sections/AboveTheFold/AboveTheFold';
 import ServicesSection from './sections/ServicesSection';
 import WorkflowSection from './sections/WorkflowSection';
 import PortfolioSection from './sections/PortfolioSection';
@@ -9,14 +9,15 @@ import PromotionalBanner from './sections/PromotionalBanner';
 import FreeConsultation from './sections/FreeConsultation';
 import IdentitySection from './sections/IdentitySection';
 import SupportBanner from './sections/SupportBanner';
-import Testimonials from './sections/Testimonials';
+import Testimonials from '../../components/Testimonials';
 import BlogSection from './sections/BlogSection/BlogSection';
 //Components
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import FAQSection from './sections/FAQSection';
 import PodcastSection from './sections/PodcastSection';
+import Menu from '../../components/Header/Menu';
 
-const Home = () => {
+const Home = ({ toggleTheme, isDarkTheme }) => {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -50,12 +51,12 @@ const Home = () => {
         "offers": {
             "@type": "Offer",
             "priceCurrency": "CRC",  // Ajuste del código de moneda
-            "price": "50000.00",  // Ajuste del formato de precio
+            "price": "60000.00",  // Ajuste del formato de precio
             "url": "https://digitaldevlab.net/servicios",
             "validFrom": "2024-11-01",  // Fecha correcta para noviembre
             "priceSpecification": {
                 "@type": "UnitPriceSpecification",
-                "price": "50000.00",
+                "price": "60000.00",
                 "priceCurrency": "CRC",
                 "eligibleQuantity": {
                     "@type": "QuantitativeValue",
@@ -63,10 +64,10 @@ const Home = () => {
                 },
                 "eligibleTransactionVolume": {
                     "@type": "PriceSpecification",
-                    "price": "62500.00",  // Precio original sin descuento
+                    "price": "150000",  // Precio original sin descuento
                     "priceCurrency": "CRC"
                 },
-                "discount": "20",
+                "discount": "60",
                 "discountCurrency": "CRC"
             }
         }
@@ -115,6 +116,7 @@ const Home = () => {
                 </script>
             </Helmet>
 
+            <Menu toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
             {/* Secciones del Home */}
             <AboveTheFold />
             <ServicesSection />
@@ -132,5 +134,8 @@ const Home = () => {
         </>
     );
 };
+// TODO
+//Optimizar el margin de todos los botones de las secciones
+
 
 export default Home;

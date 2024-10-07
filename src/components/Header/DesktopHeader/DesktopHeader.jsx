@@ -4,7 +4,7 @@ import LogoDark from '../../../assets/logo-dark.svg';
 import LogoLight from '../../../assets/logo-light.svg';
 import ThemeSwitch from '../../ThemeSwitch';
 import TopBar from './TopBar/TopBar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // Importamos useLocation para obtener la ruta actual
 import LanguageSwitcher from '../../Language/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
@@ -20,6 +20,7 @@ const fadeInDown = keyframes`
   }
 `;
 
+// Estilo del contenedor de navegación
 const DesktopNav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -47,18 +48,24 @@ const DesktopNav = styled.nav`
     font-size: 1rem;
     color: ${(props) => props.theme.colors.accent};
   }
+`;
 
-  a {
-    color: ${(props) => props.theme.colors.accent};
-    text-decoration: none;
-    transition: color 0.3s ease;
+// Eliminamos isActive antes de que llegue al DOM usando desestructuración
+const NavLink = styled(({ isActive, ...rest }) => <Link {...rest} />)`
+  color: ${(props) => (props.isActive ? props.theme.colors.secondary : props.theme.colors.accent)};
+  text-decoration: none;
+  padding: 10px 15px;
+  border-bottom: ${(props) => (props.isActive ? `2px solid ${props.theme.colors.secondary}` : 'none')};
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 
-    &:hover {
-      color: ${(props) => props.theme.colors.secondary};
-    }
+  &:hover {
+    color: ${(props) => props.theme.colors.secondary};
   }
 `;
 
+
+
+// Contenedor para el logo
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
@@ -77,8 +84,10 @@ const LogoContainer = styled.div`
   }
 `;
 
+// Componente principal de la cabecera
 const DesktopHeader = ({ toggleTheme, isDarkTheme }) => {
-  const { t } = useTranslation(); // Obtener la función de traducción
+  const { t } = useTranslation(); // Hook de traducción
+  const location = useLocation(); // Obtenemos la ruta actual
   const [isTopBarVisible, setIsTopBarVisible] = useState(true);
 
   useEffect(() => {
@@ -99,19 +108,43 @@ const DesktopHeader = ({ toggleTheme, isDarkTheme }) => {
 
   return (
     <>
-      <TopBar isVisible={isTopBarVisible} /> {/* Incluye el temporizador */}
+      <TopBar isVisible={isTopBarVisible} /> {/* Incluye el TopBar con visibilidad controlada */}
       <DesktopNav $isTopBarVisible={isTopBarVisible}>
         <LogoContainer>
           <img src={isDarkTheme ? LogoLight : LogoDark} alt="Digital DevLab Logo" />
           <h2>DIGITAL DEVLAB</h2>
         </LogoContainer>
+
+        {/* Menú de navegación con resalte de la opción activa */}
         <ul>
-          <li><Link to="/">{t('menu.home')}</Link></li>
-          <li><Link to="/services">{t('menu.services')}</Link></li>
-          <li><Link to="/about">{t('menu.about')}</Link></li>
-          <li><Link to="/contact">{t('menu.contact')}</Link></li>
-          <li><Link to="/blog">{t('menu.blog')}</Link></li>
+          <li>
+            <NavLink to="/" isActive={location.pathname === '/'}>
+              {t('menu.home')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/services" isActive={location.pathname === '/services'}>
+              {t('menu.services')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" isActive={location.pathname === '/about'}>
+              {t('menu.about')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" isActive={location.pathname === '/contact'}>
+              {t('menu.contact')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/blog" isActive={location.pathname === '/blog'}>
+              {t('menu.blog')}
+            </NavLink>
+          </li>
         </ul>
+
+        {/* Cambio de tema y selector de idioma */}
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '5px' }}>
           <ThemeSwitch toggleTheme={toggleTheme} />
           <LanguageSwitcher />

@@ -184,5 +184,24 @@
             "text1": "Listen to more episodes",
             "text2": "See all podcasts"
         }
+    },
+    "servicesPage": {
+        "title": "Our Services",
+        "subtitle": "Discover the solutions we offer to elevate your business.",
+        "service1": {
+            "title": "Web Development",
+            "description": "Build robust and scalable web applications tailored to your needs.",
+            "cta": "Learn More"
+        },
+        "service2": {
+            "title": "Digital Portfolios",
+            "description": "Showcase your work with stunning digital portfolios that attract clients.",
+            "cta": "Discover More"
+        },
+        "service3": {
+            "title": "Corporate Identity Solutions",
+            "description": "Create a strong brand identity with our custom solutions.",
+            "cta": "Get Started"
+        }
     }
 }

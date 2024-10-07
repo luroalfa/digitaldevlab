@@ -1,10 +1,5 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Button from '../../../components/Button';
-import { FaCode, FaLaptopCode, FaLightbulb } from 'react-icons/fa';
-import IllustrationScene05 from '../../../assets/Scenes05.svg';
-import 'animate.css';
-import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 // Keyframes para la animación de pulsación (zoom in y zoom out continuo)
 const pulse = keyframes`
@@ -19,7 +14,7 @@ const pulse = keyframes`
   }
 `;
 
-const AboveTheFoldSection = styled.section`
+export const AboveTheFoldSection = styled.section`
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -79,7 +74,7 @@ const AboveTheFoldSection = styled.section`
   }
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -111,11 +106,15 @@ const Content = styled.div`
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     color: ${(props) => props.theme.colors.accent};
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
   }
 `;
 
 // El contenedor de la ilustración solo tendrá el efecto de pulsación continuo
-const IllustrationContainer = styled.div`
+export const IllustrationContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -135,22 +134,22 @@ const IllustrationContainer = styled.div`
   @media (max-width: 768px) {
     margin-top: 20px;
   }
-`;
+  `;
 
-const IconContainer = styled.div`
+export const IconContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
   width: 100%;
   max-width: 400px;
-
+  
   svg {
     font-size: 2rem;
     color: ${(props) => props.theme.colors.secondary};
   }
 `;
 
-const LearnMoreLink = styled.a`
+export const LearnMoreLink = styled(Link)`
   margin-top: 10px;
   color: ${(props) => props.theme.colors.secondary};
   font-size: 0.9rem;
@@ -162,38 +161,3 @@ const LearnMoreLink = styled.a`
     text-decoration: underline;
   }
 `;
-
-const AboveTheFold = () => {
-  const { t } = useTranslation();
-  return (
-    <AboveTheFoldSection>
-      <Content className="animate__animated animate__fadeInDown">
-        <h1>
-          {t('aboveTheFold.welcome')}<br /> <span>{t('aboveTheFold.companyName')}</span>
-        </h1>
-        <p className="animate__animated animate__fadeInUp animate__delay-1s">
-          {t('aboveTheFold.description')}
-        </p>
-        <Button className="animate__animated animate__bounceIn animate__delay-2s">
-          <span className="btn-text-one">{t('aboveTheFold.quoteNow')}</span>
-          <span className="btn-text-two">{t('aboveTheFold.requestQuote')}</span>
-        </Button>
-        <br />
-        <LearnMoreLink href="#services" className="animate__animated animate__fadeInUp animate__delay-2s">
-          {t('aboveTheFold.learnMore')}
-        </LearnMoreLink>
-      </Content>
-
-      <IllustrationContainer className="animate__animated animate__zoomIn animate__delay-1s">
-        <img src={IllustrationScene05} alt="Ilustración" />
-        <IconContainer className="animate__animated animate__fadeInUp animate__delay-1s">
-          <FaCode title="Desarrollo" />
-          <FaLaptopCode title="Tecnología" />
-          <FaLightbulb title="Innovación" />
-        </IconContainer>
-      </IllustrationContainer>
-    </AboveTheFoldSection>
-  );
-};
-
-export default AboveTheFold;

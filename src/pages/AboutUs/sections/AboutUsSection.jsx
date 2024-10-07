@@ -133,7 +133,7 @@ const AboutUsSection = () => {
         </Paragraph>
         <Signature>
           <Name>Alfonso Rodríguez</Name>
-          <TitleCTO>CTO - Chief Technology Officer</TitleCTO>
+          <TitleCTO>CTO</TitleCTO>
         </Signature>
         {/* Redes sociales */}
         <SocialMediaWrapper>
