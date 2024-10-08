@@ -5,7 +5,6 @@ import ServicesListSection from './sections/ServicesListSection'
 import Testimonials from '../../components/Testimonials'
 import CTABanner from './sections/CTABanner'
 import WorkflowSection from '../Home/sections/WorkflowSection'
-import TechnologiesSection from './sections/TechnologiesSection'
 
 const Services = () => {
     return (
@@ -16,7 +15,6 @@ const Services = () => {
             <WorkflowSection />
             <CTABanner />
             <Testimonials />
-            <TechnologiesSection />
         </>
     )
 }

@@ -132,75 +132,75 @@ const OfferBadge = styled.div`
 `;
 
 const WebDevelopmentPackages = () => {
-    // Definir los precios reales en Colones
-    const prices = {
-        basic: '₡150,000',
-        discountedBasic: '₡60,000', // Precio con descuento
-        intermediate: '₡400,000',
-        advanced: '₡1,000,000'
-    };
+  // Definir los precios reales en Colones
+  const prices = {
+    basic: '₡150,000',
+    discountedBasic: '₡60,000', // Precio con descuento
+    intermediate: '₡400,000',
+    advanced: '₡1,000,000'
+  };
 
-    return (
-        <PackagesWrapper>
-            <h2>Opciones de Desarrollo Web</h2>
-            <PackageGrid>
-                {/* Paquete Básico con Oferta */}
-                <PackageCard>
-                    <OfferBadge>Oferta del Mes</OfferBadge>
-                    <p className="price">
-                        <span>{prices.basic}</span> {prices.discountedBasic}
-                    </p>
-                    <h3>Desarrollo Web Básico</h3>
-                    <p>Un plan para sitios web sencillos</p>
-                    <ul>
-                        <li>1 Página web</li>
-                        <li>Diseño responsivo</li>
-                        <li>SSL gratuito</li>
-                        <li>Soporte básico</li>
-                    </ul>
-                    <Link to="/services/web-development/web-basic">
-                        <button>Solicitar</button>
-                    </Link>
-                </PackageCard>
+  return (
+    <PackagesWrapper>
+      <h2>Opciones de Desarrollo Web</h2>
+      <PackageGrid>
+        {/* Paquete Básico con Oferta */}
+        <PackageCard>
+          <OfferBadge>Oferta del Mes</OfferBadge>
+          <p className="price">
+            <span>{prices.basic}</span> {prices.discountedBasic}
+          </p>
+          <h3>Desarrollo Web Básico</h3>
+          <p>Un plan para sitios web sencillos</p>
+          <ul>
+            <li>1 Página web</li>
+            <li>Diseño responsivo</li>
+            <li>SSL gratuito</li>
+            <li>Soporte básico</li>
+          </ul>
+          <Link to="/services/web-basic">
+            <button>Solicitar</button>
+          </Link>
+        </PackageCard>
 
-                {/* Paquete Intermedio */}
-                <PackageCard>
-                    <p className="price">{prices.intermediate}</p>
-                    <h3>Desarrollo Web Intermedio</h3>
-                    <p>Un plan para sitios web más avanzados</p>
-                    <ul>
-                        <li>Hasta 5 páginas</li>
-                        <li>Diseño responsivo avanzado</li>
-                        <li>Optimización SEO</li>
-                        <li>SSL gratuito</li>
-                        <li>Integración con Google Analytics</li>
-                        <li>Soporte intermedio</li>
-                    </ul>
-                    <Link to="/contact">
-                        <button>Solicitar</button>
-                    </Link>
-                </PackageCard>
+        {/* Paquete Intermedio */}
+        <PackageCard>
+          <p className="price">{prices.intermediate}</p>
+          <h3>Desarrollo Web Intermedio</h3>
+          <p>Un plan para sitios web más avanzados</p>
+          <ul>
+            <li>Hasta 5 páginas</li>
+            <li>Diseño responsivo avanzado</li>
+            <li>Optimización SEO</li>
+            <li>SSL gratuito</li>
+            <li>Integración con Google Analytics</li>
+            <li>Soporte intermedio</li>
+          </ul>
+          <Link to="/contact">
+            <button>Solicitar</button>
+          </Link>
+        </PackageCard>
 
-                {/* Paquete Avanzado */}
-                <PackageCard>
-                    <p className="price">{prices.advanced}</p>
-                    <h3>Desarrollo Web Avanzado</h3>
-                    <p>Para empresas que buscan lo mejor en desarrollo web</p>
-                    <ul>
-                        <li>Sitio web personalizado</li>
-                        <li>Diseño avanzado y animaciones</li>
-                        <li>Optimización SEO</li>
-                        <li>Integración de API y formularios</li>
-                        <li>Mantenimiento mensual</li>
-                        <li>Soporte premium</li>
-                    </ul>
-                    <Link to="/contact">
-                        <button>Solicitar</button>
-                    </Link>
-                </PackageCard>
-            </PackageGrid>
-        </PackagesWrapper>
-    );
+        {/* Paquete Avanzado */}
+        <PackageCard>
+          <p className="price">{prices.advanced}</p>
+          <h3>Desarrollo Web Avanzado</h3>
+          <p>Para empresas que buscan lo mejor en desarrollo web</p>
+          <ul>
+            <li>Sitio web personalizado</li>
+            <li>Diseño avanzado y animaciones</li>
+            <li>Optimización SEO</li>
+            <li>Integración de API y formularios</li>
+            <li>Mantenimiento mensual</li>
+            <li>Soporte premium</li>
+          </ul>
+          <Link to="/contact">
+            <button>Solicitar</button>
+          </Link>
+        </PackageCard>
+      </PackageGrid>
+    </PackagesWrapper>
+  );
 };
 
 export default WebDevelopmentPackages;
