@@ -25,6 +25,7 @@ const Home = () => {
         "description": "Explora los últimos avances en tecnología, programación, podcasts y más.",
         // "logo": "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/logo_600x60.webp",
         "logo": "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/logo16x16.png",
+        "image": "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/logo16x16.png",
         "author": {
             "@type": "Organization",
             "name": "Digital Dev Lab"
