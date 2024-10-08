@@ -13,8 +13,6 @@ import './config/i18n';
 import Services from './pages/Services/Services';
 import WebDevelopmentPage from './pages/WebDevelopmentPage/WebDevelopmentPage';
 import WebDevBasicPage from './pages/WebDevBasicPage/WebDevBasicPage';
-import Menu from './components/Header/Menu'
-
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
