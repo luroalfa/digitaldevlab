@@ -23,6 +23,7 @@ const Home = () => {
         "name": "Digital Dev Lab",
         "url": "https://digitaldevlab.net/",
         "description": "Explora los últimos avances en tecnología, programación, podcasts y más.",
+        "logo": "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/logo_600x60.webp",
         "author": {
             "@type": "Organization",
             "name": "Digital Dev Lab"
@@ -34,8 +35,12 @@ const Home = () => {
                 "@type": "ImageObject",
                 "url": "https://digitaldevlabimagenes.s3.us-east-2.amazonaws.com/logo_600x60.webp"
             }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://digitaldevlab.net/"
         }
-    };
+    }
 
     const jsonLdService = {
         "@context": "https://schema.org",
