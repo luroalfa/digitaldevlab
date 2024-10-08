@@ -5,14 +5,11 @@ import ServicesListSection from './sections/ServicesListSection'
 import Testimonials from '../../components/Testimonials'
 import CTABanner from './sections/CTABanner'
 import WorkflowSection from '../Home/sections/WorkflowSection'
-import PartnersCarousel from './sections/PartnersCarousel'
 import TechnologiesSection from './sections/TechnologiesSection'
-import Menu from '../../components/Header/Menu'
 
-const Services = ({ toggleTheme, isDarkTheme }) => {
+const Services = () => {
     return (
         <>
-            <Menu toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
             <FullScreenCarousel />
             <ServicesDescriptionSection />
             <ServicesListSection />
@@ -20,7 +17,6 @@ const Services = ({ toggleTheme, isDarkTheme }) => {
             <CTABanner />
             <Testimonials />
             <TechnologiesSection />
-            {/* <PartnersCarousel /> */}
         </>
     )
 }

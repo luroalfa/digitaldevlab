@@ -13,11 +13,11 @@ import './config/i18n';
 import Services from './pages/Services/Services';
 import WebDevelopmentPage from './pages/WebDevelopmentPage/WebDevelopmentPage';
 import WebDevBasicPage from './pages/WebDevBasicPage/WebDevBasicPage';
+import Menu from './components/Header/Menu'
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  // Función para alternar el tema
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
@@ -26,11 +26,12 @@ function App() {
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Router>
+        <Menu toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Routes>
-          <Route path="/" element={<Home toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/services" element={<Services toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/services/web-development" element={<WebDevelopmentPage />} />
           <Route path="/services/web-development/web-basic" element={<WebDevBasicPage />} />
         </Routes>

@@ -15,9 +15,8 @@ import BlogSection from './sections/BlogSection/BlogSection';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import FAQSection from './sections/FAQSection';
 import PodcastSection from './sections/PodcastSection';
-import Menu from '../../components/Header/Menu';
 
-const Home = ({ toggleTheme, isDarkTheme }) => {
+const Home = () => {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -116,7 +115,7 @@ const Home = ({ toggleTheme, isDarkTheme }) => {
                 </script>
             </Helmet>
 
-            <Menu toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+
             {/* Secciones del Home */}
             <AboveTheFold />
             <ServicesSection />
