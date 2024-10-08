@@ -19,8 +19,8 @@
         "welcome": "Bienvenido a",
         "companyName": "Digital DevLab",
         "description": "Somos expertos en el desarrollo de sitios web, portafolios digitales, menús digitales para restaurantes y soluciones de identidad corporativa. Impulsa tu negocio con nuestras soluciones tecnológicas innovadoras.",
-        "quoteNow": "Cotizar desarrollo web",
-        "requestQuote": "Solicitar cotización",
+        "quoteNow": "Crear sitio web",
+        "requestQuote": "Ir a opciones de desarrollo",
         "learnMore": "Descubre más sobre nuestro desarrollo web y servicios digitales"
     },
     "serviceCard": {
@@ -77,7 +77,7 @@
     "promotionalBanner": {
         "bannerText1": "Aumenta tu visibilidad online y atrae nuevos clientes con un Sitio Web profesional disponible las 24 horas.",
         "bannerText2": "Diseño responsive, optimización SEO y soporte técnico garantizado.",
-        "highlightText": "¡Empieza tu sitio web hoy mismo desde solo 50,000 CRC!",
+        "highlightText": "¡Empieza tu sitio web hoy mismo desde solo 60,000 CRC!",
         "buttonText": "Solicita tu sitio web ahora"
     },
     "workflow": {

@@ -5,6 +5,7 @@ import ServiceCard from '../../../components/ServiceCard';
 import Button from '../../../components/Button';
 import TitleSection from '../../../components/TitleSection';
 import { useTranslation } from 'react-i18next';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 // Animaciones keyframes
 const fadeIn = keyframes`
@@ -117,6 +118,11 @@ const ServicesSection = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate()
+
+  const handleRedirect = () => {
+    navigate('/services')
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -157,7 +163,7 @@ const ServicesSection = () => {
                 t('services.webDevelopment.benefits.2'),
               ]}
               buttonText={t('services.webDevelopment.buttonText')}
-              link="/servicios/desarrollo-web-basico"
+              link="/services/web-basic"
             />
           </BadgeRibbon>
         </ServiceCardWrapper>
@@ -207,7 +213,7 @@ const ServicesSection = () => {
 
       <CTAWrapper $isVisible={isVisible}>
         <p>{t('services.ctaText')}</p>
-        <Button className="animate__animated animate__bounceIn animate__delay-2s">
+        <Button className="animate__animated animate__bounceIn animate__delay-2s" onClick={handleRedirect}>
           <span className="btn-text-one">{t('services.ctaButton')}</span>
           <span className="btn-text-two">{t('services.ctaLink')}</span>
         </Button>

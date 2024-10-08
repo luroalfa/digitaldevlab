@@ -127,8 +127,8 @@ const Home = () => {
             <SupportBanner />
             <Testimonials />
             <FAQSection />
-            <BlogSection />
-            <PodcastSection />
+            {/* <BlogSection />
+            <PodcastSection /> */}
             <FloatingButtons />
         </>
     );

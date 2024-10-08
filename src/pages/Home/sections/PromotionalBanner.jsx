@@ -135,7 +135,7 @@ const PromotionalBanner = () => {
           <span>{t('promotionalBanner.highlightText')}</span>
         </BannerText>
         <BannerButton
-          href="/contacto"
+          href="/services/web-basic"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={fadeInVariants}

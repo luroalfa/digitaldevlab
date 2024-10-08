@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from './Button';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 // Estilos del contenedor de la tarjeta
 const PlanCard = styled.div`
@@ -71,10 +72,15 @@ const BenefitsList = styled.ul`
   }
 `;
 
+
 // Componente ServiceCard
 const ServiceCard = ({ title, description, benefits, buttonText, link }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
+  const handleRedirect = (link) => {
+    navigate(link)
+  }
   return (
     <PlanCard>
       <PlanTitle>
@@ -103,7 +109,7 @@ const ServiceCard = ({ title, description, benefits, buttonText, link }) => {
           </li>
         ))}
       </BenefitsList>
-      <Button width="100%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s" href={link}>
+      <Button width="100%" height="35px" className="animate__animated animate__bounceIn animate__delay-2s" onClick={() => handleRedirect(link)}>
         <span className="btn-text-one">{buttonText}</span>
         <span className="btn-text-two">{t('serviceCard.textButton')}</span>
       </Button>
