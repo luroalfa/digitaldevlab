@@ -25,9 +25,7 @@ export const AboveTheFoldSection = styled.section`
     props.theme.colors.primary}; /* Fondo de color sólido */
   color: ${(props) => props.theme.colors.accent};
   text-align: left;
-  position: relative;
   overflow: hidden;
-  top: 105px;
 
   /* Círculos decorativos en el fondo */
   &::before,
@@ -67,7 +65,7 @@ export const AboveTheFoldSection = styled.section`
 
   @media (max-width: 768px) {
     height: 100vh;
-    top: 46px;
+    margin-top: 40px;
     flex-direction: column;
     text-align: center;
 
