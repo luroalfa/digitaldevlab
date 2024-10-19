@@ -22,7 +22,7 @@ export const TopBarWrapper = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1100;
+  z-index: 1000;
   overflow: hidden;
   font-size: 0.9rem;
 `;

@@ -8,7 +8,6 @@ import GlobalStyles from './styles/globalStyles';
 import 'antd/dist/reset.css';
 import Footer from './components/Footer/Footer';
 import AboutUs from './pages/AboutUs/AboutUs';
-import BlogPage from './pages/Blog/BlogPage';
 import './config/i18n';
 import Services from './pages/Services/Services';
 import WebDevelopmentPage from './pages/WebDevelopmentPage/WebDevelopmentPage';

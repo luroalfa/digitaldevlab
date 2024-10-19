@@ -8,12 +8,9 @@ import PromotionalBanner from './sections/PromotionalBanner';
 import FreeConsultation from './sections/FreeConsultation';
 import IdentitySection from './sections/IdentitySection';
 import SupportBanner from './sections/SupportBanner';
-import Testimonials from '../../components/Testimonials';
-import BlogSection from './sections/BlogSection/BlogSection';
 //Components
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import FAQSection from './sections/FAQSection';
-import PodcastSection from './sections/PodcastSection';
 
 const Home = () => {
     const jsonLd = {

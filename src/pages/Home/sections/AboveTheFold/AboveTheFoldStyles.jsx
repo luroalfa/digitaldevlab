@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 
 // Keyframes para la animación de pulsación (zoom in y zoom out continuo)
 const pulse = keyframes`
@@ -15,21 +15,24 @@ const pulse = keyframes`
 `;
 
 export const AboveTheFoldSection = styled.section`
-  height: 100vh;
+  height: calc(100vh - 105px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   padding: 20px;
-  background-color: ${(props) => props.theme.colors.primary};  /* Fondo de color sólido */
+  background-color: ${(props) =>
+    props.theme.colors.primary}; /* Fondo de color sólido */
   color: ${(props) => props.theme.colors.accent};
   text-align: left;
   position: relative;
   overflow: hidden;
+  top: 105px;
 
   /* Círculos decorativos en el fondo */
-  &::before, &::after {
-    content: '';
+  &::before,
+  &::after {
+    content: "";
     position: absolute;
     border-radius: 50%;
     opacity: 0.1;
@@ -39,7 +42,11 @@ export const AboveTheFoldSection = styled.section`
   &::before {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, ${(props) => props.theme.colors.secondary}, transparent);
+    background: radial-gradient(
+      circle,
+      ${(props) => props.theme.colors.secondary},
+      transparent
+    );
     top: -100px;
     left: -100px;
     border: 4px solid ${(props) => props.theme.colors.accent};
@@ -48,13 +55,18 @@ export const AboveTheFoldSection = styled.section`
   &::after {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, ${(props) => props.theme.colors.background}, transparent);
+    background: radial-gradient(
+      circle,
+      ${(props) => props.theme.colors.background},
+      transparent
+    );
     bottom: -150px;
     right: -150px;
     border: 3px solid ${(props) => props.theme.colors.secondary};
   }
 
   @media (max-width: 768px) {
+    top: 46px;
     flex-direction: column;
     text-align: center;
 
@@ -92,12 +104,12 @@ export const Content = styled.div`
     font-size: 3rem;
     margin-bottom: 20px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    color: ${(props) => props.theme.colors.accent}; 
+    color: ${(props) => props.theme.colors.accent};
 
     span {
       font-family: ${(props) => props.theme.fonts.heading};
       font-size: 3.5rem;
-      color: ${(props) => props.theme.colors.secondary};  /* Color destacado */
+      color: ${(props) => props.theme.colors.secondary}; /* Color destacado */
     }
   }
 
@@ -109,7 +121,6 @@ export const Content = styled.div`
     @media (max-width: 768px) {
       font-size: 1rem;
     }
-
   }
 `;
 
@@ -134,7 +145,7 @@ export const IllustrationContainer = styled.div`
   @media (max-width: 768px) {
     margin-top: 20px;
   }
-  `;
+`;
 
 export const IconContainer = styled.div`
   display: flex;
@@ -142,7 +153,7 @@ export const IconContainer = styled.div`
   margin-top: 20px;
   width: 100%;
   max-width: 400px;
-  
+
   svg {
     font-size: 2rem;
     color: ${(props) => props.theme.colors.secondary};
