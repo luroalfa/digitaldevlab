@@ -94,7 +94,7 @@ export const LogoContainer = styled.div`
 
   h2 {
     font-family: ${(props) => props.theme.fonts.heading};
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: ${(props) => props.theme.colors.accent};
     margin: 0;
   }
