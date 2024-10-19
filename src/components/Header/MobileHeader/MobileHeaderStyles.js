@@ -87,14 +87,14 @@ export const LogoContainer = styled.div`
   cursor: pointer; /* Cursor pointer para indicar que es clicable */
 
   img {
-    width: 30px;
+    width: 15px;
     height: auto;
     margin-right: 10px;
   }
 
   h2 {
     font-family: ${(props) => props.theme.fonts.heading};
-    font-size: 2rem;
+    font-size: 1rem;
     color: ${(props) => props.theme.colors.accent};
     margin: 0;
   }
