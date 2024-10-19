@@ -89,7 +89,7 @@ export const LogoContainer = styled.div`
   img {
     width: 15px;
     height: auto;
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   h2 {
