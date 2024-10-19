@@ -84,17 +84,16 @@ export const StyledDrawer = styled(Drawer)`
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  cursor: pointer; /* Cursor pointer para indicar que es clicable */
-
+  cursor: pointer; 
   img {
     width: 15px;
-    height: auto;
-    margin-right: 20px;
+    height: 15px;
+    margin-right: 10px;
   }
 
   h2 {
     font-family: ${(props) => props.theme.fonts.heading};
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: ${(props) => props.theme.colors.accent};
     margin: 0;
   }
