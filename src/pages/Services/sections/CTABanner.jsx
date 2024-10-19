@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Button from '../../../components/Button'; // Usa el botón existente
 import Img from '../../../assets/bannerCTA.jpg'

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import asesorImage from '../../../assets/img-webs.jpg';
 import TitleSection from '../../../components/TitleSection';

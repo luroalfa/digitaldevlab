@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { FaLaptopCode, FaMobileAlt, FaSearch, FaLock } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import WebDevelopmentPackages from './sections/WebDevelopmentPackages';
 import HeroSection from './sections/HeroSection';

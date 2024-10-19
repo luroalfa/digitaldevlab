@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import TitleSection from '../../../components/TitleSection';
 import Button from '../../../components/Button';

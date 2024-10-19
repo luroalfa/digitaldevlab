@@ -1,4 +1,3 @@
-import React from 'react';
 import { Carousel } from 'antd';
 import styled, { keyframes } from 'styled-components';
 import ImgSlide1 from '../../../assets/bg1.jpg'; // Cambia esta ruta por las imágenes correspondientes a cada servicio

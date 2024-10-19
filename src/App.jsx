@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Home from './pages/Home/Home';
@@ -13,6 +13,7 @@ import './config/i18n';
 import Services from './pages/Services/Services';
 import WebDevelopmentPage from './pages/WebDevelopmentPage/WebDevelopmentPage';
 import WebDevBasicPage from './pages/WebDevBasicPage/WebDevBasicPage';
+
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -28,7 +29,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/blog" element={<BlogPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/web-development" element={<WebDevelopmentPage />} />
           <Route path="/services/web-basic" element={<WebDevBasicPage />} />

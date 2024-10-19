@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
-import { List, Typography, Carousel } from 'antd';
+import { List, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import backgroundImage from '../../../assets/background-digital-marketing.gif';
 import Button from '../../../components/Button';

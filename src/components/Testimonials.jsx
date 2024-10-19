@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import { Modal } from 'antd'; // Importamos Modal de Ant Design
 import { StarFilled } from '@ant-design/icons';
 import TitleSection from './TitleSection';
 import Button from './Button';
 import { useTranslation } from 'react-i18next';
-import FacebookIcon from '../assets/facebookicon.png'
 
 // Estilos para la sección principal de testimonios
 const TestimonialsWrapper = styled.section`
@@ -14,143 +14,25 @@ const TestimonialsWrapper = styled.section`
   border-radius: 10px;
 `;
 
-// Descripción o introducción sobre los testimonios
-const Description = styled.p`
-  font-size: 1.2rem;
-  color: ${(props) => props.theme.colors.textPrimary};
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-style: italic; /* Añadimos cursiva para hacerlo más sutil */
-`;
-
-// Contenedor de los testimonios
-const TestimonialsGrid = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 20px;
-  }
-`;
-
-// Estilos para cada tarjeta de testimonio
-const TestimonialCard = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  position: relative;
-  text-align: left;
-  color: ${(props) => props.theme.colors.textPrimary};
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-// Contenedor del título y la imagen del usuario
-const CardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-// Imagen de usuario
-const UserImage = styled.img`
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar la imagen */
-`;
-
-// Información del usuario
-const UserInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-// Nombre del usuario
-const UserName = styled.h4`
-  font-size: 1.5rem;  /* Aumentamos el tamaño del nombre */
-  margin: 0;
-  color: ${(props) => props.theme.colors.textPrimary};
-  font-weight: bold; /* Negrita para destacar el nombre */
-`;
-
-// Ocupación del usuario
-const UserOccupation = styled.p`
-  font-size: 1rem;
-  margin: 5px 0;
-  color: ${(props) => props.theme.colors.textSecondary};
-  font-style: italic; /* Cursiva para dar una jerarquía menor */
-`;
-
-// Enlace del sitio web del usuario
-const UserWebsite = styled.a`
-  font-size: 0.9rem;
-  color: ${(props) => props.theme.colors.secondary};
-  margin-top: 5px;
-  text-decoration: none;
-  font-weight: bold; /* Negrita para destacar el enlace al sitio web */
-
-  &:hover {
-    text-decoration: underline;
-    color: ${(props) => props.theme.colors.accent};
-  }
-`;
-
-// Estrellas de calificación
-const StarRating = styled.div`
-  color: ${(props) => props.theme.colors.attention};
-  margin-bottom: 10px;
-`;
-
-// Texto del testimonio
-const TestimonialText = styled.p`
-  font-size: 1.1rem;
-  color: ${(props) => props.theme.colors.textPrimary};
-  line-height: 1.4;
-  margin-top: 10px;
-`;
-
-// Logo de Google
-const GoogleLogoImage = styled.img`
-  width: 50px;
-  margin-top: 20px;
-  align-self: center; /* Centramos el logo de Google */
-`;
-
-// Estilos del botón para dejar una reseña
-const ReviewButtonWrapper = styled.div`
-  margin-top: 40px;
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-`;
-
-const ReviewButton = styled.a`
-  background-color: ${(props) => props.theme.colors.attention};
-  color: ${(props) => props.theme.colors.textOnAttention};
-  padding: 10px 30px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.accent};
-  }
-`;
+// Resto de los estilos...
 
 const Testimonials = () => {
   const { t } = useTranslation(); // Hook de traducción
+  const [isModalVisible, setIsModalVisible] = useState(false); // Estado para controlar la visibilidad del modal
+
+  // Función para mostrar el modal
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  // Función para ocultar el modal
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   // Datos estáticos para los testimonios
   const testimonials = [
@@ -165,48 +47,13 @@ const Testimonials = () => {
       userImage: 'https://randomuser.me/api/portraits/women/44.jpg', // Imagen de usuario estática
       pathSource: 'https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png'
     },
-    {
-      id: 2,
-      name: 'Jason Ramírez',
-      service: 'Sitio Web',
-      occupation: 'Desarrollador Web',
-      website: 'https://jasondevweb.com',
-      rating: 5,
-      testimonial: t('testimonials.testimonial2'),
-      userImage: 'https://randomuser.me/api/portraits/men/32.jpg', // Imagen de usuario estática
-      pathSource: 'https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png'
-    },
-    {
-      id: 3,
-      name: 'Carolina Cunningham',
-      service: 'Menu Digital',
-      occupation: 'Encargado de Restaurante',
-      website: 'https://carolmarketing.com',
-      rating: 5,
-      testimonial: t('testimonials.testimonial3'),
-      userImage: 'https://randomuser.me/api/portraits/women/65.jpg', // Imagen de usuario estática
-      pathSource: 'https://recensioni-io-static-folder.s3.eu-central-1.amazonaws.com/public_onlinereviews/images/integrations/google.png'
-    },
-    {
-      id: 4,
-      name: 'Marcela Gómez',
-      service: 'Facebook Ads',
-      occupation: 'Digital Marketer',
-      website: 'https://marcelagomez.com',
-      rating: 5,
-      testimonial: t('testimonials.testimonial4'),
-      userImage: 'https://randomuser.me/api/portraits/women/50.jpg', // Imagen de usuario estática
-      pathSource: FacebookIcon
-    }
-
+    // Otros testimonios...
   ];
 
   return (
     <TestimonialsWrapper>
       <TitleSection titleText={t('testimonials.title')} isVisible={true} />
-      <Description>
-        {t('testimonials.description')}
-      </Description>
+      <Description>{t('testimonials.description')}</Description>
       <TestimonialsGrid>
         {testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial.id}>
@@ -232,11 +79,24 @@ const Testimonials = () => {
         ))}
       </TestimonialsGrid>
       <br />
-      <Button >
+      {/* Botón que dispara el modal */}
+      <Button onClick={showModal}>
         <span className="btn-text-one">{t('testimonials.buttonText1')}</span>
         <span className="btn-text-two">{t('testimonials.buttonText2')}</span>
       </Button>
+
+      {/* Modal que se muestra cuando el botón es presionado */}
+      <Modal 
+        title={t('testimonials.modalTitle')} 
+        visible={isModalVisible} 
+        onOk={handleOk} 
+        onCancel={handleCancel} 
+        okText={t('testimonials.modalOkText')} 
+        cancelText={t('testimonials.modalCancelText')}>
+        <p>{t('testimonials.modalMessage')}</p>
+      </Modal>
     </TestimonialsWrapper>
   );
 };
+
 export default Testimonials;

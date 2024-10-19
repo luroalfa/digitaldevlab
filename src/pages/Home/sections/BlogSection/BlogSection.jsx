@@ -1,4 +1,3 @@
-import React from 'react';
 import blogImage from '../../../../assets/highterorderfunction.png'; // Imagen genérica para el blog
 import TitleSection from '../../../../components/TitleSection';
 import Button from '../../../../components/Button';

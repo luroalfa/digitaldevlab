@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 //Sections
 import AboveTheFold from './sections/AboveTheFold/AboveTheFold';
@@ -133,7 +132,7 @@ const Home = () => {
             <FreeConsultation />
             <IdentitySection />
             <SupportBanner />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <FAQSection />
             {/* <BlogSection />
             <PodcastSection /> */}

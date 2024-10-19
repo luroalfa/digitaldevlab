@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Badge } from 'antd';
 import ServiceCard from '../../../components/ServiceCard';

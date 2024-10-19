@@ -1,6 +1,5 @@
-import React from 'react';
 import { Collapse } from 'antd';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import faqImage from '../../../assets/faq.jpg';
 import TitleSection from '../../../components/TitleSection';
 import { useTranslation } from 'react-i18next';

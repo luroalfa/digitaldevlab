@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Drawer } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Importamos useLocation
 import LanguageSwitcher from '../Language/LanguageSwitcher';
 import ThemeSwitch from '../ThemeSwitch';
+import TopBar from './DesktopHeader/TopBar/TopBar';
 
 const MobileNav = styled.nav`
   display: flex;
@@ -12,8 +13,8 @@ const MobileNav = styled.nav`
   padding: 10px 20px;
   background-color: ${(props) => props.theme.colors.background};
   position: sticky;
-  top: 0;
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  top: ${({ $isTopBarVisible }) => ($isTopBarVisible ? '47px' : '0')}; /* Posiciona debajo del TopBar */
+  z-index: 1000;
 `;
 
 const HamburgerLabel = styled.label`
@@ -22,7 +23,7 @@ const HamburgerLabel = styled.label`
   align-items: center;
 
   svg {
-    height: 3em; /* Tamaño del SVG */
+    height: 3em;
     transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -53,13 +54,11 @@ const StyledDrawer = styled(Drawer)`
   .ant-drawer-body {
     background-color: ${(props) => props.theme.colors.background} !important;
   }
-
   .ant-drawer-header {
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.textBackground};
     border-bottom: 1px solid ${(props) => props.theme.colors.accent};
   }
-
   .ant-drawer-title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -91,7 +90,7 @@ const Title = styled.h2`
   color: ${(props) => props.theme.colors.accent};
 `;
 
-const MobileHeader = ({ toggleTheme }) => {
+const MobileHeader = ({ toggleTheme, isTopBarVisible  }) => {
   const [visible, setVisible] = useState(false); // Estado para controlar la visibilidad del drawer
 
   const onClose = () => {
@@ -100,7 +99,11 @@ const MobileHeader = ({ toggleTheme }) => {
 
   return (
     <>
-      <MobileNav>
+      {/* Mostrar TopBar solo si está visible */}
+      {isTopBarVisible && <TopBar />}
+
+      {/* MobileNav dinámico según la visibilidad del TopBar */}
+      <MobileNav $isTopBarVisible={isTopBarVisible}>
         <Title>Digital DevLab</Title>
         <HamburgerLabel onClick={() => setVisible(!visible)}>
           <svg viewBox="0 0 32 32">

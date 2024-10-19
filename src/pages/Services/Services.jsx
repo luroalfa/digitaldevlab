@@ -12,7 +12,7 @@ const Services = () => {
             <ServicesDescriptionSection />
             <WorkflowSection />
             <CTABanner />
-            <Testimonials />
+            {/* <Testimonials /> */}
         </>
     )
 }

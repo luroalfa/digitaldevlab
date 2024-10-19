@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Timeline } from 'antd';
 import { UserOutlined, SketchOutlined, CodeOutlined, BugOutlined, CloudUploadOutlined, SyncOutlined } from '@ant-design/icons';

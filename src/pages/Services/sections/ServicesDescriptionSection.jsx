@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FaLaptopCode, FaLink, FaSuitcase, FaUtensils, FaBullhorn, FaTools, FaMobileAlt, FaRobot } from 'react-icons/fa'; // Añadimos FaBullhorn para el servicio de Landing Page
 import { Link } from 'react-router-dom'; // Importamos Link para redirigir dentro de la app
