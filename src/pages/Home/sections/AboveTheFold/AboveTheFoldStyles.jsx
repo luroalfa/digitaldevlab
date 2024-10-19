@@ -66,6 +66,7 @@ export const AboveTheFoldSection = styled.section`
   }
 
   @media (max-width: 768px) {
+    height: 100vh;
     top: 46px;
     flex-direction: column;
     text-align: center;
