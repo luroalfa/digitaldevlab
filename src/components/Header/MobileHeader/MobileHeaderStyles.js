@@ -85,15 +85,9 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer; 
-  img {
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-  }
-
   h2 {
     font-family: ${(props) => props.theme.fonts.heading};
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: ${(props) => props.theme.colors.accent};
     margin: 0;
   }

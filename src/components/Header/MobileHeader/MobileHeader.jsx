@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import LanguageSwitcher from '../../Language/LanguageSwitcher';
 import ThemeSwitch from '../../ThemeSwitch';
 import TopBar from '../DesktopHeader/TopBar/TopBar';
-import LogoDark from '../../../assets/logo-dark.svg';
-import LogoLight from '../../../assets/logo-light.svg';
 import PropTypes from 'prop-types';
 import {HamburgerLabel, LogoContainer, MobileNav, StyledDrawer} from './MobileHeaderStyles'
 
@@ -27,10 +25,6 @@ const MobileHeader = ({ toggleTheme, isTopBarVisible, isDarkTheme }) => {
 
       <MobileNav $isTopBarVisible={isTopBarVisible}>
         <LogoContainer onClick={handleLogoClick}>
-          <img
-            src={isDarkTheme ? LogoLight : LogoDark}
-            alt="Digital DevLab Logo"
-          />
           <h2>DIGITAL DEVLAB</h2>
         </LogoContainer>
         <HamburgerLabel onClick={() => setVisible(!visible)}>
