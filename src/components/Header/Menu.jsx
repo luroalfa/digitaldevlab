@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import DesktopHeader from "./DesktopHeader/DesktopHeader";
-import MobileHeader from "./MobileHeader";
+import MobileHeader from "./MobileHeader/MobileHeader";
 import { useMediaQuery } from "react-responsive";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -19,6 +19,7 @@ const Menu = ({ toggleTheme, isDarkTheme }) => {
       {isMobile ? (
         <MobileHeader
           toggleTheme={toggleTheme}
+          isDarkTheme={isDarkTheme}
           isTopBarVisible={isTopBarVisible}
         />
       ) : (

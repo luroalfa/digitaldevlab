@@ -26,6 +26,7 @@ export const AboveTheFoldSection = styled.section`
   color: ${(props) => props.theme.colors.accent};
   text-align: left;
   overflow: hidden;
+  position: relative;
 
   /* Círculos decorativos en el fondo */
   &::before,
