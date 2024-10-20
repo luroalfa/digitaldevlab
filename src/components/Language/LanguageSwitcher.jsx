@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Dropdown, DropdownItem, DropdownMenu, SelectedLanguage } from './LanguageSwitcherStyles';
 
 const LanguageDropdown = () => {
-  const { i18n } = useTranslation();
-  
-  // Asegúrate de que el estado inicial sea 'es' o el idioma actual de i18n
+  const { i18n } = useTranslation(); 
   const [selectedLang, setSelectedLang] = useState(i18n.language || 'es');
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,15 +13,14 @@ const LanguageDropdown = () => {
   ];
 
   const handleLanguageChange = (code) => {
-    i18n.changeLanguage(code); // Cambia el idioma en i18n
-    setSelectedLang(code); // Actualiza el estado con el idioma seleccionado
-    setIsOpen(false); // Cierra el menú desplegable
+    i18n.changeLanguage(code); 
+    setSelectedLang(code); 
+    setIsOpen(false); 
   };
 
   const selectedLanguage = languages.find((lang) => lang.code === selectedLang);
-  const fallbackFlag = 'https://flagsapi.com/ES/flat/64.png'; // Bandera de respaldo en caso de error
+  const fallbackFlag = 'https://flagsapi.com/ES/flat/64.png'; 
 
-  // Asegurarse de que el idioma inicial sea 'es' si no hay ninguno configurado
   useEffect(() => {
     if (!selectedLang) {
       setSelectedLang('es');
