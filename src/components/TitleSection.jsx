@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
+import PropTypes from 'prop-types'
 
-// Definimos la animación de fadeIn si es necesario
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -10,7 +10,6 @@ const fadeIn = keyframes`
   }
 `;
 
-// Estilizamos el título
 const Title = styled.h2`
   color: ${(props) => props.$customColor || props.theme.colors.accent};
   font-family: ${(props) => props.theme.fonts.heading};
@@ -23,13 +22,23 @@ const Title = styled.h2`
   }
 `;
 
-// Componente TitleSection que acepta props
 const TitleSection = ({ titleText, isVisible = true, customColor }) => {
   return (
     <Title $isVisible={isVisible} $customColor={customColor}>
       {titleText}
     </Title>
   );
+};
+
+TitleSection.propTypes = {
+  titleText: PropTypes.string.isRequired,
+  isVisible: PropTypes.bool, 
+  customColor: PropTypes.string, 
+};
+
+TitleSection.defaultProps = {
+  isVisible: true,
+  customColor: '',
 };
 
 export default TitleSection;

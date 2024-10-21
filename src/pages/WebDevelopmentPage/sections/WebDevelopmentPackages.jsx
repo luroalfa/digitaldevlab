@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const PackagesWrapper = styled.section`
   padding: 50px 10%;
@@ -37,8 +37,14 @@ const PackageCard = styled.div`
   box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.15);
   position: relative;
   text-align: center;
-  background-image: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(29, 123, 219, 0.1) 20%, ${({ theme }) => theme.colors.primary} 40%, ${({ theme }) => theme.colors.primary} 100%);
-  
+  background-image: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.15),
+    rgba(29, 123, 219, 0.1) 20%,
+    ${({ theme }) => theme.colors.primary} 40%,
+    ${({ theme }) => theme.colors.primary} 100%
+  );
+
   &:after {
     content: "";
     display: block;
@@ -49,7 +55,13 @@ const PackageCard = styled.div`
     z-index: -1;
     position: absolute;
     border-radius: 16px;
-    background-image: linear-gradient(135deg, #4ade80, #1d7bdb 40%, ${({ theme }) => theme.colors.background} 60%, ${({ theme }) => theme.colors.primary} 100%);
+    background-image: linear-gradient(
+      135deg,
+      #4ade80,
+      #1d7bdb 40%,
+      ${({ theme }) => theme.colors.background} 60%,
+      ${({ theme }) => theme.colors.primary} 100%
+    );
   }
 
   h3 {
@@ -66,7 +78,6 @@ const PackageCard = styled.div`
 
     span {
       font-size: 1.5rem;
-      text-decoration: line-through;
       color: ${({ theme }) => theme.colors.textSecondary};
       margin-right: 10px;
     }
@@ -94,7 +105,7 @@ const PackageCard = styled.div`
   }
 
   li::before {
-    content: '✔️';
+    content: "✔️";
     color: ${({ theme }) => theme.colors.secondary};
     margin-right: 10px;
   }
@@ -120,7 +131,8 @@ const OfferBadge = styled.div`
   position: absolute;
   top: -10px;
   right: -10px;
-  background-color: ${({ theme }) => theme.colors.attention}; // Usar color de atención o llamativo
+  background-color: ${({ theme }) =>
+    theme.colors.attention}; // Usar color de atención o llamativo
   color: ${({ theme }) => theme.colors.textOnAttention};
   padding: 8px 16px;
   font-size: 1rem;
@@ -133,24 +145,24 @@ const OfferBadge = styled.div`
 const WebDevelopmentPackages = () => {
   // Definir los precios reales en Colones
   const prices = {
-    basic: '₡150,000',
-    discountedBasic: '₡60,000', // Precio con descuento
-    intermediate: '₡400,000',
-    advanced: '₡1,000,000'
+    basic: "₡150,000",
+    discountedBasic: "₡60,000", // Precio con descuento
+    intermediate: "₡400,000",
+    advanced: "₡1,000,000",
   };
 
   return (
     <PackagesWrapper>
-      <h2>Opciones de Desarrollo Web</h2>
+      <h2>⚙️Opciones de Desarrollo Web</h2>
       <PackageGrid>
         {/* Paquete Básico con Oferta */}
         <PackageCard>
           <OfferBadge>Oferta del Mes</OfferBadge>
+          <h3>🛠️Plan Básico</h3>
           <p className="price">
-            <span>{prices.basic}</span> {prices.discountedBasic}
+            <span>Antes:</span><span style={{color: 'red', textDecoration: "line-through" }}>{prices.basic}</span>{" "}{prices.discountedBasic}
           </p>
-          <h3>Desarrollo Web Básico</h3>
-          <p>Un plan para sitios web sencillos</p>
+          <p>Ideal para una presencia inicial en línea</p>
           <ul>
             <li>1 Página web</li>
             <li>Diseño responsivo</li>
@@ -158,14 +170,14 @@ const WebDevelopmentPackages = () => {
             <li>Soporte básico</li>
           </ul>
           <Link to="/services/web-basic">
-            <button>Solicitar</button>
+            <button>Comenzar</button>
           </Link>
         </PackageCard>
 
         {/* Paquete Intermedio */}
         <PackageCard>
+          <h3>📊Plan Profesional</h3>
           <p className="price">{prices.intermediate}</p>
-          <h3>Desarrollo Web Intermedio</h3>
           <p>Un plan para sitios web más avanzados</p>
           <ul>
             <li>Hasta 5 páginas</li>
@@ -176,14 +188,14 @@ const WebDevelopmentPackages = () => {
             <li>Soporte intermedio</li>
           </ul>
           <Link to="/contact">
-            <button>Solicitar</button>
+            <button>Contratar Ahora</button>
           </Link>
         </PackageCard>
 
         {/* Paquete Avanzado */}
         <PackageCard>
+          <h3>💼Plan Corporativo</h3>
           <p className="price">{prices.advanced}</p>
-          <h3>Desarrollo Web Avanzado</h3>
           <p>Para empresas que buscan lo mejor en desarrollo web</p>
           <ul>
             <li>Sitio web personalizado</li>
@@ -194,7 +206,7 @@ const WebDevelopmentPackages = () => {
             <li>Soporte premium</li>
           </ul>
           <Link to="/contact">
-            <button>Solicitar</button>
+            <button>Obtener Plan Corporativo</button>
           </Link>
         </PackageCard>
       </PackageGrid>

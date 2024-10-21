@@ -1,27 +1,41 @@
 import styled from 'styled-components';
 import { FaLaptopCode, FaMobileAlt, FaSearch, FaLock } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Breadcrumb, Form, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import HeroSection from './sections/HeroSection';
 
-const WebDevBasicWrapper = styled.section`
+const WebDevWrapper = styled.section`
   padding: 50px 10%;
-  margin-top: 130px;
   background-color: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.textPrimary};
+
   @media (max-width: 768px) {
-    margin-top: 0px;
     flex-direction: column;
     align-items: center;
   }
 `;
 
-const BreadcrumbWrapper = styled.div`
-  margin-bottom: 20px;
+const HighlightSection = styled.div`
+  margin: 40px 0;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    color: ${({ theme }) => theme.colors.accent};
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.textSecondary};
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
-const IntroSection = styled.div`
+const Section = styled.div`
   margin-bottom: 60px;
   text-align: center;
 
@@ -38,24 +52,7 @@ const IntroSection = styled.div`
   }
 `;
 
-const ContentSection = styled.div`
-  margin-bottom: 60px;
-  text-align: center;
-
-  h2 {
-    font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.accent};
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.colors.textSecondary};
-    margin-bottom: 20px;
-  }
-`;
-
-const BenefitsSection = styled.div`
+const BenefitsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -71,6 +68,7 @@ const BenefitCard = styled.div`
   width: 45%;
   margin-bottom: 20px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   svg {
     font-size: 3rem;
@@ -89,28 +87,17 @@ const BenefitCard = styled.div`
     color: ${({ theme }) => theme.colors.textSecondary};
   }
 
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
 
-const CTASection = styled.div`
-  text-align: center;
-  margin-top: 40px;
-
-  h2 {
-    font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.accent};
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.colors.textSecondary};
-    margin-top: 20px;
-  }
-`;
-
-const ContactFormSection = styled.div`
+const ContactForm = styled.div`
   margin-top: 60px;
   padding: 40px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -149,116 +136,120 @@ const ContactFormSection = styled.div`
   }
 `;
 
-const WebDevBasicPage = () => {
+const WebDevPage = () => {
   const { t } = useTranslation();
 
   const onFinish = (values) => {
     console.log('Formulario Enviado: ', values);
-    // Aquí puedes manejar la lógica de envío del formulario, por ejemplo, a una API o servicio de correo
   };
 
   return (
-    <WebDevBasicWrapper>
-      {/* Hero Section */}
+    <>
       <HeroSection />
+      <WebDevWrapper>
+        <HighlightSection>
+          <h1>{t('Desarrollo Web Personalizado')}</h1>
+          <p>
+            {t(
+              'Obtén una página web profesional optimizada por solo ₡60,000. Aprovecha nuestra oferta exclusiva y lleva tu negocio al siguiente nivel.'
+            )}
+          </p>
+        </HighlightSection>
 
-      {/* Breadcrumb Section */}
-      <BreadcrumbWrapper>
-        <Breadcrumb>
-          <Breadcrumb.Item>
-            <Link to="/">{t('Inicio')}</Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link to="/services">{t('Servicios')}</Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link to="/services/web-development">{t('Desarrollo Web')}</Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>{t('Web Básica')}</Breadcrumb.Item>
-        </Breadcrumb>
-      </BreadcrumbWrapper>
+        <Section id="content">
+          <h2>{t('Contenido del Servicio')}</h2>
+          <p>
+            {t(
+              'Nuestro servicio está diseñado para ofrecer soluciones web de alto rendimiento, ideales para posicionar tu negocio en el entorno digital.'
+            )}
+          </p>
+          <p>
+            {t(
+              'Incluimos una presentación completa de tu empresa, con detalles de tus servicios, perfiles del equipo y un formulario de contacto funcional.'
+            )}
+          </p>
+        </Section>
 
-      {/* Content Section */}
-      <ContentSection id="content">
-        <h2>{t('Contenido del Paquete')}</h2>
-        <p>{t('En nuestro servicio de diseño web, nos enfocamos en ofrecer páginas web básicas que son completas y efectivas para satisfacer las necesidades de su empresa.')}</p>
-        <p>{t('El contenido de estas páginas web incluye una descripción detallada de la empresa, perfiles del equipo, servicios ofrecidos y una sección de contacto para que los visitantes puedan comunicarse fácilmente.')}</p>
-      </ContentSection>
+        <Section id="features">
+          <h2>{t('Características del Servicio')}</h2>
+          <p>
+            {t(
+              'Este servicio es ideal para empresas que buscan destacar en línea con un diseño profesional y funcional, sin comprometer su presupuesto.'
+            )}
+          </p>
+        </Section>
 
-      {/* Intro Section */}
-      <IntroSection id="intro">
-        <h2>{t('Lo que incluye el Paquete Básico')}</h2>
-        <p>{t('Este paquete está diseñado para pequeñas empresas que necesitan un sitio web profesional a un costo accesible.')}</p>
-      </IntroSection>
+        <BenefitsContainer id="benefits">
+          <BenefitCard>
+            <FaLaptopCode />
+            <h3>{t('Diseño Profesional Personalizado')}</h3>
+            <p>{t('Creamos una página web única adaptada a tus necesidades.')}</p>
+          </BenefitCard>
 
-      {/* Benefits Section */}
-      <BenefitsSection id="benefits">
-        <BenefitCard>
-          <FaLaptopCode />
-          <h3>{t('1 Página web')}</h3>
-          <p>{t('Un diseño único y profesional para tu sitio web.')}</p>
-        </BenefitCard>
+          <BenefitCard>
+            <FaMobileAlt />
+            <h3>{t('Optimización para Dispositivos Móviles')}</h3>
+            <p>
+              {t('Tu sitio se verá y funcionará perfectamente en cualquier dispositivo.')}
+            </p>
+          </BenefitCard>
 
-        <BenefitCard>
-          <FaMobileAlt />
-          <h3>{t('Diseño Responsivo')}</h3>
-          <p>{t('Aseguramos que tu sitio se vea increíble en todos los dispositivos.')}</p>
-        </BenefitCard>
+          <BenefitCard>
+            <FaLock />
+            <h3>{t('Certificación SSL')}</h3>
+            <p>{t('Incluimos un certificado SSL para garantizar la seguridad de los datos.')}</p>
+          </BenefitCard>
 
-        <BenefitCard>
-          <FaLock />
-          <h3>{t('SSL Gratuito')}</h3>
-          <p>{t('Protege a tus usuarios con un certificado SSL gratuito.')}</p>
-        </BenefitCard>
+          <BenefitCard>
+            <FaSearch />
+            <h3>{t('Soporte Técnico Personalizado')}</h3>
+            <p>{t('Te acompañamos con soporte continuo para cualquier duda.')}</p>
+          </BenefitCard>
+        </BenefitsContainer>
 
-        <BenefitCard>
-          <FaSearch />
-          <h3>{t('Soporte Básico')}</h3>
-          <p>{t('Te brindamos soporte para cualquier duda o problema.')}</p>
-        </BenefitCard>
-      </BenefitsSection>
+        <ContactForm id="contact-form">
+          <h2>{t('Solicita tu Página Web Profesional')}</h2>
+          <Form name="contact" layout="vertical" onFinish={onFinish}>
+            <Form.Item
+              label={t('Nombre Completo')}
+              name="name"
+              rules={[
+                { required: true, message: t('Por favor ingrese su nombre completo') },
+              ]}
+            >
+              <Input placeholder={t('Nombre Completo')} />
+            </Form.Item>
 
-      {/* Contact Form Section */}
-      <ContactFormSection id="contact-form">
-        <h2>{t('Solicitar Servicio de Desarrollo Web Básico')}</h2>
-        <Form
-          name="contact"
-          layout="vertical"
-          onFinish={onFinish}
-        >
-          <Form.Item
-            label={t('Nombre Completo')}
-            name="name"
-            rules={[{ required: true, message: t('Por favor ingrese su nombre completo') }]}
-          >
-            <Input placeholder={t('Nombre Completo')} />
-          </Form.Item>
+            <Form.Item
+              label={t('Correo Electrónico')}
+              name="email"
+              rules={[
+                { required: true, message: t('Por favor ingrese su correo electrónico') },
+              ]}
+            >
+              <Input placeholder={t('Correo Electrónico')} />
+            </Form.Item>
 
-          <Form.Item
-            label={t('Correo Electrónico')}
-            name="email"
-            rules={[{ required: true, message: t('Por favor ingrese su correo electrónico') }]}
-          >
-            <Input placeholder={t('Correo Electrónico')} />
-          </Form.Item>
+            <Form.Item
+              label={t('Descripción del Proyecto')}
+              name="projectDescription"
+              rules={[
+                { required: true, message: t('Por favor describa su proyecto') },
+              ]}
+            >
+              <Input.TextArea placeholder={t('Descripción del Proyecto')} />
+            </Form.Item>
 
-          <Form.Item
-            label={t('Descripción del Proyecto')}
-            name="projectDescription"
-            rules={[{ required: true, message: t('Por favor describa su proyecto') }]}
-          >
-            <Input.TextArea placeholder={t('Descripción del Proyecto')} />
-          </Form.Item>
-
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              {t('Solicitar Servicio')}
-            </Button>
-          </Form.Item>
-        </Form>
-      </ContactFormSection>
-    </WebDevBasicWrapper>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                {t('Enviar Solicitud')}
+              </Button>
+            </Form.Item>
+          </Form>
+        </ContactForm>
+      </WebDevWrapper>
+    </>
   );
 };
 
-export default WebDevBasicPage;
+export default WebDevPage;

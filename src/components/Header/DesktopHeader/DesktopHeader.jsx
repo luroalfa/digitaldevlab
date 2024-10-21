@@ -1,20 +1,19 @@
-
 import LogoDark from '../../../assets/logo-dark.svg';
 import LogoLight from '../../../assets/logo-light.svg';
 import ThemeSwitch from '../../ThemeSwitch';
 import TopBar from './TopBar/TopBar';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import LanguageSwitcher from '../../Language/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import {DesktopNav, LogoContainer, NavLink} from './DesktopHeaderStyles'
+import { DesktopNav, LogoContainer, NavLink } from './DesktopHeaderStyles';
 
 const DesktopHeader = ({ toggleTheme, isDarkTheme, isTopBarVisible }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    navigate('/'); 
+    navigate('/');
   };
 
   return (
@@ -32,7 +31,7 @@ const DesktopHeader = ({ toggleTheme, isDarkTheme, isTopBarVisible }) => {
 
         <ul>
           <li>
-            <NavLink to="/" exact>
+            <NavLink to="/"> {/* Eliminamos 'exact' */}
               {t('menu.home')}
             </NavLink>
           </li>

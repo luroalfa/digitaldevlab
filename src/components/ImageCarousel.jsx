@@ -1,9 +1,8 @@
-// ImageCarousel.js
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Carousel } from 'antd';
+import PropTypes from 'prop-types'; 
 
-// Estilos para el contenedor del carrusel
 const CarouselWrapper = styled.div`
   max-width: 100%;
   z-index: 2;
@@ -25,30 +24,46 @@ const CarouselWrapper = styled.div`
   }
 `;
 
-const ImageCarousel = ({ images, direction = 'horizontal' }) => {
-    const [isLoaded, setIsLoaded] = useState(false);
+const ImageCarousel = ({ images, direction }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
 
-    const handleImageLoad = () => {
-        setIsLoaded(true);
-    };
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
 
-    return (
-        <CarouselWrapper $isLoaded={isLoaded}>
-            <Carousel
-                arrows
-                autoplay
-                dotPosition={direction === 'horizontal' ? 'bottom' : 'left'} // Cambia la posición de los puntos según la dirección
-                vertical={direction === 'vertical'} // Usa la prop vertical para determinar la dirección
-            >
-                {images.map((image, index) => (
-                    <div key={index}>
-                        <img src={image.src} alt={image.alt} onLoad={handleImageLoad} />
-                    </div>
-                ))}
-            </Carousel>
-            {!isLoaded && <p>Cargando imágenes...</p>}
-        </CarouselWrapper>
-    );
+  return (
+    <CarouselWrapper $isLoaded={isLoaded}>
+      <Carousel
+        arrows
+        autoplay
+        dotPosition={direction === 'horizontal' ? 'bottom' : 'left'}
+        vertical={direction === 'vertical'}
+      >
+        {images.map((image, index) => (
+          <div key={index}>
+            <img src={image.src} alt={image.alt} onLoad={handleImageLoad} />
+          </div>
+        ))}
+      </Carousel>
+      {!isLoaded && <p>Cargando imágenes...</p>}
+    </CarouselWrapper>
+  );
+};
+
+
+ImageCarousel.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string, 
+    })
+  ).isRequired, 
+  direction: PropTypes.oneOf(['horizontal', 'vertical']), 
+};
+
+
+ImageCarousel.defaultProps = {
+  direction: 'horizontal', 
 };
 
 export default ImageCarousel;

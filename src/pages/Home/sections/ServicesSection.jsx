@@ -163,7 +163,7 @@ const ServicesSection = () => {
                 t('services.webDevelopment.benefits.2'),
               ]}
               buttonText={t('services.webDevelopment.buttonText')}
-              link="/services/web-basic"
+              link="/services/web-development"
             />
           </BadgeRibbon>
         </ServiceCardWrapper>
