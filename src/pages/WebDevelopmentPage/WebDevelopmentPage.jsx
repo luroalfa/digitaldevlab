@@ -42,12 +42,12 @@ const WebDevelopmentPage = () => {
           <h2>{t('Impulsa tu negocio con nuestro desarrollo web profesional')}</h2>
           <p>
             {t(
-              'Hoy en día, tener presencia digital es esencial para destacar en un mercado competitivo. Con nuestros paquetes de desarrollo web, obtendrás soluciones diseñadas para fortalecer tu marca y atraer más clientes.'
+              'Hoy en día, tener presencia digital es esencial para destacar en un mercado competitivo. Con nuestros paquetes de desarrollo web, obtendrás soluciones diseñadas para fortalecer tu marca y atraer más clientes. Nuestros planes se adaptan a tus necesidades, desde soluciones iniciales hasta opciones avanzadas con funcionalidades personalizadas. Además, ofrecemos soporte continuo para garantizar el máximo rendimiento de tu página.'
             )}
           </p>
           <p>
             {t(
-              'Nuestros planes se adaptan a tus necesidades, desde soluciones iniciales hasta opciones avanzadas con funcionalidades personalizadas. Además, ofrecemos soporte continuo para garantizar el máximo rendimiento de tu página.'
+              
             )}
           </p>
         </IntroSection>

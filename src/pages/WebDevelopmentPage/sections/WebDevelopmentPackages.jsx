@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import { Collapse } from "antd";
 import { Link } from "react-router-dom";
+
+const { Panel } = Collapse;
 
 const PackagesWrapper = styled.section`
   padding: 50px 10%;
@@ -15,6 +18,43 @@ const PackagesWrapper = styled.section`
 
   @media (max-width: 768px) {
     padding: 50px 5%;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+`;
+
+const DetailsSection = styled.div`
+  margin-top: 30px;
+  text-align: left;
+
+  h3 {
+    font-size: 2rem;
+    color: ${({ theme }) => theme.colors.accent};
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.colors.textSecondary};
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &::before {
+        content: "✔️";
+        margin-right: 10px;
+        color: ${({ theme }) => theme.colors.secondary};
+      }
+    }
   }
 `;
 
@@ -160,7 +200,11 @@ const WebDevelopmentPackages = () => {
           <OfferBadge>Oferta del Mes</OfferBadge>
           <h3>🛠️Plan Básico</h3>
           <p className="price">
-            <span>Antes:</span><span style={{color: 'red', textDecoration: "line-through" }}>{prices.basic}</span>{" "}{prices.discountedBasic}
+            <span>Antes:</span>
+            <span style={{ color: "red", textDecoration: "line-through" }}>
+              {prices.basic}
+            </span>{" "}
+            {prices.discountedBasic}
           </p>
           <p>Ideal para una presencia inicial en línea</p>
           <ul>
@@ -210,6 +254,62 @@ const WebDevelopmentPackages = () => {
           </Link>
         </PackageCard>
       </PackageGrid>
+      {/* Sección de Detalles Expandibles */}
+      <Collapse style={{ marginTop: "50px" }} accordion>
+        <Panel header="🛠️ Detalles del Plan Básico" key="1">
+          <DetailsSection>
+            <h3>Contenido del Servicio</h3>
+            <p>
+              Nuestro servicio está diseñado para ofrecer soluciones web de alto
+              rendimiento, ideales para posicionar tu negocio en el entorno
+              digital. Incluimos una presentación completa de tu empresa, con
+              detalles de tus servicios, perfiles del equipo y un formulario de
+              contacto funcional.
+            </p>
+            <h3>Características del Servicio</h3>
+            <p>
+            Este servicio es ideal para empresas que buscan destacar en línea
+            con un diseño profesional y funcional, sin comprometer su
+            presupuesto.
+            </p>
+            <ul>
+              <li>Diseño responsivo</li>
+              <li>Certificación SSL gratuita</li>
+              <li>Soporte técnico básico</li>
+            </ul>
+          </DetailsSection>
+        </Panel>
+
+        <Panel header="📊 Detalles del Plan Profesional" key="2">
+          <DetailsSection>
+            <h3>Contenido del Servicio</h3>
+            <p>
+              Incluye una página web avanzada con hasta 5 secciones, optimizada
+              para SEO y con Google Analytics integrado.
+            </p>
+            <ul>
+              <li>SEO avanzado</li>
+              <li>Integración con Google Analytics</li>
+              <li>Soporte técnico intermedio</li>
+            </ul>
+          </DetailsSection>
+        </Panel>
+
+        <Panel header="💼 Detalles del Plan Corporativo" key="3">
+          <DetailsSection>
+            <h3>Contenido del Servicio</h3>
+            <p>
+              Solución web personalizada con diseño avanzado, mantenimiento
+              mensual y soporte premium.
+            </p>
+            <ul>
+              <li>Integración de API y formularios</li>
+              <li>Animaciones avanzadas</li>
+              <li>Mantenimiento mensual incluido</li>
+            </ul>
+          </DetailsSection>
+        </Panel>
+      </Collapse>
     </PackagesWrapper>
   );
 };
