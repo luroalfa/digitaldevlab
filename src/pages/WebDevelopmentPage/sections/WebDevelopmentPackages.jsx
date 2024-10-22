@@ -1,8 +1,15 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { Collapse } from "antd";
+import { Form, Input, Modal, Select, Button as AntButton } from "antd";
+import { FaEye, FaShareAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Basic from "../../../assets/basic.png";
+import Bussiness from "../../../assets/bussiness.png";
+import Profesional from "../../../assets/profesional.png";
+import Button from "../../../components/Button";
+import { useMediaQuery } from "react-responsive";
 
-const { Panel } = Collapse;
+const { Option } = Select;
 
 const PackagesWrapper = styled.section`
   padding: 50px 10%;
@@ -24,40 +31,6 @@ const PackagesWrapper = styled.section`
   }
 `;
 
-const DetailsSection = styled.div`
-  margin-top: 30px;
-  text-align: left;
-
-  h3 {
-    font-size: 2rem;
-    color: ${({ theme }) => theme.colors.accent};
-    margin-bottom: 15px;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.colors.textSecondary};
-    margin-bottom: 10px;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-
-      &::before {
-        content: "✔️";
-        margin-right: 10px;
-        color: ${({ theme }) => theme.colors.secondary};
-      }
-    }
-  }
-`;
-
 const PackageGrid = styled.div`
   display: flex;
   justify-content: space-between;
@@ -71,69 +44,35 @@ const PackageGrid = styled.div`
 
 const PackageCard = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 30px;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 16px;
-  box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
   position: relative;
   text-align: center;
-  background-image: linear-gradient(
-    135deg,
-    rgba(74, 222, 128, 0.15),
-    rgba(29, 123, 219, 0.1) 20%,
-    ${({ theme }) => theme.colors.primary} 40%,
-    ${({ theme }) => theme.colors.primary} 100%
-  );
-
-  &:after {
-    content: "";
-    display: block;
-    top: -3px;
-    left: -3px;
-    bottom: -3px;
-    right: -3px;
-    z-index: -1;
-    position: absolute;
-    border-radius: 16px;
-    background-image: linear-gradient(
-      135deg,
-      #4ade80,
-      #1d7bdb 40%,
-      ${({ theme }) => theme.colors.background} 60%,
-      ${({ theme }) => theme.colors.primary} 100%
-    );
-  }
 
   h3 {
     font-size: 1.8rem;
     color: ${({ theme }) => theme.colors.accent};
-    margin-bottom: 10px;
-  }
-
-  .price {
-    font-size: 3rem;
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.accent};
-    margin-bottom: 10px;
-
-    span {
-      font-size: 1.5rem;
-      color: ${({ theme }) => theme.colors.textSecondary};
-      margin-right: 10px;
-    }
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.colors.textSecondary};
-    margin-bottom: 20px;
+    margin: 15px 0;
   }
 
   ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 30px;
     text-align: left;
+    margin-bottom: auto; /* Empuja el footer hacia abajo */
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto; /* Asegura que el footer quede al fondo */
+    padding: 10px 0;
   }
 
   li {
@@ -149,30 +88,21 @@ const PackageCard = styled.div`
     color: ${({ theme }) => theme.colors.secondary};
     margin-right: 10px;
   }
+`;
 
-  button {
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.colors.textButton};
-    background-color: ${({ theme }) => theme.colors.backgroundButton};
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.secondary};
-      color: ${({ theme }) => theme.colors.textPrimary};
-    }
-  }
+const SVGImage = styled.img`
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: contain;
+  margin-top: 10px;
 `;
 
 const OfferBadge = styled.div`
   position: absolute;
   top: -10px;
   right: -10px;
-  background-color: ${({ theme }) =>
-    theme.colors.attention}; // Usar color de atención o llamativo
+  background-color: ${({ theme }) => theme.colors.attention};
   color: ${({ theme }) => theme.colors.textOnAttention};
   padding: 8px 16px;
   font-size: 1rem;
@@ -183,133 +113,182 @@ const OfferBadge = styled.div`
 `;
 
 const WebDevelopmentPackages = () => {
-  // Definir los precios reales en Colones
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const prices = {
-    basic: "₡150,000",
-    discountedBasic: "₡60,000", // Precio con descuento
+    basic: "₡60,000",
+    originalBasic: "₡150,000",
     intermediate: "₡400,000",
     advanced: "₡1,000,000",
   };
+  const plansForm = [
+    { title: "Plan Básico", img: Basic, price: prices.basic },
+    { title: "Plan Profesional", img: Profesional, price: prices.intermediate },
+    { title: "Plan Corporativo", img: Bussiness, price: prices.advanced },
+  ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState({});
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
+  const showModal = (plan) => {
+    setModalContent(plan);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openQuoteModal = () => setIsQuoteModalOpen(true);
+  const closeQuoteModal = () => setIsQuoteModalOpen(false);
+
+  const handleQuoteSubmit = (values) => {
+    message.success("¡Solicitud enviada con éxito!");
+    closeQuoteModal();
+  };
+
+  const plans = [
+    {
+      title: "Plan Básico",
+      badge: <OfferBadge>Oferta del Mes</OfferBadge>,
+      price: (
+        <>
+          <span style={{ textDecoration: "line-through", color: "red" }}>
+            {prices.originalBasic}
+          </span>{" "}
+          {prices.basic}
+        </>
+      ),
+      description: "El punto de partida para tu presencia en línea.",
+      benefits: [
+        "1 Página web",
+        "Diseño responsivo",
+        "SSL gratuito",
+        "Soporte básico",
+        "Formulario de contacto funcional",
+      ],
+      img: Basic,
+    },
+    {
+      title: "Plan Profesional",
+      price: prices.intermediate,
+      description:
+        "Un sitio web optimizado y escalable para el crecimiento digital.",
+      benefits: [
+        "Hasta 5 páginas",
+        "Diseño responsivo avanzado",
+        "Optimización SEO",
+        "Integración con Google Analytics",
+        "SSL gratuito",
+      ],
+      img: Profesional,
+    },
+    {
+      title: "Plan Corporativo",
+      price: prices.advanced,
+      description:
+        "Soluciones avanzadas para empresas que buscan liderar su sector.",
+      benefits: [
+        "Sitio web personalizado",
+        "Diseño avanzado y animaciones",
+        "Optimización SEO",
+        "Integración API y formularios",
+        "Mantenimiento mensual",
+      ],
+      img: Bussiness,
+    },
+  ];
 
   return (
     <PackagesWrapper>
-      <h2>⚙️Opciones de Desarrollo Web</h2>
+      <h2>Opciones de Desarrollo Web</h2>
       <PackageGrid>
-        {/* Paquete Básico con Oferta */}
-        <PackageCard>
-          <OfferBadge>Oferta del Mes</OfferBadge>
-          <h3>🛠️Plan Básico</h3>
-          <p className="price">
-            <span>Antes:</span>
-            <span style={{ color: "red", textDecoration: "line-through" }}>
-              {prices.basic}
-            </span>{" "}
-            {prices.discountedBasic}
-          </p>
-          <p>Ideal para una presencia inicial en línea</p>
-          <ul>
-            <li>1 Página web</li>
-            <li>Diseño responsivo</li>
-            <li>SSL gratuito</li>
-            <li>Soporte básico</li>
-          </ul>
-          <Link to="/services/web-basic">
-            <button>Comenzar</button>
-          </Link>
-        </PackageCard>
-
-        {/* Paquete Intermedio */}
-        <PackageCard>
-          <h3>📊Plan Profesional</h3>
-          <p className="price">{prices.intermediate}</p>
-          <p>Un plan para sitios web más avanzados</p>
-          <ul>
-            <li>Hasta 5 páginas</li>
-            <li>Diseño responsivo avanzado</li>
-            <li>Optimización SEO</li>
-            <li>SSL gratuito</li>
-            <li>Integración con Google Analytics</li>
-            <li>Soporte intermedio</li>
-          </ul>
-          <Link to="/contact">
-            <button>Contratar Ahora</button>
-          </Link>
-        </PackageCard>
-
-        {/* Paquete Avanzado */}
-        <PackageCard>
-          <h3>💼Plan Corporativo</h3>
-          <p className="price">{prices.advanced}</p>
-          <p>Para empresas que buscan lo mejor en desarrollo web</p>
-          <ul>
-            <li>Sitio web personalizado</li>
-            <li>Diseño avanzado y animaciones</li>
-            <li>Optimización SEO</li>
-            <li>Integración de API y formularios</li>
-            <li>Mantenimiento mensual</li>
-            <li>Soporte premium</li>
-          </ul>
-          <Link to="/contact">
-            <button>Obtener Plan Corporativo</button>
-          </Link>
-        </PackageCard>
+        {plans.map((plan, index) => (
+          <PackageCard key={index}>
+            {plan.badge}
+            <SVGImage src={plan.img} alt={plan.title} />
+            <h3>{plan.title}</h3>
+            <p>{plan.description}</p>
+            <ul>
+              {plan.benefits.map((benefit, i) => (
+                <li key={i}>{benefit}</li>
+              ))}
+            </ul>
+            <div className="card-footer">
+              <FaEye className="footer-icon" onClick={() => showModal(plan)} />
+              <FaShareAlt className="footer-icon" />
+            </div>
+          </PackageCard>
+        ))}
       </PackageGrid>
-      {/* Sección de Detalles Expandibles */}
-      <Collapse style={{ marginTop: "50px" }} accordion>
-        <Panel header="🛠️ Detalles del Plan Básico" key="1">
-          <DetailsSection>
-            <h3>Contenido del Servicio</h3>
-            <p>
-              Nuestro servicio está diseñado para ofrecer soluciones web de alto
-              rendimiento, ideales para posicionar tu negocio en el entorno
-              digital. Incluimos una presentación completa de tu empresa, con
-              detalles de tus servicios, perfiles del equipo y un formulario de
-              contacto funcional.
-            </p>
-            <h3>Características del Servicio</h3>
-            <p>
-            Este servicio es ideal para empresas que buscan destacar en línea
-            con un diseño profesional y funcional, sin comprometer su
-            presupuesto.
-            </p>
-            <ul>
-              <li>Diseño responsivo</li>
-              <li>Certificación SSL gratuita</li>
-              <li>Soporte técnico básico</li>
-            </ul>
-          </DetailsSection>
-        </Panel>
+      <br />
+      <Button
+        width={isMobile ? "100%" : "30%"}
+        height="35px"
+        className="animate__animated animate__bounceIn animate__delay-2s"
+        onClick={openQuoteModal}
+      >
+        <span className="btn-text-one">Solicitar Cotización</span>
+        <span className="btn-text-two">Elige el plan que se adapte a tus necesidades</span>
+      </Button>
+      <Modal
+        title="Formulario de Cotización"
+        open={isQuoteModalOpen}
+        onCancel={closeQuoteModal}
+        footer={null}
+      >
+        <Form layout="vertical" onFinish={handleQuoteSubmit}>
+          <Form.Item
+            label="Elige un Plan"
+            name="plan"
+            rules={[{ required: true, message: "Por favor selecciona un plan" }]}
+          >
+            <Select placeholder="Selecciona un plan">
+              {plansForm.map((plan, index) => (
+                <Option key={index} value={plan.title}>
+                  {plan.title}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+          <Form.Item
+            label="Nombre"
+            name="name"
+            rules={[{ required: true, message: "Por favor ingresa tu nombre" }]}
+          >
+            <Input placeholder="Tu nombre completo" />
+          </Form.Item>
+          <Form.Item
+            label="Correo Electrónico"
+            name="email"
+            rules={[
+              { required: true, message: "Por favor ingresa tu correo" },
+              { type: "email", message: "Correo no válido" },
+            ]}
+          >
+            <Input placeholder="Tu correo electrónico" />
+          </Form.Item>
+          <Form.Item
+            label="Comentarios Adicionales"
+            name="comments"
+          >
+            <Input.TextArea rows={4} placeholder="¿Tienes alguna solicitud adicional?" />
+          </Form.Item>
+          <AntButton type="primary" htmlType="submit" block>
+            Enviar Cotización
+          </AntButton>
+        </Form>
+      </Modal>
 
-        <Panel header="📊 Detalles del Plan Profesional" key="2">
-          <DetailsSection>
-            <h3>Contenido del Servicio</h3>
-            <p>
-              Incluye una página web avanzada con hasta 5 secciones, optimizada
-              para SEO y con Google Analytics integrado.
-            </p>
-            <ul>
-              <li>SEO avanzado</li>
-              <li>Integración con Google Analytics</li>
-              <li>Soporte técnico intermedio</li>
-            </ul>
-          </DetailsSection>
-        </Panel>
-
-        <Panel header="💼 Detalles del Plan Corporativo" key="3">
-          <DetailsSection>
-            <h3>Contenido del Servicio</h3>
-            <p>
-              Solución web personalizada con diseño avanzado, mantenimiento
-              mensual y soporte premium.
-            </p>
-            <ul>
-              <li>Integración de API y formularios</li>
-              <li>Animaciones avanzadas</li>
-              <li>Mantenimiento mensual incluido</li>
-            </ul>
-          </DetailsSection>
-        </Panel>
-      </Collapse>
+      <Modal
+        title={modalContent.title}
+        open={isModalOpen}
+        onCancel={closeModal}
+        footer={null}
+      >
+        <p>Precio: {modalContent.price}</p>
+        <SVGImage src={modalContent.img} alt="Plan Illustration" />
+      </Modal>
     </PackagesWrapper>
   );
 };

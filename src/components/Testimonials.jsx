@@ -88,7 +88,7 @@ const Testimonials = () => {
       {/* Modal que se muestra cuando el botón es presionado */}
       <Modal 
         title={t('testimonials.modalTitle')} 
-        visible={isModalVisible} 
+        open={isModalVisible} 
         onOk={handleOk} 
         onCancel={handleCancel} 
         okText={t('testimonials.modalOkText')} 

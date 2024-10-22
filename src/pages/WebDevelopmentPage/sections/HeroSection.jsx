@@ -23,7 +23,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);  /* Ajusta la opacidad según prefieras */
+  background-color: rgba(0, 0, 0, 0.7);  /* Ajusta la opacidad según prefieras */
   z-index: 1;
 `;
 
@@ -37,17 +37,20 @@ const Content = styled.div`
     font-size: 4rem;
     color: white;
     margin-bottom: 20px;
+    font-weight: 700; /* Resalta el título */
   }
 
   p {
     font-size: 1.5rem;
     color: white;
     margin-top: 10px;
+    line-height: 1.6; /* Mejora la legibilidad */
   }
 
   @media (max-width: 768px) {
     h1 {
       font-size: 2.5rem;
+      margin: 0 30px;
     }
 
     p {
@@ -55,20 +58,19 @@ const Content = styled.div`
     }
   }
 `;
-
 const HeroSection = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    return (
-        <HeroWrapper>
-            <Overlay />
-            <Content>
-                <h1>{t('Desarrollo Web en Costa Rica')}</h1>
-                <p>Haz realidad tus ideas digitales.</p>
-                <p>{t('Somos una agencia de desarrollo web en Costa Rica especializada en la creación de sitios web a medida.')}</p>
-            </Content>
-        </HeroWrapper>
-    );
+  return (
+      <HeroWrapper>
+          <Overlay />
+          <Content>
+              <h1>{t('Transforma tu negocio con soluciones digitales efectivas')}</h1>
+              <p>{t('Lleva tu empresa al siguiente nivel con herramientas y estrategias diseñadas para destacar en un entorno competitivo.')}</p>
+          </Content>
+      </HeroWrapper>
+  );
 };
+
 
 export default HeroSection;
