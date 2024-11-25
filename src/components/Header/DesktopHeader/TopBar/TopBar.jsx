@@ -9,9 +9,9 @@ import {
 const getTimeUntilNovember = () => {
   const now = new Date();
   const currentYear = now.getFullYear();
-  let targetDate = new Date(currentYear, 10, 1);
+  let targetDate = new Date(currentYear, 11, 31, 23, 59, 59, 999); 
   if (now.getTime() > targetDate.getTime()) {
-    targetDate = new Date(currentYear + 1, 10, 1);
+    targetDate = new Date(currentYear + 1, 11, 31, 23, 59, 59, 999);
   }
   return targetDate.getTime();
 };
