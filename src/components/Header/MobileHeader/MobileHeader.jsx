@@ -6,7 +6,7 @@ import TopBar from '../DesktopHeader/TopBar/TopBar';
 import PropTypes from 'prop-types';
 import {HamburgerLabel, LogoContainer, MobileNav, StyledDrawer} from './MobileHeaderStyles'
 
-const MobileHeader = ({ toggleTheme, isTopBarVisible, isDarkTheme }) => {
+const MobileHeader = ({ toggleTheme, isTopBarVisible }) => {
   const [visible, setVisible] = useState(false); 
   const navigate = useNavigate(); 
 

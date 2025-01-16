@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 const Menu = ({ toggleTheme, isDarkTheme }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const location = useLocation();
-  const [isTopBarVisible, setIsTopBarVisible] = useState(true);
+  const [isTopBarVisible, setIsTopBarVisible] = useState(false);
 
   useEffect(() => {
     setIsTopBarVisible(location.pathname === "/");
@@ -20,13 +20,13 @@ const Menu = ({ toggleTheme, isDarkTheme }) => {
         <MobileHeader
           toggleTheme={toggleTheme}
           isDarkTheme={isDarkTheme}
-          isTopBarVisible={isTopBarVisible}
+          isTopBarVisible={false}
         />
       ) : (
         <DesktopHeader
           toggleTheme={toggleTheme}
           isDarkTheme={isDarkTheme}
-          isTopBarVisible={isTopBarVisible}
+          isTopBarVisible={false}
         />
       )}
     </>
